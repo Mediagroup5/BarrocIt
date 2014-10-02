@@ -45,10 +45,9 @@
 				<select name="rol" id="rol" class="form-control">
 					<option value=""></option>
 					<option value="1">Financiën</option>
-					<option value="2">Research & Development</option>
-					<option value="3">Human Resources</option>
-					<option value="4">IT</option>
-					<option value="5">Administrator</option>
+					<option value="2">Development</option>
+					<option value="3">Sales</option>
+					<option value="4">Administrator</option>
 				</select>
 			</div>
 			<div class="form-group col-md-12">
