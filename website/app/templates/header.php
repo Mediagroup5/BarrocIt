@@ -4,10 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>PHP Series | Login en sessies</title>
-<!--
-	<link rel="stylesheet" href="http://bootswatch.com/amelia/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
--->
 <body background="../img/bk.png">
 
 

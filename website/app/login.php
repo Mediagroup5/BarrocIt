@@ -2,13 +2,7 @@
 
 <div class="container">
 	<form method="post" action="controllers/authController.php" role="form" class="login-form col-md-4 col-md-offset-4">
-		<fieldset style="
-    
-    width: 101px;
-    margin-top: 320px;
-    margin-left: 580px;
-
-">
+		<fieldset>
 		<legend><h2>Login</h2></legend>
 
 			<ul>
