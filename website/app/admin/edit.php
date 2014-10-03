@@ -11,6 +11,7 @@ if (! isset($_GET['id'])){
     }
 
 }
+
 ?>
 <div class="container">
     <div class="page-header">
