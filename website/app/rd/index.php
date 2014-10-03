@@ -2,6 +2,7 @@
 include "templates/header.php";
 ?>
 <div class="container">
+    <img src="../../../barrocBanner.jpg" alt="banner" style="width: 100%;"/>
     <h1>projecten</h1>
     <table class="table table-striped">
         <thead>
