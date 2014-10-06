@@ -1,15 +1,19 @@
 <?php
 include "templates/header.php";
 ?>
+<link rel="stylesheet" href="rd.css"/>
+<link rel="stylesheet" type="text/css" href="http://bootswatch.com/paper/bootstrap.min.css"/>
 <div class="container">
-    <img src="../../../barrocBanner.jpg" alt="banner" style="width: 100%;"/>
-    <h1>projecten</h1>
+    <div class="banner">
+        <h1 class="bannertxt">Development</h1>
+    </div>
+    <h2 class="ha2">Projecten</h2>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>naam</th>
-            <th>datum</th>
-            <th>beschrijving</th>
+            <th>Naam</th>
+            <th>Datum</th>
+            <th>Beschrijving</th>
         </tr>
         </thead>
         <tbody>
@@ -33,22 +37,22 @@ include "templates/header.php";
         </tbody>
     </table>
 
-    <form action="index.php" method="post">
-        <h2>project toevoegen</h2>
+    <form action="index.php" method="post" class="form col-md-12">
+        <h2 class="ha2">Project toevoegen</h2>
         <div class="form-group col-md-4">
-            <label for="naam">Naam</label>
+            <label for="Naam">Naam</label>
             <input type="text" class="form-control" name="naam" id="naam" placeholder="Naam van project"/>
         </div>
-        <div class="form-group col-md-4">
-            <label for="datum">Datum</label>
+        <div class="form-group col-md-4 col-md-offset-4">
+            <label for="Datum">Datum</label>
             <input type="date" class="form-control" name="datum" id="datum" placeholder="Datum van project"/>
         </div>
-        <div class="form-group col-md-4">
-            <label for="beschrijving">Beschrijving</label>
-            <input type="text" class="form-control" name="beschrijving" id="beschrijving" placeholder="Beschrijving van project"/>
+        <div class="from-group col-md-12">
+            <label for="Beschrijving">Beschrijving</label>
+            <textarea type="text" class="form-control" name="beschrijving" id="beschrijving"></textarea>
         </div>
-        <div class="form-group col-md-4">
-            <input type="submit" class="btn btn-success" value="toevoegen" name="submit"/>
+        <div class="form-group col-md-2">
+            <input type="submit" class="btn" value="toevoegen" name="submit"/>
         </div>
     </form>
     <?php
