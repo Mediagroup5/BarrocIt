@@ -1,3 +1,8 @@
+*{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+
 .login-form {
 	margin-top: 306px;
 	margin-left:400px;
@@ -7,6 +12,7 @@
 .form-group{
     color:#CFC1B5;
     font-size:20px;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 
 }
 
@@ -15,13 +21,14 @@
     margin-top:10px;
 	padding:auto;
 	margin-left:481px;
-	margin-right:481px;
+	margin-right:270px;
     
 }
 
 .btn {
     background:#CFC1B5;
 	color:white;
+	padding:6px 10px;
 
 }
 
@@ -32,7 +39,15 @@ fieldset {
 	width:360px;
 	height:200px;
 }
-    
 
+.form-control{
+	width:100%;
+	box-shadow:1px 1px 2px black;
+	height:34px;
+}
+
+h2{
+	  color:#CFC1B5;
+}
 
 
