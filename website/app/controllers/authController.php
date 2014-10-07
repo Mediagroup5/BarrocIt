@@ -1,8 +1,4 @@
-
 <?php
-
-
-
 
 require '../../config/config.php';
 //handelt de inlogform af...
