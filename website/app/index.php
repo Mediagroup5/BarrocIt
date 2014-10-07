@@ -13,10 +13,10 @@ switch($role){
         header('location: finance');
         break;
     case 2:
-        header('location: rd');
+        header('location: development');
         break;
     case 3:
-        header('location: hrm');
+        header('location: sales');
         break;
     case 4:
         header('location: it');

@@ -1,7 +1,7 @@
 <?php
 include "templates/header.php";
 ?>
-<link rel="stylesheet" href="rd.css"/>
+<link rel="stylesheet" href="development.css"/>
 <link rel="stylesheet" type="text/css" href="http://bootswatch.com/paper/bootstrap.min.css"/>
 <div class="container">
     <div class="banner">
