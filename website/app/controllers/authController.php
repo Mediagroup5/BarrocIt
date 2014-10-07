@@ -12,11 +12,11 @@ if (isset($_POST['authUser']))
 
 $email = mysqli_real_escape_string($con, $_POST['email']) ;
 
-$password = mysqli_real_escape_string($con, $_POST['password']);
+$wachtwoord = mysqli_real_escape_string($con, $_POST['wachtwoord']);
 
 
 
-$sql = "SELECT email, password, gebruikersrol FROM users WHERE email = '$email'";
+$sql = "SELECT email, wachtwoord, gebruikersrol FROM gebruikers WHERE email = '$email'";
 if (! $query =  mysqli_query($con, $sql)){
 trigger_error('check de sql op fouten');
 	}
@@ -24,7 +24,7 @@ trigger_error('check de sql op fouten');
 			if (mysqli_num_rows($query) == 1){		
 			$row = mysqli_fetch_assoc($query);
 					
-					if ($password == $row['password']) {
+					if ($wachtwoord == $row['wachtwoord']) {
 				
 					session_start();
 					$_SESSION['name'] = $row['email'];
