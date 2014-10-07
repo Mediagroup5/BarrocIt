@@ -18,7 +18,7 @@ include "templates/header.php";
         </thead>
         <tbody>
         <?php
-        $sql = "SELECT id, naam, datum, beschrijving FROM projecten";
+        $sql = "SELECT id, naam, datum, beschrijving FROM gebruikers";
         if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }

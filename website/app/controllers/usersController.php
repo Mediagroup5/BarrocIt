@@ -12,7 +12,7 @@ if ( isset($_POST['createUser']) )
 	$rol           =mysqli_real_escape_string($con, $_POST['rol']);
 	
 	// GROVE FOUT HIERONDER!!!!!!!!!! gaan we straks fixen!!
-	$password      =mysqli_real_escape_string($con, $_POST['password']);
+	$password      =mysqli_real_escape_string($con, $_POST['wachtwoord']);
 
 	/*
 	* Verandering voor bij de laatste oefening:
@@ -24,7 +24,7 @@ if ( isset($_POST['createUser']) )
 
 	// voor de laatste oefening, verander de $password naar $hashed.
 	
-	$sql = "INSERT INTO users (voornaam, tussenvoegsel, achternaam, username, email, gebruikersrol, password)
+	$sql = "INSERT INTO users (voornaam, tussenvoegsel, achternaam, username, email, gebruikersrol, wachtwoord)
 			VALUES (
 					'$voornaam',
 					'$tussenvoegsel',
