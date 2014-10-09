@@ -11,25 +11,27 @@ include "templates/header.php";
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Naam</th>
-            <th>Datum</th>
-            <th>Beschrijving</th>
+            <th>Project Naam</th>
+            <th>Begin Datum</th>
+            <th>Eind Datum</th>
+            <th>Klant nummer</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        $sql = "SELECT id, naam, datum, beschrijving FROM gebruikers";
+        $sql = "SELECT projectnr_id, project_naam, begin_datum, eind_datum, klant_nr FROM projecten";
         if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }
         if (mysqli_num_rows($query) > 1 ){
             while ($row = mysqli_fetch_assoc($query)){
                 echo "<tr>";
-                echo "<td>" . $row['naam'] . "</td>";
-                echo "<td>" . $row['datum'] . "</td>";
-                echo "<td>" . $row['beschrijving'] . "</td>";
-                echo "<td><a href='edit.php?id=". $row['id'] . "'> Bewerk </a></td>";
-                echo "<td><a href='delete.php?id=" . $row['id'] . "'> X </a></td>";
+                echo "<td>" . $row['project_naam'] . "</td>";
+                echo "<td>" . $row['begin_datum'] . "</td>";
+                echo "<td>" . $row['eind_datum'] . "</td>";
+                echo "<td>" . $row['klant_nr'] . "</td>";
+                echo "<td><a href='edit.php?id=". $row['projectnr_id'] . "'> Bewerk </a></td>";
+                echo "<td><a href='delete.php?id=" . $row['projectnr_id'] . "'> X </a></td>";
                 echo "</tr>";
             }
         }
@@ -40,16 +42,20 @@ include "templates/header.php";
     <form action="index.php" method="post" class="form col-md-12">
         <h2 class="ha2">Project toevoegen</h2>
         <div class="form-group col-md-4">
-            <label for="Naam">Naam</label>
-            <input type="text" class="form-control" name="naam" id="naam" placeholder="Naam van project"/>
+            <label for="Naam">Project Naam</label>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
         </div>
         <div class="form-group col-md-4 col-md-offset-4">
-            <label for="Datum">Datum</label>
-            <input type="date" class="form-control" name="datum" id="datum" placeholder="Datum van project"/>
+            <label for="Datum">Begin datum</label>
+            <input type="date" class="form-control" name="begin_datum" id="begin_datum" placeholder="Begin datum"/>
         </div>
-        <div class="from-group col-md-12">
-            <label for="Beschrijving">Beschrijving</label>
-            <textarea type="text" class="form-control" name="beschrijving" id="beschrijving"></textarea>
+        <div class="form-group col-md-4 col-md-offset-4">
+            <label for="Datum">Eind datum</label>
+            <input type="date" class="form-control" name="eind_datum" id="eind_datum" placeholder="Eind datum"/>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="Beschrijving">Klant nummer</label>
+            <input type="text" class="form-control" name="klant_nr" id="klant_nr" placeholder="Klant nummer"/>
         </div>
         <div class="form-group col-md-2">
             <input type="submit" class="btn" value="toevoegen" name="submit"/>
@@ -58,15 +64,16 @@ include "templates/header.php";
     <?php
     if(isset($_POST['submit'])){
 
-        if(! empty($_POST['naam']) && ! empty($_POST['datum']) && ! empty($_POST['beschrijving'])){
-            $naam = mysqli_real_escape_string($con, $_POST['naam']);
-            $datum = mysqli_real_escape_string($con, $_POST['datum']);
-            $beschrijving = mysqli_real_escape_string($con, $_POST['beschrijving']);
+        if (! empty($_POST['project_naam']) && ! empty($_POST['begin_datum']) && ! empty($_POST['eind_datum']) && ! empty($_POST['klant_nr'])){
+            $project_naam = mysqli_real_escape_string($con, $_POST['project_naam']);
+            $begin_datum = mysqli_real_escape_string($con, $_POST['begin_datum']);
+            $eind_datum = mysqli_real_escape_string($con, $_POST['eind_datum']);
+            $klant_nr = mysqli_real_escape_string($con, $_POST['klant_nr']);
 
-            $sql = "INSERT INTO projecten (naam, datum, beschrijving) VALUES ('$naam', '$datum', '$beschrijving')";
+            $sql = "INSERT INTO projecten (project_naam, begin_datum, eind_datum, klant_nr) VALUES ('$project_naam', '$begin_datum', '$eind_datum', '$klant_nr')";
 
             if (! $query = mysqli_query($con, $sql)){
-                echo 'Film toevoegen is niet gelukt. <a href="index.php"> Klik hier om terug te keren</a>';
+                echo 'project toevoegen is niet gelukt. <a href="index.php"> Klik hier om terug te keren</a>';
             }else{
                 header('location: index.php');
             }
