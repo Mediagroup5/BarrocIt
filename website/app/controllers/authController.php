@@ -38,10 +38,6 @@ trigger_error('check de sql op fouten');
 					}
 					}
 			
-			
-			
-		
-			
 }
 	//handelt de uitlog af...
 			if(isset($_GET['logout']))

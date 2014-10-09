@@ -4,33 +4,36 @@ if (! isset($_GET['id'])){
     header('location: index.php');
 }else{
     $id = intval($_GET['id']);
-    $sql = "SELECT id, naam, datum, beschrijving FROM projecten where id = '$id'";
+    $sql = "SELECT factuur_nr, klant_nr, datum, bedrag, project_nr  FROM factuur where factuur_nr = '$id'";
     $query = mysqli_query($con, $sql);
     if(mysqli_num_rows($query) == 1){
         $row = mysqli_fetch_assoc($query);
     }
 
 }
-
 ?>
 <div class="container">
     <div class="page-header">
-        <h1>project wijzigen</h1>
+        <h1>Factuur wijzigen</h1>
     </div>
     <form action="edit.php" method="POST">
         <div class="form-group col-md-4">
-            <label for="naam">naam</label>
-            <input type="text" class="form-control" name="naam" id="naam" placeholder="naam van project"/>
+            <label for="Klant nummer">Klant nummer</label>
+            <input type="int" class="form-control" name="klant_nr" id="klant_nr" placeholder="Klant nummer"/>
         </div>
         <div class="form-group col-md-4">
-            <label for="datum">datum</label>
-            <input type="date" class="form-control" name="datum" id="datum" placeholder="datum van project"/>
+            <label for="Datum">Datum</label>
+            <input type="date" class="form-control" name="datum" id="datum" placeholder="Datum"/>
         </div>
         <div class="form-group col-md-4">
-            <label for="beschrijving">beschrijving</label>
-            <input type="text" class="form-control" name="beschrijving" id="beschrijving" placeholder="beschrijving van project"/>
+            <label for="Bedrag">Bedrag</label>
+            <input type="int" class="form-control" name="bedrag" id="bedrag" placeholder="Bedrag"/>
         </div>
-        <input type="hidden" name="id" value="<?php echo $row['id']; ?>"/>
+        <div class="form-group col-md-4">
+            <label for="Project nummer">Project nummer</label>
+            <input type="int" class="form-control" name="project_nr" id="project_nr" placeholder="Project nummer"/>
+        </div>
+        <input type="hidden" name="id" value="<?php echo $row['factuur_nr']; ?>"/>
         <div class="form-group col-md-2">
             <input class="btn btn-warning" type="submit" value="Update" name="submit"/>
         </div>
@@ -39,11 +42,13 @@ if (! isset($_GET['id'])){
 </div>
 <?php
 if (isset($_POST['submit'])){
-    $naam = mysqli_real_escape_string($con, $_POST['naam']);
+    $klant_nr = mysqli_real_escape_string($con, $_POST['klant_nr']);
     $datum = mysqli_real_escape_string($con, $_POST['datum']);
-    $beschrijving = mysqli_real_escape_string($con, $_POST['beschrijving']);
+    $bedrag = mysqli_real_escape_string($con, $_POST['bedrag']);
+    $project_nr = mysqli_real_escape_string($con, $_POST['project_nr']);
     $id = $_POST['id'];
-    $sql = "UPDATE projecten SET naam = '$naam', datum = '$datum', beschrijving = '$beschrijving' WHERE id = '$id'";
+    $sql = "UPDATE factuur SET klant_nr = '$klant_nr', datum = '$datum', bedrag = '$bedrag', project_nr = '$project_nr'
+     WHERE factuur_nr = '$id'";
 
     if(! $query = mysqli_query($con, $sql)){
         echo 'update query mislukt';
