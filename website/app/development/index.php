@@ -19,7 +19,11 @@ include "templates/header.php";
         </thead>
         <tbody>
         <?php
+<<<<<<< HEAD
         $sql = "SELECT projectnr_id, project_naam, begin_datum, eind_datum, klant_nr FROM projecten";
+=======
+        $sql = "SELECT id, naam, datum, beschrijving FROM projecten";
+>>>>>>> FETCH_HEAD
         if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }
