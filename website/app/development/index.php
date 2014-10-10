@@ -17,7 +17,7 @@ include "templates/header.php";
             <th>Voorletter</th>
             <th>Voornaam</th>
             <th>Achternaam</th>
-            <th>Facturen bekijken</th>
+            <th>Project bekijken</th>
             <th>Klant gegevens</th>
         </tr>
         </thead>
