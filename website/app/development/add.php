@@ -10,20 +10,36 @@ include "templates/header.php";
     <form action="add.php" method="post" class="form col-md-12">
         <h2 class="ha2">Project toevoegen</h2>
         <div class="form-group col-md-4">
-            <label for="Naam">Project Naam</label>
+            <label for="Naam">Onderhoudscontract</label>
             <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
         </div>
-        <div class="form-group col-md-4 col-md-offset-4">
-            <label for="Datum">Begin datum</label>
-            <input type="date" class="form-control" name="begin_datum" id="begin_datum" placeholder="Begin datum"/>
+        <div class="form-group col-md-4">
+            <label for="Naam">Hardware</label>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
         </div>
-        <div class="form-group col-md-4 col-md-offset-4">
-            <label for="Datum">Eind datum</label>
-            <input type="date" class="form-control" name="eind_datum" id="eind_datum" placeholder="Eind datum"/>
+        <div class="form-group col-md-4">
+            <label for="Naam">Software</label>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
         </div>
-        <div class="form-group col-md-12">
-            <label for="Beschrijving">Klant nummer</label>
-            <input type="text" class="form-control" name="klant_nr" id="klant_nr" placeholder="Klant nummer"/>
+        <div class="form-group col-md-4">
+            <label for="Datum">Begin Datum</label>
+            <input type="date" class="form-control" name="begin_datum" id="begin_datum" placeholder="Begin Datum"/>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="Datum">Eind Datum</label>
+            <input type="date" class="form-control" name="eind_datum" id="eind_datum" placeholder="Begin Datum"/>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="Beschrijving">Klant Nummer</label>
+            <input type="text" class="form-control" name="Klant Nummer" id="klant_nr" placeholder="Klant nummer"/>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="Naam">Afspraken</label>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="Naam">Status Project</label>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
         </div>
         <div class="form-group col-md-2">
             <input type="submit" class="btn" value="toevoegen" name="submit"/>
@@ -32,13 +48,18 @@ include "templates/header.php";
     <?php
     if(isset($_POST['submit'])){
 
-        if (! empty($_POST['project_naam']) && ! empty($_POST['begin_datum']) && ! empty($_POST['eind_datum']) && ! empty($_POST['klant_nr'])){
+        if (! empty($_POST['project_naam']) && ! empty($_POST['onderhoudscontract']) && ! empty($_POST['hardware']) && ! empty($_POST['software']) && ! empty($_POST['begin_datum']) && ! empty($_POST['eind_datum']) && ! empty($_POST['klant_nr']) && ! empty($_POST['afspraken']) && ! empty($_POST['status_project'])){
             $project_naam = mysqli_real_escape_string($con, $_POST['project_naam']);
+            $onderhoudscontract = mysqli_real_escape_string($con, $_POST['onderhoudscontract']);
+            $hardware = mysqli_real_escape_string($con, $_POST['hardware']);
+            $software = mysqli_real_escape_string($con, $_POST['software']);
             $begin_datum = mysqli_real_escape_string($con, $_POST['begin_datum']);
             $eind_datum = mysqli_real_escape_string($con, $_POST['eind_datum']);
             $klant_nr = mysqli_real_escape_string($con, $_POST['klant_nr']);
+            $afspraken = mysqli_real_escape_string($con, $_POST['afspraken']);
+            $status_project = mysqli_real_escape_string($con, $_POST['status_project']);
 
-            $sql = "INSERT INTO projecten (project_naam, begin_datum, eind_datum, klant_nr) VALUES ('$project_naam', '$begin_datum', '$eind_datum', '$klant_nr')";
+            $sql = "INSERT INTO projecten (project_naam, onderhoudscontract, hardware, software, begin_datum, eind_datum, klant_nr, afspraken, status_project) VALUES ('$project_naam','$onderhoudscontract','$hardware', '$software', '$begin_datum', '$eind_datum', '$klant_nr', '$afspraken')";
 
             if (! $query = mysqli_query($con, $sql)){
                 echo 'project toevoegen is niet gelukt. <a href="index.php"> Klik hier om terug te keren</a>';
