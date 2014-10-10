@@ -10,13 +10,13 @@ if (isset($_POST['authUser']))
 {
 
 
-$email = mysqli_real_escape_string($con, $_POST['email']) ;
+$username = mysqli_real_escape_string($con, $_POST['username']) ;
 
-$wachtwoord = mysqli_real_escape_string($con, $_POST['wachtwoord']);
+$password = mysqli_real_escape_string($con, $_POST['password']);
 
 
 
-$sql = "SELECT email, wachtwoord, gebruikersrol FROM gebruikers WHERE email = '$email'";
+$sql = "SELECT username, password, gebruikersrol FROM gebruikers WHERE username = '$username'";
 if (! $query =  mysqli_query($con, $sql)){
 trigger_error('check de sql op fouten');
 	}
@@ -24,10 +24,10 @@ trigger_error('check de sql op fouten');
 			if (mysqli_num_rows($query) == 1){		
 			$row = mysqli_fetch_assoc($query);
 					
-					if ($wachtwoord == $row['wachtwoord']) {
+					if ($password == $row['password']) {
 				
 					session_start();
-					$_SESSION['name'] = $row['email'];
+					$_SESSION['name'] = $row['username'];
 					$_SESSION['role'] = $row['gebruikersrol'];
 					header('location: ../index.php');
 					
