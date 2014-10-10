@@ -7,29 +7,34 @@ include "templates/header.php";
     <div class="banner">
         <h1 class="bannertxt">Sales</h1>
     </div>
-    <h2 class="ha2">Afspraken</h2>
+    <h2 class="ha2">Klanten</h2>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Datum</th>
-            <th>Contact personen</th>
-            <th>klant nummer</th>
+            <th>klant_nr</th>
+            <th>Bedrijfs naam</th>
+            <th>Voorletters</th>
+            <th>Voornaam</th>
+            <th>Achternaam</th>
+           
         </tr>
         </thead>
         <tbody>
         <?php
-        $sql = "SELECT id, klant_nr, bedrijfs_naam, voorletters, voornaam, achternaam FROM klantgegevens";
+        $sql = "SELECT  id, klant_nr, bedrijfs_naam, voorletters, voornaam, achternaam FROM klantgegevens";
         if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }
         if (mysqli_num_rows($query) > 1 ){
             while ($row = mysqli_fetch_assoc($query)){
                 echo "<tr>";
-                echo "<td>" . $row['datum'] . "</td>";
+                echo "<td>" . $row['bedrijfs_naam'] . "</td>";
+                echo "<td>" . $row['voorletters'] . "</td>";
+                echo "<td>" . $row['voornaam'] . "</td>";
                 echo "<td>" . $row['contact_persoon'] . "</td>";
-                echo "<td>" . $row['klant_nr'] . "</td>";
-                echo "<td><a href='edit.php?id=". $row['afspraken_id'] . "'> Bewerk </a></td>";
-                echo "<td><a href='delete.php?id=" . $row['afspraken_id'] . "'> X </a></td>";
+                echo "<td>" . $row['achternaam'] . "</td>";
+                echo "<td><a href='edit.php?id=". $row['klant_nr'] . "'> Bewerk </a></td>";
+                echo "<td><a href='delete.php?id=" . $row['klant_nr'] . "'> X </a></td>";
                 
                 echo "</tr>";
             }
@@ -41,8 +46,8 @@ include "templates/header.php";
     <form action="index.php" method="post" class="form col-md-12">
         <h2 class="ha2">Afspraak toevoegen</h2>
         <div class="form-group col-md-4">
-            <label for="Naam">Datum</label>
-            <input type="date" class="form-control" name="datum" afspraken_id="datum" placeholder="datum van project"/>
+            <label for="Naam">Bedrijfsnaam</label>
+            <input type="text" class="form-control" name="bedrijfs_naam" klant_nr="bedrijfs_naam" placeholder="bedrijfs_naam"/>
         </div>
         <div class="form-group col-md-4 col-md-offset-4">
             <label for="Datum">Contactpersoon</label>
