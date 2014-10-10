@@ -12,23 +12,35 @@ include "templates/header.php";
             <th>Bedrijfs naam</th>
             <th>Voorletter</th>
             <th>Voornaam</th>
-            <th>Project nummer</th>
+            <th>Adres</th>
+            <th>Postcode</th>
+            <th>Woonplaats</th>
+            <th>Telefoon nummer</th>
+            <th>Fax nummer</th>
+            <th>Email</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        $sql = "SELECT factuur_nr, klant_nr, datum, bedrag, project_nr FROM klantgegevens";
+        $sql = "SELECT klant_nr, bedrijfs_naam, voorletter, voornaam, achternaam, adres,
+         postcode, woonplaats, telefoon_nr, fax_nr, email FROM klantgegevens";
         if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }
         if (mysqli_num_rows($query) > 1 ){
             while ($row = mysqli_fetch_assoc($query)){
                 echo "<tr>";
-                echo "<td>" . $row['factuur_nr'] . "</td>";
                 echo "<td>" . $row['klant_nr'] . "</td>";
-                echo "<td>" . $row['datum'] . "</td>";
-                echo "<td>" . $row['bedrag'] . "</td>";
-                echo "<td>" . $row['project_nr'] . "</td>";
+                echo "<td>" . $row['bedrijfs_naam'] . "</td>";
+                echo "<td>" . $row['voorletter'] . "</td>";
+                echo "<td>" . $row['voornaam'] . "</td>";
+                echo "<td>" . $row['achternaam'] . "</td>";
+                echo "<td>" . $row['adres'] . "</td>";
+                echo "<td>" . $row['postcode'] . "</td>";
+                echo "<td>" . $row['woonplaats'] . "</td>";
+                echo "<td>" . $row['telefoon_nr'] . "</td>";
+                echo "<td>" . $row['fax_nr'] . "</td>";
+                echo "<td>" . $row['email'] . "</td>";
                 echo "<td><a href='edit.php?id=". $row['factuur_nr'] . "'> Bewerk </a></td>";
                 echo "<td><a href='delete.php?id=" . $row['factuur_nr'] . "'> X </a></td>";
                 echo "</tr>";

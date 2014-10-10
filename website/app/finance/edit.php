@@ -19,7 +19,7 @@ if (! isset($_GET['id'])){
     <form action="edit.php" method="POST">
         <div class="form-group col-md-4">
             <label for="Klant nummer">Klant nummer</label>
-            <input type="int" class="form-control" name="klant_nr" id="klant_nr" placeholder="Klant nummer"/>
+            <input type="int" class="form-control" name="klant_nr" id="klant_nr" value="<?php $row['klant_nr'] ?>" placeholder="Klant nummer"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Datum">Datum</label>
