@@ -1,5 +1,9 @@
-<?php
-include "templates/header.php";
+<?php  
+$page = "finance";
+$id = "add";
+include '../../config/config.php';
+include $rootlink. '/config/function.security.php';
+require $rootlink. '/app/templates/header.php';
 ?>
     <form action="add.php" method="post" class="form col-md-12">
         <h2 class="ha2">Factuur toevoegen</h2>
@@ -73,4 +77,4 @@ beschrijving, aantal, status) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$b
         header('location: index.php');
     }
 }
-include "templates/footer.php";
+include $rootlink. "/app/templates/footer.php";

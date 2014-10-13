@@ -45,7 +45,7 @@ require $rootlink. '/app/templates/header.php';
         ?>
         </tbody>
     </table>
-    <?php
-    include "templates/footer.php";
-    ?>
+ <?php
+include $rootlink. "/app/templates/footer.php";
+?>
 </div>

@@ -1,5 +1,9 @@
-<?php
-include "templates/header.php";
+<?php  
+$page = "finance";
+$id = "facturen";
+include '../../config/config.php';
+include $rootlink. '/config/function.security.php';
+require $rootlink. '/app/templates/header.php';
 ?>
 <div class="container">
     <div class="banner">
@@ -50,7 +54,7 @@ include "templates/header.php";
         </tbody>
     </table>
     <a href="add.php">add</a>
-    <?php
-    include "templates/footer.php";
-    ?>
+   <?php
+include $rootlink. "/app/templates/footer.php";
+?>
 </div>

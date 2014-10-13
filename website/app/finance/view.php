@@ -1,5 +1,9 @@
-<?php
-include "templates/header.php";
+<?php  
+$page = "finance";
+$id = "view";
+include '../../config/config.php';
+include $rootlink. '/config/function.security.php';
+require $rootlink. '/app/templates/header.php';
 ?>
 <div class="banner">
         <h1 class="bannertxt">Finance</h1>
@@ -50,5 +54,5 @@ include "templates/header.php";
 </tbody>
 </table>
 <?php
-include "templates/footer.php";
+include $rootlink. "/app/templates/footer.php";
 ?>
