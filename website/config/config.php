@@ -2,9 +2,6 @@
 
 error_reporting(E_ALL);
 
-$link = 'http://127.0.0.1/med/BarrocIt/website/app';
-$rootlink = $_SERVER['DOCUMENT_ROOT']. '/med/BarrocIt/website/';
-
 //Database verbinding
 
 function get_my_db()
@@ -40,6 +37,11 @@ if (mysqli_connect_error($con))
 
   
   
+$sqlconf = $con->query("SELECT * FROM site_config");
+$conf = mysqli_fetch_object($sqlconf);
+
+$link = $conf->link;
+$rootlink = $_SERVER['DOCUMENT_ROOT']. $conf->rootlink;
   
 //Functies
 require("$rootlink/config/functions.php");
