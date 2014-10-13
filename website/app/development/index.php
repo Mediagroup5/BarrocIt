@@ -5,10 +5,7 @@ include '../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
-<link rel="stylesheet" href="development.css"/>
-<link rel="stylesheet" type="text/css" href="http://bootswatch.com/paper/bootstrap.min.css"/>
-<div class="container">
-<div class="container">
+
     <div class="banner">
         <h1 class="bannertxt">Development</h1>
     </div>
