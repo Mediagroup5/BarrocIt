@@ -23,8 +23,8 @@
                       if($id == "facturen") { echo '<li class="active">'; } else { echo "<li>"; }
 					  echo '<a href="./facturen.php">facturen</a></li>';
 					  
-                      if($id == "invoices") { echo '<li class="active">'; } else { echo "<li>"; }
-					  echo '<a href="./invoices.php">Invoices
+                      if($id == "add") { echo '<li class="active">'; } else { echo "<li>"; }
+					  echo '<a href="./add.php">Factuur Toevoegen
 					  
 					  
 					  </a></li>';

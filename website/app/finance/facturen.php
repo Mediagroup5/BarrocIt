@@ -18,7 +18,7 @@ require $rootlink. '/app/templates/header.php';
             <th>Bedrag</th>
             <th>Project nummer</th>
             <th>BTW</th>
-            <th>Factuur duur</th>
+            <th>Offer status</th>
             <th>Hoeveelheid</th>
             <th>Beschrijving</th>
             <th>Aantal</th>
@@ -27,26 +27,25 @@ require $rootlink. '/app/templates/header.php';
         </thead>
         <tbody>
         <?php
-        $sql = "SELECT factuur_nr, klant_nr, bedrag, project_nr, btw, factuur_duur, hoeveelheid,
-         beschrijving, aantal, status FROM factuur";
+        $sql = "SELECT * FROM factuur";
         if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }
         if (mysqli_num_rows($query) > 1 ){
-            while ($row = mysqli_fetch_assoc($query)){
+            while ($row = mysqli_fetch_object($query)){
                 echo "<tr>";
-                echo "<td>" . $row['factuur_nr'] . "</td>";
-                echo "<td>" . $row['klant_nr'] . "</td>";
-                echo "<td>" . $row['bedrag'] . "</td>";
-                echo "<td>" . $row['project_nr'] . "</td>";
-                echo "<td>" . $row['btw'] . "</td>";
-                echo "<td>" . $row['factuur_duur'] . "</td>";
-                echo "<td>" . $row['hoeveelheid'] . "</td>";
-                echo "<td>" . $row['beschrijving'] . "</td>";
-                echo "<td>" . $row['aantal'] . "</td>";
-                echo "<td>" . $row['status'] . "</td>";
-                echo "<td><a href='edit.php?id=". $row['factuur_nr'] . "'> Bewerk </a></td>";
-                echo "<td><a href='delete.php?id=" . $row['factuur_nr'] . "'> X </a></td>";
+                echo "<td>" . $row->factuur_nr . "</td>";
+                echo "<td>" . $row->klant_nr . "</td>";
+                echo "<td>" . $row->bedrag . "</td>";
+                echo "<td>" . $row->project_nr . "</td>";
+                echo "<td>" . $row->btw . "</td>";
+                echo "<td>" . $row->factuur_duur . "</td>";
+                echo "<td>" . $row->hoeveelheid . "</td>";
+                echo "<td>" . $row->beschrijving . "</td>";
+                echo "<td>" . $row->aantal . "</td>";
+                echo "<td>" . $row->status . "</td>";
+                echo "<td><a href='edit.php?id=". $row->factuur_nr . "'> Bewerk </a></td>";
+                echo "<td><a href='delete.php?id=" . $row->factuur_nr . "'> X </a></td>";
                 echo "</tr>";
             }
         }

@@ -13,7 +13,7 @@ if (! isset($_GET['id'])){
     aantal, status FROM factuur where factuur_nr = '$id'";
     $query = mysqli_query($con, $sql);
     if(mysqli_num_rows($query) == 1){
-        $row = mysqli_fetch_assoc($query);
+        $row = mysqli_fetch_object($query);
     }
 
 }
@@ -26,47 +26,47 @@ if (! isset($_GET['id'])){
         <div class="form-group col-md-4 ">
             <label for="Klant nummer">Klant nummer</label>
             <input type="text" class="form-control" name="klant_nr" id="klant_nr"
-                   value="<?php echo $row['klant_nr']; ?>" placeholder="Klant nummer"/>
+                   value="<?php echo $row->klant_nr; ?>" placeholder="Klant nummer"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Bedrag">Bedrag</label>
             <input type="text" class="form-control" name="bedrag" id="bedrag"
-                   value="<?php echo $row['bedrag']; ?>" placeholder="Datum"/>
+                   value="<?php echo $row->bedrag; ?>" placeholder="Datum"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Project nummer">Project nummer</label>
             <input type="text" class="form-control" name="project_nr" id="project_nr"
-                   value="<?php echo $row['project_nr']; ?>" placeholder="Project nummer"/>
+                   value="<?php echo $row->project_nr; ?>" placeholder="Project nummer"/>
         </div>
         <div class="form-group col-md-4">
             <label for="BTW">BTW</label>
             <input type="text" class="form-control" name="btw" id="btw"
-                   value="<?php echo $row['btw']; ?>" placeholder="BTW"/>
+                   value="<?php echo $row->btw; ?>" placeholder="BTW"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Factuur duur">Factuur duur</label>
             <input type="text" class="form-control" name="factuur_duur" id="factuur_duur"
-                   value="<?php echo $row['factuur_duur']; ?>" placeholder="Factuur duur"/>
+                   value="<?php echo $row->factuur_duur; ?>" placeholder="Factuur duur"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Hoeveelheid">Hoeveelheid</label>
             <input type="text" class="form-control" name="hoeveelheid" id="hoeveelheid"
-                   value="<?php echo $row['hoeveelheid']; ?>" placeholder="Hoeveelheid"/>
+                   value="<?php echo $row->hoeveelheid; ?>" placeholder="Hoeveelheid"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Beschrijving">Beschrijving</label>
             <input type="text" class="form-control" name="beschrijving" id="beschrijving"
-                   value="<?php echo $row['beschrijving']; ?>" placeholder="Beschrijving"/>
+                   value="<?php echo $row->beschrijving; ?>" placeholder="Beschrijving"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Aantal">Aantal</label>
             <input type="text" class="form-control" name="aantal" id="aantal"
-                   value="<?php echo $row['aantal']; ?>" placeholder="Aantal"/>
+                   value="<?php echo $row->aantal; ?>" placeholder="Aantal"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Status">Status</label>
             <input type="text" class="form-control" name="status" id="status"
-                   value="<?php echo $row['status']; ?>" placeholder="Status"/>
+                   value="<?php echo $row->status; ?>" placeholder="Status"/>
         </div>
         <input type="hidden" name="id" value=""/>
         <div class="form-group col-md-2">
