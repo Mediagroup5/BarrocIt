@@ -60,8 +60,8 @@
 					  if($id == "index") { echo '<li class="active">'; } else { echo "<li>"; }
 					  echo '<a href="./index.php">Home</a></li>';
 					  
-                      if($id == "projects") { echo '<li class="active">'; } else { echo "<li>"; }
-					  echo '<a href="./projects.php">Projects</a></li>';
+                      if($id == "project") { echo '<li class="active">'; } else { echo "<li>"; }
+					  echo '<a href="./project.php">Projects</a></li>';
 					  
                       if($id == "invoices") { echo '<li class="active">'; } else { echo "<li>"; }
 					  echo '<a href="./invoices.php">Invoices
