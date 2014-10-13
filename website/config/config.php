@@ -2,6 +2,22 @@
 
 error_reporting(E_ALL);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+$link = 'http://127.0.0.1/git/BarrocIt/website/app';
+$rootlink = $_SERVER['DOCUMENT_ROOT']. '/git/BarrocIt/website/';
+=======
+<<<<<<< HEAD
+
+$link = 'http://127.0.0.1/mg5/BarrocIt/website/app';
+$rootlink = $_SERVER['DOCUMENT_ROOT']. '/mg5/BarrocIt/website/';
+=======
+$link = 'http://127.0.0.1/med/BarrocIt/website/app';
+$rootlink = $_SERVER['DOCUMENT_ROOT']. '/med/BarrocIt/website/';
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> 5cd36fa47e6663994bde238f219347b4ba278d3d
 
 //Database verbinding
 
