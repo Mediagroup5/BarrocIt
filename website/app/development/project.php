@@ -10,6 +10,7 @@ include "templates/header.php";
     <h2 class="ha2">Projecten</h2>
     <table class="table table-striped">
         <thead>
+    
         <tr>
             <th>Project Naam</th>
             <th>Onderhoudscontract</th>
@@ -41,7 +42,7 @@ include "templates/header.php";
                 echo "<td>" . $row['afspraken'] . "</td>";
                 echo "<td>" . $row['status_project'] . "</td>";
                 echo "<td><a href='edit.php?id=". $row['projectnr_id'] . "'> Bewerk </a></td>";
-                echo "<td><a href='delete.php?id=" . $row['projectnr_id'] . "'> X </a></td>";
+                echo "<td><a href='delete.php?id=" . $row['projectnr_id'] . "'> Verwijderen </a></td>";
                 echo "</tr>";
             }
         }
@@ -50,7 +51,7 @@ include "templates/header.php";
 
     </table>
 
-      <a href="add.php">Toevoegen</a>
+      <a href="add.php" class= "toevoegen">Toevoegen</a>
     <?php
     include "templates/footer.php";
     ?>
