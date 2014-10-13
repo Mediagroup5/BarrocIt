@@ -5,20 +5,7 @@ include '../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
-    <div class="jumbotron ">
-      <div class="container">
-        <h1 class="text_1">BARROC IT. </h1>
-        <h1 class="text_2">SOFTWARE FOR REAL.</h1>
-      </div>
-    
-    </div>
-    <div class="container">
-      <div class="row">
-     
-        
-		<?php
-		include("$rootlink/app/templates/nav.php");
-		?>
+  
 		
     <div class="banner">
         <h1 class="bannertxt">Finance</h1>
