@@ -2,6 +2,7 @@
 
 error_reporting(E_ALL);
 
+
 //Database verbinding
 
 function get_my_db()
