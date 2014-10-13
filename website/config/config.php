@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 
-$link = 'http://127.0.0.1/med/BarrocIt/website/app';
+$link = 'http://127.0.0.1/mg5/BarrocIt/website/app';
 //Database verbinding
 
 function get_my_db()
