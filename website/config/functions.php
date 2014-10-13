@@ -28,10 +28,10 @@ function Jordyhash($string) {
 }
 
 //redirecten naar de goede link.
-    function redirect($rank)
+    function redirect($rank, $link)
     {
 //	die($link);
-	 switch($rank, $link)
+	 switch($rank)
      {
      case 1:
 	    header("location: $link/finance/index.php");

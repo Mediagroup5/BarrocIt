@@ -22,7 +22,7 @@ trigger_error('check de sql op fouten');
 				
 					session_start();
 					$_SESSION['name'] = $row;
-					redirect($row->gebruikersrol);
+					redirect($row->gebruikersrol, $link);
 					}
 			else {
 			        //error meegeven via sessie
