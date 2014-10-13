@@ -44,8 +44,8 @@ trigger_error('check de sql op fouten');
 			var_dump($_GET);
 			session_start();
 			session_destroy();
-			$msg = urlencode("u bent succesvol uigelogd");
-			header('location:../login.php?msg=' .$msg);
+			$_SESSION['error'] = "u bent succesvol uigelogd";
+			header('location:../login.php');
 			
 			
 			}

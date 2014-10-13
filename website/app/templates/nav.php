@@ -1,5 +1,5 @@
   <?php
-  if($page == "development")
+  if($page == "finance")
   {
   ?>
   <nav role="navigation" class="navbar navbar-default">
@@ -31,7 +31,7 @@
 					  ?>
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
-                      <li><a class="btn-secondary" href="../../inc/controllers/authcontroller.php?logout=1"><b>Log out</b></a></li>
+                      <li><a class="btn-secondary" href="<?php echo $link; ?>/controllers/authcontroller.php?logout=1"><b>Log out</b></a></li>
                   </ul>
               </div>
           </nav>

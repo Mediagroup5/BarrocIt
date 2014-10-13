@@ -17,7 +17,7 @@ require $rootlink. '/app/templates/header.php';
      
         
 		<?php
-		include("../templates/nav.php");
+		include("$rootlink/app/templates/nav.php");
 		?>
 		
     <div class="banner">
