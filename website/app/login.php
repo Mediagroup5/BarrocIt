@@ -4,8 +4,8 @@ require 'templates/login_header.php';
 
 if(isset($_SESSION['name']))
 {
-$rol = User::GetUserData("gebruikersrol");
-redirect($rol);
+$role = User::GetUserData("gebruikersrol");
+redirect($role,$link);
 }
 
  ?>

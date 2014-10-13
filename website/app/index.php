@@ -10,6 +10,6 @@ if(! isset($_SESSION['name'])){
 
 $role = User::GetUserData("gebruikersrol");
 
-redirect($role);
+redirect($role,$link);
 
 ?>
