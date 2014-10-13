@@ -9,7 +9,7 @@ include "templates/header.php";
         </div>
         <div class="from-group col-md-6">
             <label for="Bedrag">Bedrag</label>
-            <input type="int" class="form-control" name="bedrag" id="bedrag" placehlder="Bedrag">
+            <input type="int" class="form-control" name="bedrag" id="bedrag" placeholder="Bedrag"/>
         </div>
         <div class="form-group col-md-6">
             <label for="Project nummer">Project nummer</label>
