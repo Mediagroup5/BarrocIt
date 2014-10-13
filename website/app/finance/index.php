@@ -2,8 +2,8 @@
 $page = "finance";
 $id = "index";
 include '../../config/config.php';
-//include '../../config/function.security.php';
-require '../templates/header.php';
+include $rootlink. '/config/function.security.php';
+require $rootlink. '/app/templates/header.php';
 ?>
     <div class="jumbotron ">
       <div class="container">
