@@ -1,12 +1,12 @@
 <?php
 include "templates/header.php";
 ?>
-<link rel="stylesheet" href="sales.css"/>
+<link rel="stylesheet" href="development.css"/>
 <link rel="stylesheet" type="text/css" href="http://bootswatch.com/paper/bootstrap.min.css"/>
 <div class="container">
 <div class="container">
     <div class="banner">
-        <h1 class="bannertxt">Sales</h1>
+        <h1 class="bannertxt">Development</h1>
     </div>
     <h2 class="ha2">Klanten</h2>
     <table class="table table-striped">
@@ -17,7 +17,32 @@ include "templates/header.php";
             <th>Voorletter</th>
             <th>Voornaam</th>
             <th>Achternaam</th>
-            <th>Project bekijken</th>
+            <th>Adres</th>
+            <th>Adres 2</th>
+            <th>Postcode</th>
+            <th>Postcode 2</th>
+            <th>Residentie</th>
+            <th>Residentie 2</th>
+            <th>Woonplaats</th>
+            <th>Telefoonnummer</th>
+            <th>Telefoonnummer 2</th>
+            <th>Fax nummer</th>
+            <th>Email</th>
+            <th>Offerte nummers</th>
+            <th>inkomsten hoeveelheid</th>
+            <th>Offerte Status</th>
+            <th>Uitzondering</th>
+            <th>Begin datum</th>
+            <th>Afspraken</th>
+            <th>intern contact person</th>
+            <th>bankrekeningnummer</th>
+            <th>crediet</th>
+            <th>saldo</th>
+            <th>aantal facturen</th>
+            <th>omzetbedrag</th>
+            <th>limiet</th>
+            <th>grootboekrekeningnummer</th>
+            <th>BTW code</th>
         </tr>
         </thead>
         <tbody>
@@ -34,8 +59,9 @@ include "templates/header.php";
                 echo "<td>" . $row['voorletter'] . "</td>";
                 echo "<td>" . $row['voornaam'] . "</td>";
                 echo "<td>" . $row['achternaam'] . "</td>";
-                echo "<td><a href='edit.php?id=". $row['klant_nr'] . "'> Bekijk/Bewerk </a></td>";
-	
+          
+                echo "<td><a href='project.php?id=". $row['klant_nr'] . "'> Project bekijk </a></td>";
+                echo "<td><a href='klant.php?id=" . $row['klant_nr'] . "'> Klant gegevens </a></td>";
                 echo "</tr>";
             }
         }
@@ -47,5 +73,3 @@ include "templates/header.php";
     include "templates/footer.php";
     ?>
 </div>
-
-   
