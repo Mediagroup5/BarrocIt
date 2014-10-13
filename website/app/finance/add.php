@@ -5,19 +5,19 @@ include "templates/header.php";
         <h2 class="ha2">Factuur toevoegen</h2>
         <div class="form-group col-md-6">
             <label for="Klant nummer">Klant nummer</label>
-            <input type="int" class="form-control" name="klant_nr" id="klant_nr" placeholder="Klant nummer"/>
+            <input type="number" class="form-control" name="klant_nr" id="klant_nr" placeholder="Klant nummer"/>
         </div>
         <div class="from-group col-md-6">
             <label for="Bedrag">Bedrag</label>
-            <input type="int" class="form-control" name="bedrag" id="bedrag" placeholder="Bedrag"/>
+            <input type="number" class="form-control" name="bedrag" id="bedrag" placeholder="Bedrag"/>
         </div>
         <div class="form-group col-md-6">
             <label for="Project nummer">Project nummer</label>
-            <input type="int" class="form-control" name="project_nr" id="project_nr" placeholder="nummer van project"/>
+            <input type="number" class="form-control" name="project_nr" id="project_nr" placeholder="nummer van project"/>
         </div>
         <div class="form-group col-md-6">
             <label for="Btw">BTW</label>
-            <input type="int" class="form-control" name="btw" id="btw" placeholder="BTW"/>
+            <input type="number" class="form-control" name="btw" id="btw" placeholder="BTW"/>
         </div>
         <div class="form-group col-md-6">
             <label for="Factuur duur">Factuur duur</label>
@@ -25,19 +25,19 @@ include "templates/header.php";
         </div>
         <div class="form-group col-md-6">
             <label for="Hoeveelheid">Hoeveelheid</label>
-            <input type="varchar" class="form-control" name="hoeveelheid" id="hoeveelheid" placeholder="Hoeveelheid"/>
+            <input type="number" class="form-control" name="hoeveelheid" id="hoeveelheid" placeholder="Hoeveelheid"/>
         </div>
         <div class="form-group col-md-6">
             <label for="Beschrijving">Beschrijving</label>
-            <input type="varchar" class="form-control" name="beschrijving" id="beschrijving" placeholder="Beschrijving van project"/>
+            <input type="number" class="form-control" name="beschrijving" id="beschrijving" placeholder="Beschrijving van project"/>
         </div>
         <div class="form-group col-md-6">
             <label for="Aantal">Aantal</label>
-            <input type="int" class="form-control" name="aantal" id="aantal" placeholder="Aantal"/>
+            <input type="number" class="form-control" name="aantal" id="aantal" placeholder="Aantal"/>
         </div>
         <div class="form-group col-md-6">
             <label for="Status">Status</label>
-            <input type="tinyint" class="form-control" name="datum" id="datum" placeholder="Datum van project"/>
+            <input type="number" class="form-control" name="datum" id="datum" placeholder="Datum van project"/>
         </div>
         <div class="form-group">
             <input type="submit" class="btn" value="toevoegen" name="submit"/>
