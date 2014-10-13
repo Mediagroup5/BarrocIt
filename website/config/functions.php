@@ -28,29 +28,29 @@ function Jordyhash($string) {
 }
 
 //redirecten naar de goede link.
-    function redirect($rank)
+    function redirect($rank, $link)
     {
 //	die($link);
 	 switch($rank)
      {
      case 1:
-	    header("location: ./finance/index.php");
+	    header("location: $link/finance/index.php");
         break;
 	 
 	 case 2:
-	    header("location: ./development/index.php");
+	    header("location: $link/development/index.php");
         break;
 	 
 	 case 3:
-         header("location: ./sales/index.php");
+         header("location: $link/sales/index.php");
          break;
 		 
      case 4:
-         header("location: ./admin/index.php");
+         header("location: $link/admin/index.php");
          break;
 		
 	 default:
-	    header("location: ./login.php");
+	    header("location: $link/login.php");
 	    break;
      }
  
