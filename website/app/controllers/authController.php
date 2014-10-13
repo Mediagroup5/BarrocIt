@@ -16,15 +16,13 @@ trigger_error('check de sql op fouten');
 	}
 			
 			if (mysqli_num_rows($query) == 1){		
-			$row = mysqli_fetch_assoc($query);
+			$row = mysqli_fetch_object($query);
 					
-					if ($password == $row['password']) {
+					if ($password == $row->password) {
 				
 					session_start();
-					$_SESSION['name'] = $row['username'];
-					$_SESSION['role'] = $row['gebruikersrol'];
-					header('location: ../index.php');
-					
+					$_SESSION['name'] = $row;
+					redirect($row->gebruikersrol);
 					}
 			else {
 			        //error meegeven via sessie

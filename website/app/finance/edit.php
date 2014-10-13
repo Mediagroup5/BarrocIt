@@ -1,4 +1,5 @@
-<?php include 'templates/header.php';
+<?php 
+include 'templates/header.php';
 
 if (! isset($_GET['id'])){
     header('location: index.php');

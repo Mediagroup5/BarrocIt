@@ -1,7 +1,25 @@
-<?php
-include "templates/header.php";
+<?php  
+$page = "finance";
+$id = "index";
+include '../../config/config.php';
+//include '../../config/function.security.php';
+require '../templates/header.php';
 ?>
-<div class="container">
+    <div class="jumbotron ">
+      <div class="container">
+        <h1 class="text_1">BARROC IT. </h1>
+        <h1 class="text_2">SOFTWARE FOR REAL.</h1>
+      </div>
+    
+    </div>
+    <div class="container">
+      <div class="row">
+     
+        
+		<?php
+		include("../templates/nav.php");
+		?>
+		
     <div class="banner">
         <h1 class="bannertxt">Finance</h1>
     </div>
