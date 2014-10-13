@@ -1,15 +1,9 @@
-
 <?php
-
-
-
-
 require '../../config/config.php';
 //handelt de inlogform af...
 if (isset($_POST['authUser']))
 {
-
-
+session_start();
 $username = mysqli_real_escape_string($con, $_POST['username']) ;
 
 $password = mysqli_real_escape_string($con, $_POST['password']);
@@ -33,10 +27,17 @@ trigger_error('check de sql op fouten');
 					
 					}
 			else {
-					$msg = 'gebruikersnaam of wachtwoord is onjuist';
-					header('location: ../login.php?msg=' .$msg);
-					}
-					}
+			        //error meegeven via sessie
+					$_SESSION['error'] = 'gebruikersnaam of wachtwoord is onjuist';
+					header('location: ../login.php');
+				 }
+			}
+			else
+			{
+			//error meegeven via sessie
+			   $_SESSION['error'] = 'Gebruikers niet gevonden';
+			    header('location: ../login.php');
+			}
 			
 }
 	//handelt de uitlog af...

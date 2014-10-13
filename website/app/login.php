@@ -1,35 +1,32 @@
-<?php require 'templates/header.php'; ?>
+<?php require 'templates/login_header.php';
+session_start();
 
-<div class="container">
-	<div class="bk">
-	<form method="post" action="controllers/authController.php" role="form" class="login-form col-md-4 col-md-offset-4">
-		<fieldset>
-		<legend><h2>Login</h2></legend>
+ ?>
+ <div class="jumbotron jumbo-login">
+      <div class="container">
+        <h1 class="text_1 text-center">BARROC IT. </h1>
+        <form action="./controllers/authController.php" METHOD="POST" class="form-login col-md-4 col-md-offset-4" >
+        	<?php if(isset($_SESSION['error']))
+	  {
+	  echo $_SESSION['error'];
+	  unset($_SESSION['error']);
+	  }
+	  ?><legend class="subhead">Please Log in</legend>
+        	<div class="form-group">
+        		<label for="username">Username</label>
+        		<input type="text" name="username" id="username" class="form-control">
+        	</div>
+        	<div class="form-group">
+        		<label for="password">Password</label>
+        		<input type="password" name="password" id="password" class="form-control">
+        	</div>
+        	<div class="form-group">
+        		<input type="submit" name="authUser" value="submit" class="btn btn-primary">
+        	</div>
+        </form>
+      </div>
+ </div>
 
-			<ul>
-				<?php  
-				// succes of fail message
-				if (isset($_GET['msg'])) {
-					echo '<li>' .  htmlspecialchars($_GET['msg']) . '</li>';
-				}
-				?>
-			</ul>
-
-			<div class="form-group">
-				<label for="username">Username</label>
-				<input type="username" name="username" id="username" class="form-control">	
-			</div>
-			<div class="form-group">
-				<label for="password">Password</label>
-				<input type="password" name="password" id="password" class="form-control">
-			</div>
-			<div class="form-group">
-				<input type="submit" name="authUser" value="Login" class="btn btn-large">
-			</div>
-		</fieldset>
-	</form>
-	</div>
-</div>
-
-
-<?php require 'templates/footer.php'; ?>
+<?php
+ require 'templates/footer.php';
+ ?>

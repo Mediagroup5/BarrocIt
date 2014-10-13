@@ -1,6 +1,6 @@
-<?php require 'templates/header.php'; ?>
+<?php 
+require 'templates/header.php';
 
-<?php
 if(! isset($_SESSION['name'])){
     $msg = urlencode('U dient ingelogd te zijn');
     header('location: login.php?msg=' . $msg);
@@ -28,9 +28,7 @@ switch($role){
         header('location: controllers/authController.php?logout=true');
         break;
 }
-?>
-
-<?php  
+ 
 
 if ( isset($_SESSION['name']) ) {
 	echo 'Welkom, ' . $_SESSION['name'];
@@ -45,4 +43,6 @@ if ( isset($_SESSION['name']) ) {
 
 </div>
 
-<?php require 'templates/footer.php'; ?>
+<?php 
+require 'templates/footer.php';
+ ?>
