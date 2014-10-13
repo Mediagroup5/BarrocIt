@@ -2,12 +2,10 @@
 
 error_reporting(E_ALL);
 
-<<<<<<< HEAD
+
 $link = 'http://127.0.0.1/mg5/BarrocIt/website/app';
-=======
-$link = 'http://127.0.0.1/med/BarrocIt/website/app';
-$rootlink = $_SERVER['DOCUMENT_ROOT']. '/med/BarrocIt/website/';
->>>>>>> origin/master
+$rootlink = $_SERVER['DOCUMENT_ROOT']. '/mg5/BarrocIt/website/';
+
 //Database verbinding
 
 function get_my_db()
