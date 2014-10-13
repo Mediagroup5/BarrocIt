@@ -1,5 +1,9 @@
-<?php
-include "templates/header.php";
+<?php  
+$page = "development";
+$id = "index";
+include '../../config/config.php';
+include $rootlink. '/config/function.security.php';
+require $rootlink. '/app/templates/header.php';
 ?>
 <link rel="stylesheet" href="development.css"/>
 <link rel="stylesheet" type="text/css" href="http://bootswatch.com/paper/bootstrap.min.css"/>
@@ -45,7 +49,7 @@ include "templates/header.php";
     </table>
 <!--    <a href="add.php">add</a>-->
     <?php
-    include "templates/footer.php";
+include $rootlink. "/app/templates/footer.php";
     ?>
 </div>
 
