@@ -2,7 +2,12 @@
 
 error_reporting(E_ALL);
 
+<<<<<<< HEAD
 $link = 'http://127.0.0.1/mg5/BarrocIt/website/app';
+=======
+$link = 'http://127.0.0.1/med/BarrocIt/website/app';
+$rootlink = $_SERVER['DOCUMENT_ROOT']. '/med/BarrocIt/website/';
+>>>>>>> origin/master
 //Database verbinding
 
 function get_my_db()
@@ -40,10 +45,10 @@ if (mysqli_connect_error($con))
   
   
 //Functies
-require("/functions.php");
+require("$rootlink/config/functions.php");
  
 //Users class
-require("/class.users.php");
+require("$rootlink/config/class.users.php");
 
 Session_start();
 ?>

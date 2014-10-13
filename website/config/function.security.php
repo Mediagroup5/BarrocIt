@@ -4,7 +4,7 @@ if (!isset($_SESSION['name'])) {
 	header('location: ./login.php');
 }
 
-$rank = User::GetUserData("rank");
+$rank = User::GetUserData("gebruikersrol");
 
 
 //checkt of rank gelijk is aan pagina
