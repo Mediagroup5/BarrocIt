@@ -1,8 +1,7 @@
 <?php  
-$page = "finance";
+$page = "users";
 $id = "edit";
 include '../../../config/config.php';
-include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 
 if (! isset($_GET['id'])){

@@ -1,8 +1,7 @@
 <?php  
-$page = "finance";
+$page = "users";
 $id = "add";
 include '../../../config/config.php';
-include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
     <form action="add.php" method="post" class="form col-md-12">

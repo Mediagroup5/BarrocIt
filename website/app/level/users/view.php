@@ -2,7 +2,6 @@
 $page = "finance";
 $id = "view";
 include '../../../config/config.php';
-include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
 <div class="banner">
