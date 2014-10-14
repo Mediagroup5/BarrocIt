@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Gegenereerd op: 14 okt 2014 om 14:52
+-- Gegenereerd op: 14 okt 2014 om 14:57
 -- Serverversie: 5.6.20
 -- PHP-versie: 5.5.15
 
@@ -173,25 +173,6 @@ INSERT INTO `projecten` (`projectnr_id`, `project_naam`, `onderhoudscontract`, `
 (3238, 'hadofhw', 0, '', '', '2014-10-10', '2014-10-12', 3, 0, 0),
 (3239, 'dsjf', 0, '', '', '2014-10-10', '2014-10-11', 5, 0, 0);
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `site_config`
---
-
-CREATE TABLE IF NOT EXISTS `site_config` (
-  `link` varchar(255) DEFAULT '',
-  `rootlink` varchar(255) DEFAULT '',
-`id` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Gegevens worden geëxporteerd voor tabel `site_config`
---
-
-INSERT INTO `site_config` (`link`, `rootlink`, `id`) VALUES
-('http://127.0.0.1/BarrocIt/website/app', '/BarrocIt/website/', 1);
-
 --
 -- Indexen voor geëxporteerde tabellen
 --
@@ -227,12 +208,6 @@ ALTER TABLE `projecten`
  ADD PRIMARY KEY (`projectnr_id`);
 
 --
--- Indexen voor tabel `site_config`
---
-ALTER TABLE `site_config`
- ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
@@ -261,11 +236,6 @@ MODIFY `klant_nr` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 --
 ALTER TABLE `projecten`
 MODIFY `projectnr_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3240;
---
--- AUTO_INCREMENT voor een tabel `site_config`
---
-ALTER TABLE `site_config`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
