@@ -12,7 +12,7 @@ require $rootlink. '/app/templates/header.php';
             <label for="Klant nummer">Klant nummer</label>
             <input type="number" class="form-control" name="klant_nr" id="klant_nr" placeholder="hallo"/>
         </div>
-        <div class="from-group col-md-6">
+        <div class="form-group col-md-6">
             <label for="Bedrag">Bedrag</label>
             <input type="number" class="form-control" name="bedrag" id="bedrag" placeholder="Bedrag"/>
         </div>
@@ -44,8 +44,8 @@ require $rootlink. '/app/templates/header.php';
             <label for="Status">Status</label>
             <input type="number" class="form-control" name="datum" id="datum" placeholder="Datum van project"/>
         </div>
-        <div class="form-group">
-            <input type="submit" class="btn" value="toevoegen" name="submit"/>
+        <div class="form-group col-md-6 ">
+            <input type="submit" class="btn btn-warning" value="toevoegen" name="submit"/>
         </div>
 
     </form>
