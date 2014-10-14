@@ -50,10 +50,10 @@
 	    echo '<a href="./index.php">Home</a></li>';
 					  
         if($id == "projects") { echo '<li class="active">'; } else { echo "<li>"; }
-	    echo '<a href="./projects.php">Projects</a></li>';
+	    echo '<a href="./afspraak.php">Afspraken</a></li>';
 					  
         if($id == "invoices") { echo '<li class="active">'; } else { echo "<li>"; }
-	    echo '<a href="./invoices.php">Invoices</a></li>';
+	    echo '<a href="./addafspraak.php">Afspraak toevoegen</a></li>';
 					
     }
 		
