@@ -14,7 +14,7 @@ if (! isset($_GET['id'])){
     $sql = "SELECT afspraken_id, datum, klant_nr FROM afspraken where afspraken_id = '$id'";
     $query = mysqli_query($con, $sql);
     if(mysqli_num_rows($query) == 1){
-        $row = mysqli_fetch_assoc($query);
+        $row = mysqli_fetch_object($query);
     }
 
 }
@@ -28,15 +28,15 @@ if (! isset($_GET['id'])){
         
         <div class="form-group col-md-4">
             <label for="datum">datum</label>
-            <input type="date" class="form-control" value='<?php echo $row['datum'];?>' name="datum" id="datum" placeholder="datum van project"/>
+            <input type="date" class="form-control" value='<?php echo $row->datum;?>' name="datum" id="datum" placeholder="datum van project"/>
             	
         </div>
 
         <div class="form-group col-md-4">
             <label for="klant_nr">klant nummer</label>
-            <input type="text" class="form-control" value='<?php echo $row['klant_nr'];?>'name="klant_nr" id="klant_nr" placeholder="klant nummer"/>
+            <input type="text" class="form-control" value='<?php echo $row->klant_nr;?>'name="klant_nr" id="klant_nr" placeholder="klant nummer"/>
         </div>
-        <input type="hidden" name="afspraken_id" value="<?php echo $row['afspraken_id']; ?>"/>
+        <input type="hidden" name="afspraken_id" value="<?php echo $row->afspraken_id; ?>"/>
         <div class="form-group col-md-2">
             <input class="btn btn-warning" type="submit" value="Update" name="submit"/>
         </div>

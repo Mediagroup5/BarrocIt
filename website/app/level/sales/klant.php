@@ -52,17 +52,17 @@ require $rootlink. '/app/templates/header.php';
         if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }
-        if (mysqli_num_rows($query) > 1 ){
-            while ($row = mysqli_fetch_assoc($query)){
+        if (mysqli_num_rows($query) > 0 ){
+            while ($row = mysqli_fetch_object($query)){
                 echo "<tr>";
-                echo "<td>" . $row['klant_nr'] . "</td>";
-                echo "<td>" . $row['bedrijfs_naam'] . "</td>";
-                echo "<td>" . $row['voorletter'] . "</td>";
-                echo "<td>" . $row['voornaam'] . "</td>";
-                echo "<td>" . $row['achternaam'] . "</td>";
+                echo "<td>" . $row->klant_nr . "</td>";
+                echo "<td>" . $row->bedrijfs_naam . "</td>";
+                echo "<td>" . $row->voorletter . "</td>";
+                echo "<td>" . $row->voornaam . "</td>";
+                echo "<td>" . $row->achternaam . "</td>";
           
-                echo "<td><a href='project.php?id=". $row['klant_nr'] . "'> Project bekijk </a></td>";
-                echo "<td><a href='klant.php?id=" . $row['klant_nr'] . "'> Klant gegevens </a></td>";
+                echo "<td><a href='project.php?id=". $row->klant_nr . "'> Project bekijk </a></td>";
+                echo "<td><a href='klant.php?id=" . $row->klant_nr . "'> Klant gegevens </a></td>";
                 echo "</tr>";
             }
         }

@@ -9,10 +9,10 @@ if (! isset($_GET['id'])){
     header('location: index.php');
 }else{
     $id = intval($_GET['id']);
-    $sql = "SELECT factuur_nr, klant_nr, bedrag, project_nr, btw, factuur_duur, hoeveelheid, beschrijving,
+    $sql = "SELECT factuur_nr, klant_nr, bedrag, project_nr, btw, factuur_tot, hoeveelheid, beschrijving,
     aantal, status FROM factuur where factuur_nr = '$id'";
     $query = mysqli_query($con, $sql);
-    if(mysqli_num_rows($query) == 1){
+    if(mysqli_num_rows($query) > 0){
         $row = mysqli_fetch_object($query);
     }
 
@@ -31,7 +31,7 @@ if (! isset($_GET['id'])){
         <div class="form-group col-md-4">
             <label for="Bedrag">Bedrag</label>
             <input type="text" class="form-control" name="bedrag" id="bedrag"
-                   value="<?php echo $row->bedrag; ?>" placeholder="Datum"/>
+                   value="<?php echo $row->bedrag; ?>" placeholder="Bedrag"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Project nummer">Project nummer</label>
@@ -44,9 +44,9 @@ if (! isset($_GET['id'])){
                    value="<?php echo $row->btw; ?>" placeholder="BTW"/>
         </div>
         <div class="form-group col-md-4">
-            <label for="Factuur duur">Factuur duur</label>
-            <input type="text" class="form-control" name="factuur_duur" id="factuur_duur"
-                   value="<?php echo $row->factuur_duur; ?>" placeholder="Factuur duur"/>
+            <label for="Factuur duur">Factuur t/m</label>
+            <input type="text" class="form-control" name="factuur_tot" id="factuur_tot"
+                   value="<?php echo $row->factuur_tot; ?>" placeholder="Factuur t/m"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Hoeveelheid">Hoeveelheid</label>
@@ -81,7 +81,7 @@ if (isset($_POST['submit'])){
     $bedrag = mysqli_real_escape_string($con, $_POST['bedrag']);
     $project_nr = mysqli_real_escape_string($con, $_POST['project_nr']);
     $btw = mysqli_real_escape_string($con, $_POST['btw']);
-    $factuur_duur = mysqli_real_escape_string($con, $_POST['factuur_duur']);
+    $factuur_duur = mysqli_real_escape_string($con, $_POST['factuur_tot']);
     $hoeveelheid = mysqli_real_escape_string($con, $_POST['hoeveelheid']);
     $beschrijving = mysqli_real_escape_string($con, $_POST['beschrijving']);
     $aantal = mysqli_real_escape_string($con, $_POST['aantal']);
@@ -89,7 +89,7 @@ if (isset($_POST['submit'])){
     $id = $_POST['id'];
 
     $sql = "UPDATE factuur SET klant_nr = '$klant_nr', bedrag = '$bedrag', project_nr = '$project_nr',
-    btw = '$btw', factuur_duur = '$factuur_duur', hoeveelheid = '$hoeveelheid', beschrijving = '$beschrijving',
+    btw = '$btw', factuur_tot = '$factuur_tot', hoeveelheid = '$hoeveelheid', beschrijving = '$beschrijving',
     aantal = '$aantal', status = '$status'
      WHERE factuur_nr = '$id'";
 
