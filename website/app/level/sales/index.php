@@ -43,9 +43,6 @@ require $rootlink. '/app/templates/header.php';
         </tbody>
     </table>
 <!--    <a href="add.php">add</a>-->
-    <?php
-    include "templates/footer.php";
-    ?>
 </div>
 
    

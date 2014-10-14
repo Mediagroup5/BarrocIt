@@ -6,8 +6,14 @@ include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
 <!--<link rel="stylesheet" href="development.css"/>-->
-<link rel="stylesheet" type="text/css" href="http://bootswatch.com/paper/bootstrap.min.css"/>
+<!-- <link rel="stylesheet" type="text/css" href="http://bootswatch.com/paper/bootstrap.min.css"/> -->
 <div class="container">
+<<<<<<< HEAD
+=======
+    <div class="banner">
+       
+    
+>>>>>>> origin/master
     <form action="add.php" method="post" class="form col-md-12">
         <h2 class="ha2">Project toevoegen</h2>
         <div class="form-group col-md-4">
