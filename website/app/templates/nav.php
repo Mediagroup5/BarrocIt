@@ -37,8 +37,8 @@
         if($id == "project") { echo '<li class="active">'; } else { echo "<li>"; }
 		echo '<a href="./project.php">Projects</a></li>';
 					  
-        if($id == "invoices") { echo '<li class="active">'; } else { echo "<li>"; }
-		echo '<a href="./invoices.php">Invoices</a></li>';
+        if($id == "add") { echo '<li class="active">'; } else { echo "<li>"; }
+		echo '<a href="./add.php">Project Toevoegen</a></li>';
 				
 		
 	}
