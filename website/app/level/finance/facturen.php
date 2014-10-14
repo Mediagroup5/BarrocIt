@@ -1,7 +1,7 @@
 <?php  
 $page = "finance";
 $id = "facturen";
-include '../../config/config.php';
+include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
