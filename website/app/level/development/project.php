@@ -51,7 +51,7 @@ require $rootlink. '/app/templates/header.php';
 
     </table>
 
-      <a href="add.php" class= "toevoegen">Toevoegen</a>
+
     <?php
 include $rootlink. "/app/templates/footer.php";
     ?>
