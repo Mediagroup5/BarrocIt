@@ -6,9 +6,6 @@ include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
 <div class="container">
-    <div class="banner">
-        <h1 class="bannertxt">Finance</h1>
-    </div>
     <h2 class="ha2">Facturen</h2>
     <table class="table table-striped">
         <thead>
