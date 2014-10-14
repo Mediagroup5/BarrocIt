@@ -9,7 +9,7 @@ if (! isset($_GET['id'])){
     header('location: index.php');
 }else{
     $id = intval($_GET['id']);
-    $sql = "SELECT id, klant_nr, bedrijfs_naam, voorletters, voornaam, achternaam FROM klantgegevens where id = '$id'";
+    $sql = "SELECT klant_nr, bedrijfs_naam, voorletters, voornaam, achternaam, adres FROM klantgegevens WHERE klant_nr = '$id'";
     $query = mysqli_query($con, $sql);
     if(mysqli_num_rows($query) == 1){
         $row = mysqli_fetch_assoc($query);
@@ -48,8 +48,17 @@ if (! isset($_GET['id'])){
                        <div class="form-group col-md-4">
             <label for="contact_persoon">achternaam</label>
             <input type="text" class="form-control" value='<?php echo $row['achternaam'];?>'name="achternaam" id="achternaam" placeholder="achternaam persoon"/>
+            
+            
+                                   <div class="form-group col-md-4">
+            <label for="contact_persoon">Adres</label>
+            <input type="text" class="form-control" value='<?php echo $row['adres'];?>'name="adres" id="adres" placeholder="adres persoon"/>
+            
+            
+            
+            
 </div>
-        <input type="hidden" name="afspraken_id" value="<?php echo $row['afspraken_id']; ?>"/>
+        <input type="hidden" name="klant_nr" value="<?php echo $row['klant_nr']; ?>"/>
         <div class="form-group col-md-2">
             <input class="btn btn-warning" type="submit" value="Update" name="submit"/>
         </div>
@@ -61,10 +70,12 @@ if (isset($_POST['submit'])){
     $klant_nr = mysqli_real_escape_string($con, $_POST['klant_nr']);
     $bedrijfs_naam = mysqli_real_escape_string($con, $_POST['bedrijfs_naam']);
     $voorletters = mysqli_real_escape_string($con, $_POST['voorletters']);
-    $voorletters = mysqli_real_escape_string($con, $_POST['voornaam']);
- 	$voorletters = mysqli_real_escape_string($con, $_POST['achternaam']);
-	$id = $_POST['id'];
-    $sql = "UPDATE klantgegevens SET klant_nr = '$klant_nr', bedrijfs_naam = '$bedrijfs_naam', voorletters = '$voorletters', voornaam = '$voornaam', achternaam = '$achternaam' WHERE id = '$id'";
+    $voornaam = mysqli_real_escape_string($con, $_POST['voornaam']);
+ 	$achternaam = mysqli_real_escape_string($con, $_POST['achternaam']);
+ 	$adres = mysqli_real_escape_string($con, $_POST['adres']);
+
+	$klant_nr = $_POST['klant_nr'];
+    $sql = "UPDATE klantgegevens SET klant_nr = '$klant_nr', bedrijfs_naam = '$bedrijfs_naam', voorletters = '$voorletters', voornaam = '$voornaam', achternaam = '$achternaam' WHERE klant_nr = '$klant_nr'";
 
     if(! $query = mysqli_query($con, $sql)){
         echo 'update query mislukt';
