@@ -13,64 +13,72 @@
                   <ul class="nav navbar-nav">
 				  
 <?php
-    if($page == "finance")
+    if(User::GetUserData("gebruikersrol") == 1)
     {
   
 		if($id == "index") { echo '<li class="active">'; } else { echo "<li>"; }
-	    echo '<a href="./index.php">Home</a></li>';
+	    echo '<a href="'.$link.'/level/finance/index.php">Home</a></li>';
 					  
         if($id == "facturen") { echo '<li class="active">'; } else { echo "<li>"; }
-		echo '<a href="./facturen.php">facturen</a></li>';
+		echo '<a href="'.$link.'/level/finance/facturen.php">facturen</a></li>';
 					  
         if($id == "add") { echo '<li class="active">'; } else { echo "<li>"; }
-		echo '<a href="./add.php">Factuur Toevoegen</a></li>';
+		echo '<a href="'.$link.'/level/finance/add.php">Factuur Toevoegen</a></li>';
 		
 				
    }
    
-    if($page == "development")
+    if(User::GetUserData("gebruikersrol") == 2)
     {
 					  
 		if($id == "index") { echo '<li class="active">'; } else { echo "<li>"; }
-		echo '<a href="./index.php">Home</a></li>';
+		echo '<a href="'.$link.'/level/development/index.php">Home</a></li>';
 					  
         if($id == "project") { echo '<li class="active">'; } else { echo "<li>"; }
-		echo '<a href="./project.php">Projects</a></li>';
+		echo '<a href="'.$link.'/level/development/project.php">Projects</a></li>';
 					  
         if($id == "add") { echo '<li class="active">'; } else { echo "<li>"; }
-		echo '<a href="./add.php">Project Toevoegen</a></li>';
+		echo '<a href="'.$link.'/level/development/add.php">Project Toevoegen</a></li>';
 				
 		
 	}
 		
-    if($page == "sales")
+     if(User::GetUserData("gebruikersrol") == 3)
     {
 					  
 	    if($id == "index") { echo '<li class="active">'; } else { echo "<li>"; }
-	    echo '<a href="./index.php">Home</a></li>';
+	    echo '<a href="'.$link.'/level/finance/index.php">Home</a></li>';
 					  
         if($id == "projects") { echo '<li class="active">'; } else { echo "<li>"; }
-	    echo '<a href="./afspraak.php">Afspraken</a></li>';
+	    echo '<a href="'.$link.'/level/finance/afspraak.php">Afspraken</a></li>';
 					  
         if($id == "invoices") { echo '<li class="active">'; } else { echo "<li>"; }
-	    echo '<a href="./addafspraak.php">Afspraak toevoegen</a></li>';
+	    echo '<a href="'.$link.'/level/finance/addafspraak.php">Afspraak toevoegen</a></li>';
 					
     }
 		
-    if($page == "admin")
+     if(User::GetUserData("gebruikersrol") == 4)
     {
                   
 					  
 	    if($id == "index") { echo '<li class="active">'; } else { echo "<li>"; }
-	    echo '<a href="./index.php">Home</a></li>';
+	    echo '<a href="'.$link.'/level/finance/index.php">Home</a></li>';
 					  
         if($id == "projects") { echo '<li class="active">'; } else { echo "<li>"; }
-	    echo '<a href="./projects.php">Projects</a></li>';
+	    echo '<a href="'.$link.'/level/finance/projects.php">Projects</a></li>';
 					  
         if($id == "invoices") { echo '<li class="active">'; } else { echo "<li>"; }
-	    echo '<a href="./invoices.php">Invoices</a></li>';
+	    echo '<a href="'.$link.'/level/finance/invoices.php">Invoices</a></li>';
 					 
 	}
+	
+	
+	
+	    if($id == "users_index") { echo '<li class="active">'; } else { echo "<li>"; }
+	    echo '<a href="../users/index.php">Portfolio klant</a></li>';
+					  
+ 
+	
 ?>
 		      </ul>
                   <ul class="nav navbar-nav navbar-right">

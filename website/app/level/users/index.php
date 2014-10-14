@@ -1,6 +1,5 @@
 <?php  
-$page = "users";
-$id = "index";
+$id = "users_index";
 include '../../../config/config.php';
 require $rootlink. '/app/templates/header.php';
 ?>
@@ -11,30 +10,18 @@ require $rootlink. '/app/templates/header.php';
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Klant nummer</th>
-            <th>Bedrijfs naam</th>
-            <th>Bankrekeningnummer</th>
-            <th>Crediet</th>
-            <th>Revenue amount</th>
-            <th>Limiet</th>
-            <th>Ledger account</th>
-            <th>BKR</th>
-            <th>Activated invoices</th>
-            <th>Deactivated invoices</th>
-            <th>Voorletter</th>
-            <th>Voornaam</th>
-            <th>Achternaam</th>
-            <th>Facturen bekijken</th>
-            <th>Klant gegevens</th>
+            <th>Medewerker</th>
+            <th>Portfiliotype</th>
+            <th>omschrijving</th>
+            <th>Aanvangsdatum</th>
+            <th>Einddatum</th>
+            <th>Opmerking</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        $sql = "SELECT * FROM klantgegevens";
-        if (! $query = mysqli_query($con, $sql)){
-            echo "Kan gegevens niet uit database halen";
-        }
-        if (mysqli_num_rows($query) > 1 ){
+       $query = $con->query("SELECT * FROM portflio");
+        if (mysqli_num_rows($query) > 0 ){
             while ($row = mysqli_fetch_object($query)){
                 echo "<tr>";
                 echo "<td>" . $row->klant_nr . "</td>";
