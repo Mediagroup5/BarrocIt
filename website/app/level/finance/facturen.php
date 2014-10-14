@@ -52,7 +52,7 @@ require $rootlink. '/app/templates/header.php';
         ?>
         </tbody>
     </table>
-    <a href="add.php">add</a>
+  
    <?php
 include $rootlink. "/app/templates/footer.php";
 ?>
