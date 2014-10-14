@@ -29,15 +29,15 @@ if (! isset($_GET['id'])){
         </div>
         <div class="form-group col-md-4">
             <label for="Naam">Onderhoudscontract</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Onderhoudscontract"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Naam">Hardware</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Hardware"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Naam">Software</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Software"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Datum">Begin Datum</label>
@@ -45,7 +45,7 @@ if (! isset($_GET['id'])){
         </div>
         <div class="form-group col-md-4">
             <label for="Datum">Eind Datum</label>
-            <input type="date" class="form-control" name="eind_datum" id="eind_datum" placeholder="Begin Datum"/>
+            <input type="date" class="form-control" name="eind_datum" id="eind_datum" placeholder="Eind Datum"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Beschrijving">Klant Nummer</label>
@@ -53,11 +53,11 @@ if (! isset($_GET['id'])){
         </div>
         <div class="form-group col-md-4">
             <label for="Naam">Afspraken</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Afspraken"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Naam">Status Project</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Status Project"/>
         </div>
         <input type="hidden" name="projectnr_id" value="<?php echo $row['projectnr_id']; ?>"/>
         <div class="form-group col-md-2">

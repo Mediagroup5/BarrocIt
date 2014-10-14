@@ -15,15 +15,15 @@ require $rootlink. '/app/templates/header.php';
         <h2 class="ha2">Project toevoegen</h2>
         <div class="form-group col-md-4">
             <label for="Naam">Onderhoudscontract</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Onderhoudscontract"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Naam">Hardware</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Hardware"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Naam">Software</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Software"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Datum">Begin Datum</label>
@@ -31,7 +31,7 @@ require $rootlink. '/app/templates/header.php';
         </div>
         <div class="form-group col-md-4">
             <label for="Datum">Eind Datum</label>
-            <input type="date" class="form-control" name="eind_datum" id="eind_datum" placeholder="Begin Datum"/>
+            <input type="date" class="form-control" name="eind_datum" id="eind_datum" placeholder="Eind Datum"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Beschrijving">Klant Nummer</label>
@@ -39,11 +39,11 @@ require $rootlink. '/app/templates/header.php';
         </div>
         <div class="form-group col-md-4">
             <label for="Naam">Afspraken</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Afspraken"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Naam">Status Project</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Status Project/>
         </div>
         <div class="form-group col-md-2">
             <input type="submit" class="btn" value="toevoegen" name="submit"/>
