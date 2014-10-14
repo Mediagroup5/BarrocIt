@@ -103,8 +103,8 @@
                       if($id == "projects") { echo '<li class="active">'; } else { echo "<li>"; }
 					  echo '<a href="./projects.php">Projects</a></li>';
 					  
-                      if($id == "invoices") { echo '<li class="active">'; } else { echo "<li>"; }
-					  echo '<a href="./invoices.php">Invoices
+                      if($id == "afspraak") { echo '<li class="active">'; } else { echo "<li>"; }
+					  echo '<a href="./afspraak.php">Afspraak Toevoegen
 					  
 					  
 					  </a></li>';
