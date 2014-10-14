@@ -30,19 +30,19 @@ require $rootlink. '/app/templates/header.php';
             echo "Kan gegevens niet uit database halen";
         }
         if (mysqli_num_rows($query) > 1 ){
-            while ($row = mysqli_fetch_assoc($query)){
+            while ($row = mysqli_fetch_object($query)){
                 echo "<tr>";
-                echo "<td>" . $row['project_naam'] . "</td>";
-                echo "<td>" . $row['onderhoudscontract'] . "</td>";
-                echo "<td>" . $row['hardware'] . "</td>";
-                echo "<td>" . $row['software'] . "</td>";
-                echo "<td>" . $row['begin_datum'] . "</td>";
-                echo "<td>" . $row['eind_datum'] . "</td>";
-                echo "<td>" . $row['klant_nr'] . "</td>";
-                echo "<td>" . $row['afspraken'] . "</td>";
-                echo "<td>" . $row['status_project'] . "</td>";
-                echo "<td><a href='edit.php?id=". $row['projectnr_id'] . "'> Bewerk </a></td>";
-                echo "<td><a href='delete.php?id=" . $row['projectnr_id'] . "'> Verwijderen </a></td>";
+                echo "<td>" . $row->project_naam . "</td>";
+                echo "<td>" . $row->onderhoudscontract . "</td>";
+                echo "<td>" . $row->hardware . "</td>";
+                echo "<td>" . $row->software . "</td>";
+                echo "<td>" . $row->begin_datum . "</td>";
+                echo "<td>" . $row->eind_datum . "</td>";
+                echo "<td>" . $row->klant_nr . "</td>";
+                echo "<td>" . $row->afspraken . "</td>";
+                echo "<td>" . $row->status_project . "</td>";
+                echo "<td><a href='edit.php?id=". $row->projectnr_id . "'> Bewerk </a></td>";
+                echo "<td><a href='delete.php?id=" . $row->projectnr_id . "'> Verwijderen </a></td>";
                 echo "</tr>";
             }
         }

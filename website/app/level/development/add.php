@@ -43,7 +43,7 @@ require $rootlink. '/app/templates/header.php';
         </div>
         <div class="form-group col-md-4">
             <label for="Naam">Status Project</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Status Project/>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Status Project"/>
         </div>
         <div class="form-group col-md-4">
             <input type="submit" class="btn btn-warning" value="Toevoegen" name="submit"/>
