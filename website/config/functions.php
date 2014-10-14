@@ -34,19 +34,19 @@ function Jordyhash($string) {
 	 switch($rank)
      {
      case 1:
-	    header("location: $link/finance/index.php");
+	    header("location: $link/level/finance/index.php");
         break;
 	 
 	 case 2:
-	    header("location: $link/development/index.php");
+	    header("location: $link/level/development/index.php");
         break;
 	 
 	 case 3:
-         header("location: $link/sales/index.php");
+         header("location: $link/level/sales/index.php");
          break;
 		 
      case 4:
-         header("location: $link/admin/index.php");
+         header("location: $link/level/admin/index.php");
          break;
 		
 	 default:
