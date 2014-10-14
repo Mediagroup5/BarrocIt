@@ -47,7 +47,7 @@ $rootlink = $_SERVER['DOCUMENT_ROOT']. $conf->rootlink;
 require("$rootlink/config/functions.php");
  
 //Users class
-require("$rootlink/config/class.users.php");
+require("$rootlink/config/classes/class.users.php");
 
 Session_start();
 ?>
