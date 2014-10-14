@@ -45,14 +45,22 @@ require $rootlink. '/app/templates/header.php';
             <label for="Naam">Status Project</label>
             <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Status Project/>
         </div>
-        <div class="form-group col-md-2">
-            <input type="submit" class="btn" value="toevoegen" name="submit"/>
+        <div class="form-group col-md-4">
+            <input type="submit" class="btn btn-warning" value="Toevoegen" name="submit"/>
         </div>
     </form>
     <?php
     if(isset($_POST['submit'])){
 
-        if (! empty($_POST['project_naam']) && ! empty($_POST['onderhoudscontract']) && ! empty($_POST['hardware']) && ! empty($_POST['software']) && ! empty($_POST['begin_datum']) && ! empty($_POST['eind_datum']) && ! empty($_POST['klant_nr']) && ! empty($_POST['afspraken']) && ! empty($_POST['status_project'])){
+        if (! empty($_POST['project_naam'])
+            && ! empty($_POST['onderhoudscontract'])
+            && ! empty($_POST['hardware'])
+            && ! empty($_POST['software'])
+            && ! empty($_POST['begin_datum'])
+            && ! empty($_POST['eind_datum'])
+            && ! empty($_POST['klant_nr'])
+            && ! empty($_POST['afspraken'])
+            && ! empty($_POST['status_project'])){
             $project_naam = mysqli_real_escape_string($con, $_POST['project_naam']);
             $onderhoudscontract = mysqli_real_escape_string($con, $_POST['onderhoudscontract']);
             $hardware = mysqli_real_escape_string($con, $_POST['hardware']);
