@@ -17,14 +17,14 @@ include "templates/header.php";
         if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }
-        if (mysqli_num_rows($query) > 1 ){
-            while ($row = mysqli_fetch_assoc($query)){
+        if (mysqli_num_rows($query) > 0 ){
+            while ($row = mysqli_fetch_object($query)){
                 echo "<tr>";
-                echo "<td>" . $row['naam'] . "</td>";
-                echo "<td>" . $row['datum'] . "</td>";
-                echo "<td>" . $row['beschrijving'] . "</td>";
-                echo "<td><a href='edit.php?id=". $row['id'] . "'> Bewerk </a></td>";
-                echo "<td><a href='delete.php?id=" . $row['id'] . "'> X </a></td>";
+                echo "<td>" . $row->naam . "</td>";
+                echo "<td>" . $row->datum . "</td>";
+                echo "<td>" . $row->beschrijving . "</td>";
+                echo "<td><a href='edit.php?id=". $row->id . "'> Bewerk </a></td>";
+                echo "<td><a href='delete.php?id=" . $row->id . "'> X </a></td>";
                 echo "</tr>";
             }
         }

@@ -12,7 +12,7 @@ if (! isset($_GET['id'])){
     $sql = "SELECT klant_nr, bedrijfs_naam, voorletters, voornaam, achternaam, adres FROM klantgegevens WHERE klant_nr = '$id'";
     $query = mysqli_query($con, $sql);
     if(mysqli_num_rows($query) == 1){
-        $row = mysqli_fetch_assoc($query);
+        $row = mysqli_fetch_object($query);
     }
 
 }
@@ -27,26 +27,27 @@ if (! isset($_GET['id'])){
         
            <div class="form-group col-md-4">
             <label for="klant_nr">klant nummer</label>
-            <input type="text" class="form-control" value='<?php echo $row['klant_nr'];?>'name="klant_nr" id="klant_nr" placeholder="klant nummer"/>
+            <input type="text" class="form-control" value='<?php echo $row->klant_nr;?>'name="klant_nr" id="klant_nr" placeholder="klant nummer"/>
         </div>
         
         <div class="form-group col-md-4">
             <label for="datum">bedrijfs naam</label>
-            <input type="text" class="form-control" value='<?php echo $row['bedrijfs_naam'];?>' name="bedrijfs_naam" id="bedrijfs_naam" placeholder="bedrijfs_naam"/>
+            <input type="text" class="form-control" value='<?php echo $row->bedrijfs_naam;?>' name="bedrijfs_naam" id="bedrijfs_naam" placeholder="bedrijfs_naam"/>
             	 </div>
       
               <div class="form-group col-md-4">
             <label for="contact_persoon">voorletters</label>
-            <input type="text" class="form-control" value='<?php echo $row['voorletters'];?>'name="voorletters" id="voorletters" placeholder="voorletters persoon"/>
+            <input type="text" class="form-control" value='<?php echo $row->voorletters;?>'name="voorletters" id="voorletters" placeholder="voorletters persoon"/>
             
         </div>
                <div class="form-group col-md-4">
             <label for="contact_persoon">voornaam</label>
-            <input type="text" class="form-control" value='<?php echo $row['voornaam'];?>'name="voornaam" id="voornaam" placeholder="voornaam persoon"/>
+            <input type="text" class="form-control" value='<?php echo $row->voornaam;?>'name="voornaam" id="voornaam" placeholder="voornaam persoon"/>
 </div>
         
                        <div class="form-group col-md-4">
             <label for="contact_persoon">achternaam</label>
+<<<<<<< HEAD
             <input type="text" class="form-control" value='<?php echo $row['achternaam'];?>'name="achternaam" id="achternaam" placeholder="achternaam persoon"/>
             
             
@@ -59,6 +60,11 @@ if (! isset($_GET['id'])){
             
 </div>
         <input type="hidden" name="klant_nr" value="<?php echo $row['klant_nr']; ?>"/>
+=======
+            <input type="text" class="form-control" value='<?php echo $row->achternaam;?>'name="achternaam" id="achternaam" placeholder="achternaam persoon"/>
+</div>
+        <input type="hidden" name="afspraken_id" value="<?php echo $row->afspraken_id; ?>"/>
+>>>>>>> origin/master
         <div class="form-group col-md-2">
             <input class="btn btn-warning" type="submit" value="Update" name="submit"/>
         </div>

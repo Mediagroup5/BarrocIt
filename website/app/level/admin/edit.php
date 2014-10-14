@@ -7,7 +7,7 @@ if (! isset($_GET['id'])){
     $sql = "SELECT id, naam, datum, beschrijving FROM projecten where id = '$id'";
     $query = mysqli_query($con, $sql);
     if(mysqli_num_rows($query) == 1){
-        $row = mysqli_fetch_assoc($query);
+        $row = mysqli_fetch_object($query);
     }
 
 }
@@ -30,7 +30,7 @@ if (! isset($_GET['id'])){
             <label for="beschrijving">beschrijving</label>
             <input type="text" class="form-control" name="beschrijving" id="beschrijving" placeholder="beschrijving van project"/>
         </div>
-        <input type="hidden" name="id" value="<?php echo $row['id']; ?>"/>
+        <input type="hidden" name="id" value="<?php echo $row->id; ?>"/>
         <div class="form-group col-md-2">
             <input class="btn btn-warning" type="submit" value="Update" name="submit"/>
         </div>

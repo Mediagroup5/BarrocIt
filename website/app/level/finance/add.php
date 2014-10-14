@@ -5,13 +5,14 @@ include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
+
     <form action="add.php" method="post" class="form col-md-12">
         <h2 class="ha2">Factuur toevoegen</h2>
         <div class="form-group col-md-6">
             <label for="Klant nummer">Klant nummer</label>
-            <input type="number" class="form-control" name="klant_nr" id="klant_nr" placeholder="Klant nummer"/>
+            <input type="number" class="form-control" name="klant_nr" id="klant_nr" placeholder="hallo"/>
         </div>
-        <div class="from-group col-md-6">
+        <div class="form-group col-md-6">
             <label for="Bedrag">Bedrag</label>
             <input type="number" class="form-control" name="bedrag" id="bedrag" placeholder="Bedrag"/>
         </div>
@@ -24,8 +25,8 @@ require $rootlink. '/app/templates/header.php';
             <input type="number" class="form-control" name="btw" id="btw" placeholder="BTW"/>
         </div>
         <div class="form-group col-md-6">
-            <label for="Factuur duur">Factuur duur</label>
-            <input type="date" class="form-control" name="factuur_duur" id="factuur_duur" placeholder="Factuur duur"/>
+            <label for="Factuur duur">Factuur t/m</label>
+            <input type="date" class="form-control" name="factuur_duur" id="factuur_duur" placeholder="Factuur t/m"/>
         </div>
         <div class="form-group col-md-6">
             <label for="Hoeveelheid">Hoeveelheid</label>
@@ -43,8 +44,8 @@ require $rootlink. '/app/templates/header.php';
             <label for="Status">Status</label>
             <input type="number" class="form-control" name="datum" id="datum" placeholder="Datum van project"/>
         </div>
-        <div class="form-group">
-            <input type="submit" class="btn" value="toevoegen" name="submit"/>
+        <div class="form-group col-md-6 ">
+            <input type="submit" class="btn btn-warning" value="toevoegen" name="submit"/>
         </div>
 
     </form>
@@ -58,7 +59,7 @@ if(isset($_POST['submit'])){
         $bedrag = mysqli_real_escape_string($con, $_POST['bedrag']);
         $project_nr = mysqli_real_escape_string($con, $_POST['project_nr']);
         $btw = mysqli_real_escape_string($con, $_POST['btw']);
-        $factuur_duur = mysqli_real_escape_string($con, $_POST['factuur_duur']);
+        $factuur_duur = mysqli_real_escape_string($con, $_POST['factuur_tot']);
         $hoeveelheid = mysqli_real_escape_string($con, $_POST['hoeveelheid']);
         $beschrijving = mysqli_real_escape_string($con, $_POST['beschrijving']);
         $aantal = mysqli_real_escape_string($con, $_POST['aantal']);
