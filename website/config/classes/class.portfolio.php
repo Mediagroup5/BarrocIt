@@ -24,7 +24,7 @@ class Portfolio
 	   $this->aanv_datum = $row->aanv_datum;
 	   $this->eind_datum = $row->eind_datum;
 	   $this->opmerking = $row->opmerking;
-    }
+    }///////homooo mitch gelooft mij niet....
 	
 	public static function FetchAllItems()
 	{
