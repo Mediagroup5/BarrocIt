@@ -19,13 +19,13 @@ redirect($role, $link);
 	  echo $_SESSION['error'];
 	  unset($_SESSION['error']);
 	  }
-	  ?><legend class="subhead">Please Log in</legend>
+	  ?><legend class="subhead" style="color: lightgray">Please Log in</legend>
         	<div class="form-group">
-        		<label for="username">Username</label>
+        		<label for="username" style="color: lightgrey;">Username</label>
         		<input type="text" name="username" id="username" class="form-control">
         	</div>
         	<div class="form-group">
-        		<label for="password">Password</label>
+        		<label for="password" style="color: lightgrey;">Password</label>
         		<input type="password" name="password" id="password" class="form-control">
         	</div>
         	<div class="form-group">
