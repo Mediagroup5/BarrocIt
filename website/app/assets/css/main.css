@@ -20,7 +20,7 @@ body {
 }
 
 h5 {
-	color: #CFC1B5 ;
+	color: gray ;
 	text-shadow: 0.3px 0.3px 1px black;
 }
 
@@ -87,12 +87,12 @@ h5 {
 }
 
 .subhead {
-	color : #CFC1B5;
+	color : gray;
 	text-shadow: 1px 1px 1px black;
 }
 
 form {
-	color: #CFC1B5;
+	color: gray;
 	margin-bottom: 20px;
 }
 

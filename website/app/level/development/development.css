@@ -17,7 +17,7 @@
 }
 .ha2{
     position: relative;
-    color: #CFC1B5;
+    color: gray;
     font-size: 50px;
     font-weight: lighter;
     padding-top: 40px;
@@ -32,7 +32,7 @@ textarea{
     padding-bottom: 40px;
 }
 .btn{
-    background-color: #CFC1B5;
+    background-color: gray;
     color: red;
 }
 
