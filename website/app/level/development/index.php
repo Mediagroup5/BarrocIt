@@ -41,6 +41,10 @@ require $rootlink. '/app/templates/header.php';
         ?>
         </tbody>
     </table>
+<?php
+$search = 
+$sql = "SELECT * FROM klantgegevens WHERE bedrijfs_naam LIKE . '%' . $search . '%'";
+?>
 <!--    <a href="add.php">add</a>-->
     <?php
 include $rootlink. "/app/templates/footer.php";
