@@ -47,25 +47,19 @@ if (! isset($_GET['id'])){
         
                        <div class="form-group col-md-4">
             <label for="contact_persoon">achternaam</label>
-<<<<<<< HEAD
-            <input type="text" class="form-control" value='<?php echo $row['achternaam'];?>'name="achternaam" id="achternaam" placeholder="achternaam persoon"/>
-            
-            
-                                   <div class="form-group col-md-4">
-            <label for="contact_persoon">Adres</label>
-            <input type="text" class="form-control" value='<?php echo $row['adres'];?>'name="adres" id="adres" placeholder="adres persoon"/>
-            
-            
-            
-            
-</div>
-        <input type="hidden" name="klant_nr" value="<?php echo $row['klant_nr']; ?>"/>
-=======
+
             <input type="text" class="form-control" value='<?php echo $row->achternaam;?>'name="achternaam" id="achternaam" placeholder="achternaam persoon"/>
-</div>
-        <input type="hidden" name="afspraken_id" value="<?php echo $row->afspraken_id; ?>"/>
->>>>>>> origin/master
-        <div class="form-group col-md-2">
+            
+            
+                                   <div class="form-group col-md-18">
+            <label for="contact_persoon">Adres</label>
+            <input type="text" class="form-control" value='<?php echo $row->adres;?>'name="adres" id="adres" placeholder="adres persoon"/>
+            
+            
+            
+ 
+        <input type="hidden" name="klant_nr" value="<?php echo $row->klant_nr; ?>"/>
+	        <div class="form-group col-md-4">
             <input class="btn btn-warning" type="submit" value="Update" name="submit"/>
         </div>
     </form>
