@@ -5,7 +5,10 @@ include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
-
+<form action="indexsearch.php" method="get">
+    <label for="Search">Search</label>
+    <input type="search" name="search" value="search"/>
+</form>
     <h2 class="ha2">Klanten</h2>
     <table class="table table-striped">
         <thead>
@@ -41,10 +44,6 @@ require $rootlink. '/app/templates/header.php';
         ?>
         </tbody>
     </table>
-<?php
-$search = 
-$sql = "SELECT * FROM klantgegevens WHERE bedrijfs_naam LIKE . '%' . $search . '%'";
-?>
 <!--    <a href="add.php">add</a>-->
     <?php
 include $rootlink. "/app/templates/footer.php";
