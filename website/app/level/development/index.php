@@ -5,10 +5,6 @@ include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
-<form action="indexsearch.php" method="get">
-    <label for="Search">Search</label>
-    <input type="search" name="search" value="search"/>
-</form>
     <h2 class="ha2">Klanten</h2>
     <table class="table table-striped">
         <thead>

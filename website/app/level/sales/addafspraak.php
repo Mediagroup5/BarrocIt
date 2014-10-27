@@ -45,17 +45,3 @@ if (! isset($_GET['id'])){
     </form>
 
 </div>
-<?php
-if (isset($_POST['submit'])){
-    $datum = mysqli_real_escape_string($con, $_POST['datum']);
-    $klant_nr = mysqli_real_escape_string($con, $_POST['klant_nr']);
-    $afspraken_id = $_POST['afspraken_id'];
-    $sql = "UPDATE afspraken SET datum = '$datum',klant_nr = '$klant_nr' WHERE afspraken_id = '$afspraken_id'";
-
-    if(! $query = mysqli_query($con, $sql)){
-        echo 'update query mislukt';
-    }else{
-        header('location: afspraak.php');
-    }
-}
-?>
