@@ -6,7 +6,7 @@ include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
   
-		
+        
   
     <h2 class="ha2">Klanten</h2>
     <table class="table table-striped">
@@ -41,8 +41,22 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->klant_nr . "</td>";
                 echo "<td>" . $row->bedrijfs_naam . "</td>";
                 echo "<td>" . $row->bankrekeningnummer . "</td>";
-                echo "<td>" . $row->crediet . "</td>";
-                echo "<td>" . $row->inkomsten . "</td>";
+                $count = 0;
+                $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+                while($factrow = mysqli_fetch_object($sqlfact))
+
+                {
+                   $count = $count + ($row->limiet - $factrow->bedrag);    
+                }
+                echo "<td>" . $count . "</td>";
+                $count = 0;
+                $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+                while($factrow = mysqli_fetch_object($sqlfact))
+                {
+                   $count = $count + $factrow->bedrag;    
+                }
+                $sqlfact = $con ->query("SELECT bedrag FROM factuur WHERE bedrag = limiet");
+                echo "<td>" . $count . "</td>";
                 echo "<td>" . $row->limiet . "</td>";
                 echo "<td>" . $row->grootboekrekeningnummer . "</td>";
                 echo "<td>" . $row->bkr . "</td>";
@@ -56,6 +70,20 @@ require $rootlink. '/app/templates/header.php';
                 echo "</tr>";
             }
         }
+
+
+
+
+
+        // $sql = "SELECT bedrag FROM factuur";
+        // if (! $query = mysqli_query($con, $sql)){
+
+        // }
+        // $bedrag = 3;
+
+        // $inkomsten = ($row->bedrag + $row->bedrag);
+
+        // var_dump($inkomsten);
         ?>
         </tbody>
     </table>
