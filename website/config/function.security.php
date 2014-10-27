@@ -11,19 +11,19 @@ $rank = User::GetUserData("gebruikersrol");
 
 if($page == "admin" && $rank != 4)
 {
-redirect($rank);
+redirect($rank, $link);
 }
 if($page == "sales" && $rank != 3)
 {
-redirect($rank);
+redirect($rank, $link);
 }
 elseif($page == "development" && $rank != 2)
 {
-redirect($rank);
+redirect($rank, $link);
 }
 elseif($page == "finance" && $rank != 1)
 {
-redirect($rank);
+redirect($rank, $link);
 }
 
 ?>
