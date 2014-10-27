@@ -5,10 +5,7 @@ include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
-<form action="indexsearch.php" method="get">
-    <label for="Search">Search</label>
-    <input type="search" name="search" value="search"/>
-</form>
+
     <h2 class="ha2">Klanten</h2>
     <table class="table table-striped">
         <thead>
@@ -24,7 +21,7 @@ require $rootlink. '/app/templates/header.php';
         </thead>
         <tbody>
         <?php
-        $sql = "SELECT klant_nr, bedrijfs_naam, voorletters, voornaam, achternaam FROM klantgegevens";
+        $sql = "SELECT * FROM klantgegevens";
         if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }
@@ -33,7 +30,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<tr>";
                 echo "<td>" . $row->klant_nr . "</td>";
                 echo "<td>" . $row->bedrijfs_naam . "</td>";
-                echo "<td>" . $row->voorletters . "</td>";
+                echo "<td>" . $row->voorletter . "</td>";
                 echo "<td>" . $row->voornaam . "</td>";
                 echo "<td>" . $row->achternaam . "</td>";
                 echo "<td><a href='project.php?id=". $row->klant_nr . "'> Project bekijk </a></td>";
