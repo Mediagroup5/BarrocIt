@@ -85,7 +85,7 @@
 
  <form  class="search" action="indexsearch.php" method="get">
     <label for="Search">Search</label>
-    <input type="search" name="search" value=""/>
+    <input type="search" name="search" />
 </form>
 		      </ul>
                   <ul class="nav navbar-nav navbar-right">
