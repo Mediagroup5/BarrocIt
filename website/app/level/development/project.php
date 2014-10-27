@@ -13,9 +13,9 @@ require $rootlink. '/app/templates/header.php';
      background-color: red !important;
 }
 
-</style
+</style>
    
-    <h2 class="ha2">Projecten</h2>
+    <H2 class="ha2">Projecten</h2>
     <table class="table table-striped">
         <thead>
     
