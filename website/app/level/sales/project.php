@@ -4,6 +4,28 @@ $id = "project";
 include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
+
+if(!isset($_GET['id']))
+{
+    die("Geen Id ingegeven.");
+}
+else
+{
+    $id = Security($_GET['id']);
+}
+
+if(isset($_GET['actie']) && isset($_GET['fact_nr']))
+{
+    $factid = Security($_GET['fact_nr']);
+    if($_GET['actie'] == "activeer")
+    {
+        $con->query("UPDATE projecten SET status_project = '1' WHERE projectnr_id = '".$factid."' LIMIT 1");
+    }
+	elseif($_GET['actie'] == "deactiveer")
+	{
+	    $con->query("UPDATE projecten SET status_project = '0' WHERE projectnr_id = '".$factid."' LIMIT 1");
+    }
+}
 ?>
 
    
@@ -20,16 +42,17 @@ require $rootlink. '/app/templates/header.php';
             <th>Eind Datum</th>
             <th>Klant nummer</th>
             <th>Afspraken</th>
-            <th>Status Project</th>
+          	<th>Actief/non-actief</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        $sql = "SELECT projectnr_id, project_naam, onderhoudscontract, hardware, software, begin_datum, eind_datum, klant_nr, afspraken, status_project FROM projecten";
-        if (! $query = mysqli_query($con, $sql)){
+        $sql = "SELECT projectnr_id, project_naam, onderhoudscontract, hardware, software, begin_datum, eind_datum, klant_nr, afspraken, status_project FROM projecten WHERE klant_nr = '".$id."'";
+     
+		if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }
-        if (mysqli_num_rows($query) > 1 ){
+        if (mysqli_num_rows($query) > 0 ){
             while ($row = mysqli_fetch_object($query)){
                 echo "<tr>";
                 echo "<td>" . $row->project_naam . "</td>";
@@ -40,8 +63,17 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->eind_datum . "</td>";
                 echo "<td>" . $row->klant_nr . "</td>";
                 echo "<td>" . $row->afspraken . "</td>";
-                echo "<td>" . $row->status_project . "</td>";
-
+				
+				if($row->status_project == 0)
+				{
+                    echo '<td> <a href="./project.php?id='.$id.'&actie=activeer&fact_nr='.$row->projectnr_id.'"><div class="btn btn-warning">Activeer</div></a></td>';
+			    }
+				elseif($row->status_project == 1)
+				{
+			        echo '<td> <a href="./project.php?id='.$id.'&actie=deactiveer&fact_nr='.$row->projectnr_id.'"><div class="btn btn-warning">Deactiveer</div></a></td>';
+				}
+				
+						
                 echo "</tr>";
             }
         }
