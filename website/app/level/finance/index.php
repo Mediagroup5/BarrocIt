@@ -60,7 +60,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->bkr . "</td>";
                 echo "<td><a href='activated.php?id=". $row->activated_facturen . "'> Activated Invoices </a></td>";
                 echo "<td><a href='deactivated.php?id=". $row->deactivated_facturen . "'> Deactivated Invoices </a></td>";
-                echo "<td>" . $row->voorletter . "</td>";
+                echo "<td>" . $row->voorletters . "</td>";
                 echo "<td>" . $row->voornaam . "</td>";
                 echo "<td>" . $row->achternaam . "</td>";
                 echo "<td><a href='facturen.php?id=". $row->klant_nr . "'> Factuur bekijk </a></td>";

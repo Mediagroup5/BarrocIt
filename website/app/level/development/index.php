@@ -33,7 +33,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<tr>";
                 echo "<td>" . $row->klant_nr . "</td>";
                 echo "<td>" . $row->bedrijfs_naam . "</td>";
-                echo "<td>" . $row->voorletter . "</td>";
+                echo "<td>" . $row->voorletters . "</td>";
                 echo "<td>" . $row->voornaam . "</td>";
                 echo "<td>" . $row->achternaam . "</td>";
                 echo "<td><a href='project.php?id=". $row->klant_nr . "'> Project bekijk </a></td>";
