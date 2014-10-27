@@ -109,6 +109,13 @@ input.form-control, textarea.form-control {
 	border-radius: 0px;
 }
 
+.search{
+	padding-top:12px;
+	margin-bottom:1px;
+	float:right;
+	margin-left: 290px;
+}
+
 .address {
 	margin-top: 20px;
 }

@@ -47,6 +47,10 @@ fieldset {
 	box-shadow:1px 1px 2px black;
 	height:34px;
 }
+.search{ 
+
+float:right; 
+}
 
 h2{
 	  color:#CFC1B5;

@@ -8,6 +8,7 @@
                       <span class="icon-bar"></span>
                   </button>
               </div>
+
               <!-- Collection of nav links and other content for toggling -->
               <div id="navbarCollapse" class="collapse navbar-collapse">
                   <ul class="nav navbar-nav">
@@ -25,6 +26,7 @@
         if($id == "add") { echo '<li class="active">'; } else { echo "<li>"; }
 		echo '<a href="'.$link.'/level/finance/add.php">Factuur Toevoegen</a></li>';
 		
+
 				
    }
    
@@ -80,6 +82,11 @@
  
 	
 ?>
+
+ <form  class="search" action="indexsearch.php" method="get">
+    <label for="Search">Search</label>
+    <input type="search" name="search" value=""/>
+</form>
 		      </ul>
                   <ul class="nav navbar-nav navbar-right">
                       <li><a class="btn-secondary" href="<?php echo $link; ?>/controllers/authcontroller.php?logout=1"><b>Log out</b></a></li>

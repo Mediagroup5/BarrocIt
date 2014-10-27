@@ -33,7 +33,7 @@
     </div>
     <div class="container">
       <div class="row">
-     
+
         
 		<?php
 		include("$rootlink/app/templates/nav.php");
