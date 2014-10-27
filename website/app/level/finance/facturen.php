@@ -15,6 +15,8 @@ require $rootlink. '/app/templates/header.php';
             <th>Bedrag</th>
             <th>Project nummer</th>
             <th>BTW</th>
+            <th>Begin Datum</th>
+            <th>Verval Datum</th>
             <th>Offer status</th>
             <th>Hoeveelheid</th>
             <th>Beschrijving</th>
@@ -37,7 +39,13 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->bedrag . "</td>";
                 echo "<td>" . $row->project_nr . "</td>";
                 echo "<td>" . $row->btw . "</td>";
+                $count = 0;
+                $sqlfact = $con->query("SELECT * FROM factuur WHERE factuur_tot = '".$row->factuur_tot."'");
+                while($factrow = mysqli_fetch_object($sqlfact))
+
                 echo "<td>" . $row->factuur_tot . "</td>";
+                echo "<td>" . $row->factuur_tot . "</td>";
+                echo "<td>" . $row->factuur_begin . "</td>";
                 echo "<td>" . $row->hoeveelheid . "</td>";
                 echo "<td>" . $row->beschrijving . "</td>";
                 echo "<td>" . $row->aantal . "</td>";
@@ -47,6 +55,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "</tr>";
             }
         }
+
 
 
         ?>
