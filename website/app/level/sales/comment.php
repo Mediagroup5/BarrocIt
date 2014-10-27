@@ -1,6 +1,6 @@
 <?php
 
-$page = "development";
+$page = "sales";
 $id = "index";
 include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';

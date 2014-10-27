@@ -45,6 +45,7 @@ require $rootlink. '/app/templates/header.php';
         </tbody>
     </table>
 <!--    <a href="add.php">add</a>-->
+<a href="comment.php" class="btn btn-primary"> Comments </a>
     <?php
 include $rootlink. "/app/templates/footer.php";
     ?>
