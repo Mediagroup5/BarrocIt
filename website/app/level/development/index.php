@@ -5,7 +5,10 @@ include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
+<<<<<<< HEAD
 
+=======
+>>>>>>> FETCH_HEAD
     <h2 class="ha2">Klanten</h2>
     <table class="table table-striped">
         <thead>
