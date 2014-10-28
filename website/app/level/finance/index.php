@@ -20,7 +20,7 @@ require $rootlink. '/app/templates/header.php';
             <th>BKR</th>
             <th>Activated invoices</th>
             <th>Deactivated invoices</th>
-            <th>Voorletter</th>
+            <th>Voorletters</th>
             <th>Voornaam</th>
             <th>Achternaam</th>
             <th>Facturen bekijken</th>
@@ -59,9 +59,9 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->limiet . "</td>";
                 echo "<td>" . $row->grootboekrekeningnummer . "</td>";
                 echo "<td>" . $row->bkr . "</td>";
-                echo "<td><a href='activated.php?id=". $row->activated_facturen . "'> Activated Invoices </a></td>";
-                echo "<td><a href='deactivated.php?id=". $row->deactivated_facturen . "'> Deactivated Invoices </a></td>";
-                echo "<td>" . $row->voorletter . "</td>";
+                echo "<td><a href='facturen.php?id=". $row->activated_facturen . "'> Activated Invoices </a></td>";
+                echo "<td><a href='facturen.php?id=". $row->deactivated_facturen . "'> Deactivated Invoices </a></td>";
+                echo "<td>" . $row->voorletters . "</td>";
                 echo "<td>" . $row->voornaam . "</td>";
                 echo "<td>" . $row->achternaam . "</td>";
                 echo "<td><a href='facturen.php?id=". $row->klant_nr . "'> Factuur bekijk </a></td>";

@@ -1,7 +1,7 @@
 <?php
 
 $page = "sales";
-$id = "index";
+$id = "comment";
 include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';

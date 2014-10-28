@@ -27,7 +27,7 @@
 		echo '<a href="'.$link.'/level/finance/add.php">Factuur Toevoegen</a></li>';
 
         if($id == "comment") { echo '<li class="active">'; } else { echo "<li>"; }
-        echo '<a href="'.$link.'/level/finance/comment.php">Comment</a></li>';
+        echo '<a href="'.$link.'/level/finance/comment.php">Comments</a></li>';
 
    }
    
@@ -44,7 +44,7 @@
 		echo '<a href="'.$link.'/level/development/add.php">Project Toevoegen</a></li>';
 
         if($id == "comment") { echo '<li class="active">'; } else { echo "<li>"; }
-        echo '<a href="'.$link.'/level/development/comment.php">Comment</a></li>';
+        echo '<a href="'.$link.'/level/development/comment.php">Comments</a></li>';
 				
 		
 	}
@@ -62,7 +62,7 @@
 	    echo '<a href="'.$link.'/level/sales/addafspraak.php">Afspraak toevoegen</a></li>';
 
         if($id == "comment") { echo '<li class="active">'; } else { echo "<li>"; }
-        echo '<a href="'.$link.'/level/sales/comment.php">Comment</a></li>';
+        echo '<a href="'.$link.'/level/sales/comment.php">Comments</a></li>';
 					
     }
 		
@@ -80,7 +80,7 @@
 	    echo '<a href="'.$link.'/level/admin/invoices.php">Invoices</a></li>';
 
         if($id == "comment") { echo '<li class="active">'; } else { echo "<li>"; }
-        echo '<a href="'.$link.'/level/admin/comment.php">Comment</a></li>';
+        echo '<a href="'.$link.'/level/admin/comment.php">Comments</a></li>';
 					 
 	}
 	
