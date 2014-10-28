@@ -1,6 +1,6 @@
 <?php  
 $page = "sales";
-$id = "addafspraak";
+$id = "addklant";
 include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
@@ -10,14 +10,13 @@ require $rootlink. '/app/templates/header.php';
 <?php
 
 if (! isset($_GET['id'])){
-    header('location: addafspraak.php');
+    header('location: addklant.php');
 }else{
     $id = intval($_GET['id']);
     $sql = "SELECT afspraken_id, datum, klant_nr FROM afspraken where afspraken_id = '$id'";
     $query = mysqli_query($con, $sql);
-    if(mysqli_num_rows($query) == 0){
         $row = mysqli_fetch_object($query);
-    }
+    
 
 }
 

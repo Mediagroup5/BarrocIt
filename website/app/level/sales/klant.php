@@ -7,7 +7,7 @@ require $rootlink. '/app/templates/header.php';
 ?>
 
     <div class="banner">
-        <h1 class="bannertxt">Development</h1>
+        <h1 class="bannertxt">Sales</h1>
     </div>
     <h2 class="ha2">Klanten</h2>
     <table class="table table-striped">
@@ -48,7 +48,7 @@ require $rootlink. '/app/templates/header.php';
         </thead>
         <tbody>
         <?php
-        $sql = "SELECT klant_nr, bedrijfs_naam, voorletter, voornaam, achternaam FROM klantgegevens";
+        $sql = "SELECT klant_nr, bedrijfs_naam, voorletters, voornaam, achternaam FROM klantgegevens";
         if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }

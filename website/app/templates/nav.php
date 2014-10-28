@@ -58,8 +58,7 @@
         if($id == "afspraak") { echo '<li class="active">'; } else { echo "<li>"; }
 	    echo '<a href="'.$link.'/level/sales/afspraak.php">Afspraken</a></li>';
 					  
-        if($id == "addafspraak") { echo '<li class="active">'; } else { echo "<li>"; }
-	    echo '<a href="'.$link.'/level/sales/addafspraak.php">Afspraak toevoegen</a></li>';
+    
 
         if($id == "comment") { echo '<li class="active">'; } else { echo "<li>"; }
         echo '<a href="'.$link.'/level/sales/comment.php">Comments</a></li>';
