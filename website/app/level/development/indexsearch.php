@@ -5,7 +5,7 @@ include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 
-$search = Security($con, $_GET['search']);
+$search = Security($_GET['search']);
 
 	if ($search) {
 	
