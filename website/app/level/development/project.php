@@ -10,7 +10,8 @@ require $rootlink. '/app/templates/header.php';
 
 <style>
     .rood {
-     background-color: red !important;
+        background-color: indianred !important;
+        color: lightgray !important;
 }
 
 </style>
