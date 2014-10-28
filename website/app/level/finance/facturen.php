@@ -8,7 +8,7 @@ require $rootlink. '/app/templates/header.php';
 
 <style>
     .rood {
-     background-color: red !important;
+     background-color: indianred !important;
 }
 
 </style>
@@ -34,8 +34,11 @@ require $rootlink. '/app/templates/header.php';
         </thead>
         <tbody>
         <?php
-
-        $sql = "SELECT * FROM factuur WHERE klant_nr = '".Security($_GET['id'])."'";
+        if(isset($_GET['id'])){
+            $sql = "SELECT * FROM factuur WHERE klant_nr = '".Security($_GET['id'])."'";
+        }else{
+            $sql = "SELECT * FROM factuur";
+        }
         if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }
@@ -59,8 +62,6 @@ require $rootlink. '/app/templates/header.php';
                 echo "</tr>";
             }
         }
-
-
 
         ?>
         </tbody>

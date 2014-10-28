@@ -30,7 +30,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<tr>";
                 echo "<td>" . $row->klant_nr . "</td>";
                 echo "<td>" . $row->bedrijfs_naam . "</td>";
-                echo "<td>" . $row->voorletter . "</td>";
+                echo "<td>" . $row->voorletters . "</td>";
                 echo "<td>" . $row->voornaam . "</td>";
                 echo "<td>" . $row->achternaam . "</td>";
                 echo "<td><a href='project.php?id=". $row->klant_nr . "'> Project bekijk </a></td>";
@@ -42,7 +42,6 @@ require $rootlink. '/app/templates/header.php';
         </tbody>
     </table>
 <!--    <a href="add.php">add</a>-->
-<IFRAME SRC="http://gorillavid.in/embed-eecxyi7czc7p-960x480.html" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH=960 HEIGHT=480></IFRAME>
 <a href="comment.php" class="btn btn-primary"> Comments </a>
     <?php
 include $rootlink. "/app/templates/footer.php";
