@@ -33,9 +33,13 @@
     </div>
     <div class="container">
       <div class="row">
+<?php
+
+setlocale(LC_MONETARY,"de_DE");
+
 
         
-		<?php
+
 		include("$rootlink/app/templates/nav.php");
 		?>
 		

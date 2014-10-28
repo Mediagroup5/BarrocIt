@@ -5,6 +5,14 @@ include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
+
+<style>
+    .rood {
+     background-color: red !important;
+}
+
+</style>
+
 <div class="container">
     <h2 class="ha2">Facturen</h2>
     <table class="table table-striped">
@@ -26,11 +34,12 @@ require $rootlink. '/app/templates/header.php';
         </thead>
         <tbody>
         <?php
+
         $sql = "SELECT * FROM factuur WHERE klant_nr = '".Security($_GET['id'])."'";
         if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }
-
+        $sql = "SELECT factuur_tot FROM factuur WHERE DATE > factuur_tot";
         if (mysqli_num_rows($query) > 0 ){
             while ($row = mysqli_fetch_object($query)){
                 echo "<tr>";
@@ -39,11 +48,6 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->bedrag . "</td>";
                 echo "<td>" . $row->project_nr . "</td>";
                 echo "<td>" . $row->btw . "</td>";
-                $count = 0;
-                $sqlfact = $con->query("SELECT * FROM factuur WHERE factuur_tot = '".$row->factuur_tot."'");
-                while($factrow = mysqli_fetch_object($sqlfact))
-
-                echo "<td>" . $row->factuur_tot . "</td>";
                 echo "<td>" . $row->factuur_tot . "</td>";
                 echo "<td>" . $row->factuur_begin . "</td>";
                 echo "<td>" . $row->hoeveelheid . "</td>";

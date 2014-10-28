@@ -26,8 +26,8 @@
         if($id == "add") { echo '<li class="active">'; } else { echo "<li>"; }
 		echo '<a href="'.$link.'/level/finance/add.php">Factuur Toevoegen</a></li>';
 
-        if($id == "comments") { echo '<li class="active">'; } else { echo "<li>"; }
-        echo '<a href="'.$link.'/level/finance/comment.php">Comments</a></li>';
+        if($id == "comment") { echo '<li class="active">'; } else { echo "<li>"; }
+        echo '<a href="'.$link.'/level/finance/comment.php">Comment</a></li>';
 
    }
    
@@ -43,8 +43,8 @@
         if($id == "add") { echo '<li class="active">'; } else { echo "<li>"; }
 		echo '<a href="'.$link.'/level/development/add.php">Project Toevoegen</a></li>';
 
-        if($id == "comments") { echo '<li class="active">'; } else { echo "<li>"; }
-        echo '<a href="'.$link.'/level/development/comment.php">Comments</a></li>';
+        if($id == "comment") { echo '<li class="active">'; } else { echo "<li>"; }
+        echo '<a href="'.$link.'/level/development/comment.php">Comment</a></li>';
 				
 		
 	}
@@ -61,8 +61,8 @@
         if($id == "addafspraak") { echo '<li class="active">'; } else { echo "<li>"; }
 	    echo '<a href="'.$link.'/level/sales/addafspraak.php">Afspraak toevoegen</a></li>';
 
-        if($id == "comments") { echo '<li class="active">'; } else { echo "<li>"; }
-        echo '<a href="'.$link.'/level/sales/comment.php">Comments</a></li>';
+        if($id == "comment") { echo '<li class="active">'; } else { echo "<li>"; }
+        echo '<a href="'.$link.'/level/sales/comment.php">Comment</a></li>';
 					
     }
 		
@@ -79,8 +79,8 @@
         if($id == "invoices") { echo '<li class="active">'; } else { echo "<li>"; }
 	    echo '<a href="'.$link.'/level/admin/invoices.php">Invoices</a></li>';
 
-        if($id == "comments") { echo '<li class="active">'; } else { echo "<li>"; }
-        echo '<a href="'.$link.'/level/admin/comment.php">Comments</a></li>';
+        if($id == "comment") { echo '<li class="active">'; } else { echo "<li>"; }
+        echo '<a href="'.$link.'/level/admin/comment.php">Comment</a></li>';
 					 
 	}
 	

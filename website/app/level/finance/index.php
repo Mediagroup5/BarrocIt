@@ -50,17 +50,18 @@ require $rootlink. '/app/templates/header.php';
                 $count = 0;
                 $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
                 while($factrow = mysqli_fetch_object($sqlfact))
+
                 {
                    $count = $count + $factrow->bedrag;    
                 }
-                $sqlfact = $con ->query("SELECT bedrag FROM factuur WHERE bedrag = limiet");
+                setlocale(LC_MONETARY,"de_DE");
                 echo "<td>" . $count . "</td>";
                 echo "<td>" . $row->limiet . "</td>";
                 echo "<td>" . $row->grootboekrekeningnummer . "</td>";
                 echo "<td>" . $row->bkr . "</td>";
                 echo "<td><a href='activated.php?id=". $row->activated_facturen . "'> Activated Invoices </a></td>";
                 echo "<td><a href='deactivated.php?id=". $row->deactivated_facturen . "'> Deactivated Invoices </a></td>";
-                echo "<td>" . $row->voorletters . "</td>";
+                echo "<td>" . $row->voorletter . "</td>";
                 echo "<td>" . $row->voornaam . "</td>";
                 echo "<td>" . $row->achternaam . "</td>";
                 echo "<td><a href='facturen.php?id=". $row->klant_nr . "'> Factuur bekijk </a></td>";
