@@ -55,10 +55,10 @@
 	    if($id == "index") { echo '<li class="active">'; } else { echo "<li>"; }
 	    echo '<a href="'.$link.'/level/sales/index.php">Home</a></li>';
 					  
-        if($id == "projects") { echo '<li class="active">'; } else { echo "<li>"; }
+        if($id == "afspraak") { echo '<li class="active">'; } else { echo "<li>"; }
 	    echo '<a href="'.$link.'/level/sales/afspraak.php">Afspraken</a></li>';
 					  
-        if($id == "invoices") { echo '<li class="active">'; } else { echo "<li>"; }
+        if($id == "addafspraak") { echo '<li class="active">'; } else { echo "<li>"; }
 	    echo '<a href="'.$link.'/level/sales/addafspraak.php">Afspraak toevoegen</a></li>';
 
         if($id == "comments") { echo '<li class="active">'; } else { echo "<li>"; }
