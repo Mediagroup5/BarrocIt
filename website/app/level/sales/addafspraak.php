@@ -28,6 +28,7 @@ require $rootlink. '/app/templates/header.php';
 
 		if (!$query 	= mysqli_query($con,"INSERT INTO afspraken (datum, klant_nr, naam, tijd, plaats, opmerkingen) 
 											VALUES ('$datum', '".$klant."', '$naam','$tijd', '$plaats', '$opmerkingen')"))  //hier voegt hij toe waar het precies inmoet in database.
+
 		{
 			echo 'kan data niet toevoegen aan database'; //alshet niet lukt krijg je dit 
 		}else{
