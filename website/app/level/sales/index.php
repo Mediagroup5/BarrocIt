@@ -12,15 +12,7 @@ require $rootlink. '/app/templates/header.php';
     <table class="table table-striped">
         <thead>
         <tr>
-<<<<<<< HEAD
-            <th>Klant nummer</th>
-            <th>Bedrijfsnaam</th>
-            <th>Voorletters</th>
-            <th>Voornaam</th>
-            <th>Achternaam</th>
-            <th>Project bekijken</th>
-            <th><a href='addklant.php'>Voeg klant toe</a></th>
-=======
+
             <th>Customer number</th>
             <th>Company Name</th>
             <th>Initials</th>
@@ -29,8 +21,7 @@ require $rootlink. '/app/templates/header.php';
             <th>View Projects</th>
             <th><a href='addklant.php?'>Add customer</a> </th>
 
->>>>>>> origin/master
-        </tr>
+     </tr>
         </thead>
         <tbody>
         <?php
