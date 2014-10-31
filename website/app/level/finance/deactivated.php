@@ -1,91 +1,114 @@
 <?php  
 $page = "finance";
-$id = "Deactivated";
+$id = "facturen";
 include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
 
-    <h2 class="ha2">Klanten</h2>
+<style>
+    .rood {
+        background-color: indianred !important;
+        color: lightgray !important;
+}
+
+</style>
+
+<div class="container">
+    <h2 class="ha2">Factuur</h2>
     <table class="table table-striped">
         <thead>
         <tr>
             <th>Klant nummer</th>
-            <th>Bedrijfs naam</th>
-            <th>Bankrekeningnummer</th>
-            <th>Crediet</th>
-            <th>Revenue amount</th>
-            <th>Limiet</th>
-            <th>Ledger account</th>
-            <th>BKR</th>
-            <th>Activated invoices</th>
-            <th>Deactivated invoices</th>
-            <th>Voorletter</th>
-            <th>Voornaam</th>
-            <th>Achternaam</th>
-            <th>Facturen bekijken</th>
-            <th>Klant gegevens</th>
+            <th>Factuur nummer</th>
+            <th>Bedrag</th>
+            <th>Project nummer</th>
+            <th>BTW</th>
+            <th>Begin Datum</th>
+            <th>Verval Datum</th>
+            <th>Offer status</th>
+            <th>Hoeveelheid</th>
+            <th>Beschrijving</th>
+            <th>Aantal</th>
+            <th>Status</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        $sql = "SELECT * FROM klantgegevens";
+        if(isset($_GET['id']))
+        {
+        $sql = "SELECT * FROM factuur WHERE klant_nr = '".Security($_GET['id'])."'";
+        }
+        else
+        {
+         $sql = "SELECT * FROM factuur";
+      
+
+        }
         if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }
+      
         if (mysqli_num_rows($query) > 0 ){
             while ($row = mysqli_fetch_object($query)){
                 echo "<tr>";
-                echo "<td>" . $row->klant_nr . "</td>";
-                echo "<td>" . $row->bedrijfs_naam . "</td>";
-                echo "<td>" . $row->bankrekeningnummer . "</td>";
-                $count = 0;
-                $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
-                while($factrow = mysqli_fetch_object($sqlfact))
 
+        
+          if($row->factuur_tot < time())
                 {
-                   $count = $count + ($row->limiet - $factrow->bedrag);    
+                echo "<td class='rood'>" . $row->klant_nr . "</td>";
+                echo "<td class='rood'>" . $row->factuur_nr . "</td>";
+                echo "<td class='rood'>" . $row->bedrag . "</td>";
+                echo "<td class='rood'>" . $row->project_nr . "</td>";
+                echo "<td class='rood'>" . $row->btw . "</td>";
+                echo "<td class='rood'>" . $row->factuur_begin . "</td>";
+                echo "<td class='rood'>" . $row->factuur_tot . "</td>";
+                echo "<td class='rood'>" . $row->hoeveelheid . "</td>";
+                echo "<td class='rood'>" . $row->beschrijving . "</td>";
+                echo "<td class='rood'>" . $row->aantal . "</td>";
+                echo "<td class='rood'>" . $row->status . "</td>";
+                // echo "<td class='rood'><a href='edit.php?id=". $row->klant_nr . "'> Bewerk </a></td>";
+                // echo "<td class='rood'><a href='delete.php?id=" . $row->klant_nr . "'> X </a></td>";
                 }
-                echo "<td>" . $count . "</td>";
-                $count = 0;
-                $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
-                while($factrow = mysqli_fetch_object($sqlfact))
+                else
                 {
-                   $count = $count + $factrow->bedrag;    
+              
+                
+
+
+                echo "<td>" . $row->klant_nr . "</td>";
+                echo "<td>" . $row->factuur_nr . "</td>";
+                echo "<td>" . $row->bedrag . "</td>";
+                echo "<td>" . $row->project_nr . "</td>";
+                echo "<td>" . $row->btw . "</td>";
+                echo "<td>" . $row->factuur_begin . "</td>";
+                echo "<td>" . $row->factuur_tot . "</td>";
+                echo "<td>" . $row->hoeveelheid . "</td>";
+                echo "<td>" . $row->beschrijving . "</td>";
+                echo "<td>" . $row->aantal . "</td>";
+                echo "<td>" . $row->status . "</td>";
+                echo "<td><a href='edit.php?id=". $row->klant_nr . "'> Bewerk </a></td>";
+                echo "<td><a href='delete.php?id=" . $row->klant_nr . "'> X </a></td>";
+
                 }
-                $sqlfact = $con ->query("SELECT bedrag FROM factuur WHERE bedrag = limiet");
-                echo "<td>" . $count . "</td>";
-                echo "<td>" . $row->limiet . "</td>";
-                echo "<td>" . $row->grootboekrekeningnummer . "</td>";
-                echo "<td>" . $row->bkr . "</td>";
-                echo "<td>" . $row->activated_facturen . "</td>";
-                echo "<td>" . $row->deactivated_facturen . "</td>";
-                echo "<td>" . $row->voorletter . "</td>";
-                echo "<td>" . $row->voornaam . "</td>";
-                echo "<td>" . $row->achternaam . "</td>";
-                echo "<td><a href='facturen.php?id=". $row->klant_nr . "'> Factuur bekijk </a></td>";
-                echo "<td><a href='klant.php?id=" . $row->klant_nr . "'> Klant gegevens </a></td>";
+
+
                 echo "</tr>";
             }
+
+         
         }
 
 
 
 
 
-        // $sql = "SELECT bedrag FROM factuur";
-        // if (! $query = mysqli_query($con, $sql)){
 
-        // }
-        // $bedrag = 3;
-
-        // $inkomsten = ($row->bedrag + $row->bedrag);
-
-        // var_dump($inkomsten);
         ?>
         </tbody>
     </table>
- <?php
+  
+   <?php
 include $rootlink. "/app/templates/footer.php";
 ?>
 </div>
