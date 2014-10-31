@@ -8,7 +8,7 @@ require $rootlink. '/app/templates/header.php';
 if(isset($_POST['submit'])){
     if(!empty($_POST['bedrijfs_naam']) || !empty($_POST['voornaam']) || !empty($_POST['achternaam'])
         || !empty($_POST['adres']) || !empty($_POST['postcode']) || !empty($_POST['residentie'])
-        || !empty($_POST['woonplaats']) || !empty($_POST['telefoon_nr']) || !empty($_POST['email'])){
+        !empty($_POST['telefoon_nr']) || !empty($_POST['email'])){
     $bedrijfs_naam = Security($_POST['bedrijfs_naam']);
     $voorletters = Security($_POST['voorletters']);
     $voornaam = Security($_POST['voornaam']);
@@ -19,16 +19,15 @@ if(isset($_POST['submit'])){
     $postcode2 = Security($_POST['postcode2']);
     $residentie = Security($_POST['residentie']);
     $residentie2 = Security($_POST['residentie2']);
-    $woonplaats = Security($_POST['woonplaats']);
     $telefoon_nr = Security($_POST['telefoon_nr']);
     $telefoonnummer2 = Security($_POST['telefoonnummer2']);
     $fax_nr = Security($_POST['fax_nr']);
     $email = Security($_POST['email']);
 
     $con->query("INSERT INTO klantgegevens(bedrijfs_naam, voorletters, voornaam, achternaam, adres, adres2,
-    postcode, postcode2, residentie, residentie2, woonplaats, telefoon_nr, telefoonnummer2, fax_nr, email)
+    postcode, postcode2, residentie, residentie2, telefoon_nr, telefoonnummer2, fax_nr, email)
     VALUES ('".$bedrijfs_naam."', '".$voorletters."', '".$voornaam."', '".$achternaam."', '".$adres."', '".$adres2."',
-    '".$postcode."', '".$postcode2."', '".$residentie."', '".$residentie2."', '".$woonplaats."',
+    '".$postcode."', '".$postcode2."', '".$residentie."', '".$residentie2."',
     '".$telefoon_nr."', '".$telefoonnummer2."', '".$fax_nr."', '".$email."')") or die(mysqli_error($con));
     }else{
         echo "Vul alle velden in!";
