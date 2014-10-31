@@ -19,13 +19,13 @@ require $rootlink. '/app/templates/header.php';
 	
 	
 	if( isset($_POST['submit'])){				//isset $_POST voegt gegevens toe aan database  	
-		$datum 			= 		$_POST['datum']; //variabele aanmaken
-		$naam 		= 	$_POST['naam'];//variabele aanmaken
-		$tijd 			= 		$_POST['tijd'];//variabele aanmaken
-		$plaats 	= $_POST['plaats'];//variabele aanmaken
-		$opmerkingen 	= $_POST['opmerkingen'];//variabele aanmaken
+		$datum 			= 		Security($_POST['datum']); //variabele aanmaken
+		$naam 		= 	Security($_POST['naam']);//variabele aanmaken
+		$tijd 			= 		Security($_POST['tijd']);//variabele aanmaken
+		$plaats 	= Security($_POST['plaats']);//variabele aanmaken
+		$opmerkingen 	= Security($_POST['opmerkingen']);//variabele aanmaken
 
-		if (!$query 	= mysqli_query($con,"INSERT INTO barroc_it(datum, naam, tijd, plaats, opmerkingen) 
+		if (!$query 	= mysqli_query($con,"INSERT INTO afspraken (datum, naam, tijd, plaats, opmerkingen) 
 											VALUES ('$datum', '$naam','$tijd', '$plaats', '$opmerkingen')"))  //hier voegt hij toe waar het precies inmoet in database.
 		{
 			echo 'kan data niet toevoegen aan database'; //alshet niet lukt krijg je dit 
