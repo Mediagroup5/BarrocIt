@@ -17,7 +17,6 @@ require $rootlink. '/app/templates/header.php';
 	
 	
 	
-	
 	if( isset($_POST['submit'])){				//isset $_POST voegt gegevens toe aan database  	
 		$datum 			= 		Security($_POST['datum']); //variabele aanmaken
 		$naam 		= 	Security($_POST['naam']);//variabele aanmaken
