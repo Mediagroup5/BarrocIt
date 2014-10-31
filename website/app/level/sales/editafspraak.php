@@ -11,7 +11,7 @@ if (! isset($_GET['id'])){
     header('location: afspraak.php');
 }else{
     $id = intval($_GET['id']);
-    $sql = "SELECT afspraken_id, datum, naam, tijd, plaatst, opmerkingen FROM afspraken where afspraken_id = '$id'";
+    $sql = "SELECT afspraken_id, datum, naam, tijd, plaats, opmerkingen FROM afspraken where afspraken_id = '$id'";
     $query = mysqli_query($con, $sql);
     if(mysqli_num_rows($query) == 1){
         $row = mysqli_fetch_assoc($query);
@@ -42,8 +42,8 @@ if (! isset($_GET['id'])){
         </div>
         
         <div class="form-group col-md-4">
-            <label for="plaatst">Plaatst</label>
-            <input type="text" class="form-control" value='<?php echo $row['plaatst'];?>'name="plaatst" id="plaatst" placeholder="plaatst "/>
+            <label for="plaats">plaats</label>
+            <input type="text" class="form-control" value='<?php echo $row['plaats'];?>'name="plaats" id="plaats" placeholder="plaats "/>
         </div>
         
            <div class="form-group col-md-10">
@@ -63,10 +63,10 @@ if (isset($_POST['submit'])){
     $datum = mysqli_real_escape_string($con, $_POST['datum']);
     $naam = mysqli_real_escape_string($con, $_POST['naam']);
     $tijd = mysqli_real_escape_string($con, $_POST['tijd']);
-    $plaatst = mysqli_real_escape_string($con, $_POST['plaatst']);
+    $plaats = mysqli_real_escape_string($con, $_POST['plaats']);
     $opmerkingen = mysqli_real_escape_string($con, $_POST['opmerkingen']);
     $afspraken_id = $_POST['afspraken_id'];
-    $sql = "UPDATE afspraken SET datum = '$datum', naam = '$naam', tijd = '$tijd', plaatst = '$plaatst', opmerkingen = '$opmerkingen' WHERE afspraken_id = '$afspraken_id'";
+    $sql = "UPDATE afspraken SET datum = '$datum', naam = '$naam', tijd = '$tijd', plaats = '$plaats', opmerkingen = '$opmerkingen' WHERE afspraken_id = '$afspraken_id'";
 
     if(! $query = mysqli_query($con, $sql)){
         echo 'update query mislukt';

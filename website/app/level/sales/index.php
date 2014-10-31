@@ -8,17 +8,17 @@ require $rootlink. '/app/templates/header.php';
     <div class="banner">
         <h1 class="bannertxt">Sales</h1>
     </div>
-    <h2 class="ha2">Klanten</h2>
+    <h2 class="ha2">Customers</h2>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Klant nummer</th>
-            <th>Bedrijfsnaam</th>
-            <th>Voorletters</th>
-            <th>Voornaam</th>
-            <th>Achternaam</th>
-            <th>Project bekijken</th>
-            <th><a href='addklant.php?'>Voeg klant toe</a> </th>
+            <th>Customer number</th>
+            <th>Company Name</th>
+            <th>Initials</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>View Projects</th>
+            <th><a href='addklant.php?'>Add customer</a> </th>
 
         </tr>
         </thead>

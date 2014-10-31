@@ -11,15 +11,15 @@ require $rootlink. '/app/templates/header.php';
     <div class="banner">
         <h1 class="bannertxt">Sales</h1>
     </div>
-    <h2 class="ha2">Afspraken</h2>
+    <h2 class="ha2">Appointments</h2>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Datum</th>
-            <th>Klant nummer</th>
-            <th>Naam</th>
-                       <th>Bewerk afspraken </th>
-                       <th><a href='addafspraak.php'>Voeg afspraak toe</a> </th>
+            <th>Date</th>
+            <th>Customer number</th>
+            <th>Name</th>
+                       <th>Edit Appointments </th>
+                       <th><a href='addafspraak.php'>Add Appointments </a> </th>
 
         </tr>
         </thead>

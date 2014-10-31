@@ -53,16 +53,8 @@ require $rootlink. '/app/templates/header.php';
 <thead>
 			<tr>
 			<form action="" method="POST">
-				<label for="datum">datum</label>
-				<input type="date" name="datum" id="datum" required>
-                <br><br>
 				
-
-				<label for="naam">naam</label>
-				<input type="text" name="naam" id="naam" required>
-				<br><br>
-				
-<label for="klant">Klant</label>
+				<label for="klant">Klant</label>
 <select name="klant">
 <?php
 $sql = $con->query("SELECT klant_nr,bedrijfs_naam FROM klantgegevens");
@@ -72,6 +64,17 @@ while($row = mysqli_fetch_object($sql))
   ?>
 </select>
 <br><br>
+				
+				<label for="datum">datum</label>
+				<input type="date" name="datum" id="datum" required>
+                <br><br>
+				
+
+				<label for="naam">naam</label>
+				<input type="text" name="naam" id="naam" required>
+				<br><br>
+				
+
 				<label for="tijd">tijd</label>
 				<input type="time" name="tijd" id="tijd" required>
 
