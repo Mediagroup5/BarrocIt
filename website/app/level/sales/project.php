@@ -34,15 +34,15 @@ if(isset($_GET['actie']) && isset($_GET['fact_nr']))
         <thead>
     
         <tr>
-            <th>Project Naam</th>
-            <th>Onderhoudscontract</th>
+            <th>Project Name</th>
+            <th>Maintenance Contract</th>
             <th>Hardware</th>
             <th>Software</th>
-            <th>Begin Datum</th>
-            <th>Eind Datum</th>
-            <th>Klant nummer</th>
-            <th>Afspraken</th>
-          	<th>Actief/non-actief</th>
+            <th>Start date</th>
+            <th>End Date</th>
+            <th>Customer NUmber</th>
+            <th>Appointments</th>
+          	<th>Active/non-active</th>
         </tr>
         </thead>
         <tbody>
@@ -66,11 +66,11 @@ if(isset($_GET['actie']) && isset($_GET['fact_nr']))
 				
 				if($row->status_project == 0)
 				{
-                    echo '<td> <a href="./project.php?id='.$id.'&actie=activeer&fact_nr='.$row->projectnr_id.'"><div class="btn btn-warning">Activeer</div></a></td>';
+                    echo '<td> <a href="./project.php?id='.$id.'&actie=activeer&fact_nr='.$row->projectnr_id.'"><div class="btn btn-warning">Activate</div></a></td>';
 			    }
 				elseif($row->status_project == 1)
 				{
-			        echo '<td> <a href="./project.php?id='.$id.'&actie=deactiveer&fact_nr='.$row->projectnr_id.'"><div class="btn btn-warning">Deactiveer</div></a></td>';
+			        echo '<td> <a href="./project.php?id='.$id.'&actie=deactiveer&fact_nr='.$row->projectnr_id.'"><div class="btn btn-warning">Deactivate</div></a></td>';
 				}
 				
 						

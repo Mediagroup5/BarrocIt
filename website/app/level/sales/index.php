@@ -45,7 +45,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->voorletters . "</td>";
                 echo "<td>" . $row->voornaam . "</td>";
                 echo "<td>" . $row->achternaam . "</td>";
-                echo "<td><a href='project.php?id=". $row->klant_nr . "'> Bekijk</a></td>";
+                echo "<td><a href='project.php?id=". $row->klant_nr . "'> View</a></td>";
 
 	
                 echo "</tr>";

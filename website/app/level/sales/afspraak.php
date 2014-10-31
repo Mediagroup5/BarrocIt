@@ -1,6 +1,6 @@
 <?php  
 $page = "sales";
-$id = "index";
+$id = "afspraak";
 include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
