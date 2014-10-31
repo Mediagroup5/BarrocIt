@@ -10,17 +10,23 @@ require $rootlink. '/app/templates/header.php';
 	if (!$con){
 		echo 'Kan geen connectie maken met database';
 		die();
-			  }  	//als hij geen connectie maakt dan doet hij dit.
+	}  	//als hij geen connectie maakt dan doet hij dit.
 	
-	if( isset($_POST['submit'])){				     //isset $_POST voegt gegevens toe aan database  	
-		$datum 			= $_POST['datum'];		    //variabele aanmaken
-		$naam 			= $_POST['naam'];    	   //variabele aanmaken
-		$tijd 			= $_POST['tijd'];	      //variabele aanmaken
-		$plaats 		= $_POST['plaats'];      //variabele aanmaken
+	
+
+	
+	
+	
+	
+	if( isset($_POST['submit'])){				//isset $_POST voegt gegevens toe aan database  	
+		$datum 			= 		$_POST['datum']; //variabele aanmaken
+		$naam 		= 	$_POST['naam'];//variabele aanmaken
+		$tijd 			= 		$_POST['tijd'];//variabele aanmaken
+		$plaats 	= $_POST['plaats'];//variabele aanmaken
 		$opmerkingen 	= $_POST['opmerkingen'];//variabele aanmaken
 
-	if (!$query = mysqli_query($con,"INSERT INTO barroc_it(datum, naam, tijd, plaats, opmerkingen) 
-											VALUES 		('$datum', '$naam','$tijd', '$plaats', '$opmerkingen')"))  //hier voegt hij toe waar het precies inmoet in database.
+		if (!$query 	= mysqli_query($con,"INSERT INTO barroc_it(datum, naam, tijd, plaats, opmerkingen) 
+											VALUES ('$datum', '$naam','$tijd', '$plaats', '$opmerkingen')"))  //hier voegt hij toe waar het precies inmoet in database.
 		{
 			echo 'kan data niet toevoegen aan database'; //alshet niet lukt krijg je dit 
 		}else{
@@ -30,6 +36,8 @@ require $rootlink. '/app/templates/header.php';
 
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -70,7 +78,7 @@ require $rootlink. '/app/templates/header.php';
 		
 				</form>
 				
-			</tr>
+				</tr>
 </thead>
 
 	</div>
