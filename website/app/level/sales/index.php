@@ -18,8 +18,7 @@ require $rootlink. '/app/templates/header.php';
             <th>Voornaam</th>
             <th>Achternaam</th>
             <th>Project bekijken</th>
-            <th><a href='addklant.php?'>Voeg klant toe</a> </th>
-
+            <th><a href='addklant.php'>Voeg klant toe</a></th>
         </tr>
         </thead>
         <tbody>
