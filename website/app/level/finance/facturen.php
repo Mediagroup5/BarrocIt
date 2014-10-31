@@ -60,7 +60,14 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td class='rood'>" . $row->factuur_nr . "</td>";
                 echo "<td class='rood'>" . $row->bedrag . "</td>";
                 echo "<td class='rood'>" . $row->project_nr . "</td>";
-                echo "<td class='rood'>" . $row->btw . "</td>";
+                $count = 0;
+                $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+                while($factrow = mysqli_fetch_object($sqlfact))
+
+                {
+                   $count = $count + $factrow->bedrag /100 * 121;    
+                }
+                echo "<td class='rood'>" . $count . "</td>";
                 echo "<td class='rood'>" . $row->factuur_begin . "</td>";
                 echo "<td class='rood'>" . $row->factuur_tot . "</td>";
                 echo "<td class='rood'>" . $row->hoeveelheid . "</td>";
@@ -80,7 +87,14 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->factuur_nr . "</td>";
                 echo "<td>" . $row->bedrag . "</td>";
                 echo "<td>" . $row->project_nr . "</td>";
-                echo "<td>" . $row->btw . "</td>";
+                $count = 0;
+                $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+                while($factrow = mysqli_fetch_object($sqlfact))
+
+                {
+                   $count = $count + $factrow->bedrag /100 * 121;   
+                }
+                echo "<td>" . $count . "</td>";
                 echo "<td>" . $row->factuur_begin . "</td>";
                 echo "<td>" . $row->factuur_tot . "</td>";
                 echo "<td>" . $row->hoeveelheid . "</td>";

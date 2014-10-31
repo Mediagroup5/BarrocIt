@@ -10,9 +10,9 @@ require $rootlink. '/app/templates/header.php';
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Klant nummer</th>
-            <th>Bedrijfs naam</th>
-            <th>Bankrekeningnummer</th>
+            <th>Customer Name</th>
+            <th>Company Name</th>
+            <th>Bank Account</th>
             <th>Crediet</th>
             <th>Revenue amount</th>
             <th>Limiet</th>
@@ -20,11 +20,11 @@ require $rootlink. '/app/templates/header.php';
             <th>BKR</th>
             <th>Activated invoices</th>
             <th>Deactivated invoices</th>
-            <th>Voorletters</th>
-            <th>Voornaam</th>
-            <th>Achternaam</th>
-            <th>Facturen bekijken</th>
-            <th>Klant gegevens</th>
+            <th>Initials</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Invoices</th>
+            <th>Customer Data</th>
         </tr>
         </thead>
         <tbody>
@@ -44,7 +44,7 @@ require $rootlink. '/app/templates/header.php';
                 while($factrow = mysqli_fetch_object($sqlfact))
 
                 {
-                   $count = $count + ($row->limiet - $factrow->bedrag);    
+                   $count = $count + ($factrow->bedrag -$row->limiet);    
                 }
                 echo "<td>" . $count . "</td>";
                 $count = 0;
@@ -54,17 +54,17 @@ require $rootlink. '/app/templates/header.php';
                 {
                    $count = $count + $factrow->bedrag;    
                 }
-                setlocale(LC_MONETARY,"de_DE");
+
                 echo "<td>" . $count . "</td>";
                 echo "<td>" . $row->limiet . "</td>";
                 echo "<td>" . $row->grootboekrekeningnummer . "</td>";
                 echo "<td>" . $row->bkr . "</td>";
-                echo "<td><a href='facturen.php?id=". $row->activated_facturen . "'> Activated Invoices </a></td>";
-                echo "<td><a href='facturen.php?id=". $row->deactivated_facturen . "'> Deactivated Invoices </a></td>";
+                echo "<td><a href='facturen.php?id=". $row->klant_nr . "'> Activated Invoices </a></td>";
+                echo "<td><a href='facturen.php?id=". $row->klant_nr . "'> Deactivated Invoices </a></td>";
                 echo "<td>" . $row->voorletters . "</td>";
                 echo "<td>" . $row->voornaam . "</td>";
                 echo "<td>" . $row->achternaam . "</td>";
-                echo "<td><a href='facturen.php?id=". $row->klant_nr . "'> Factuur bekijk </a></td>";
+                echo "<td><a href='facturen.php?id=". $row->klant_nr . "'> Facturens bekijken </a></td>";
                 echo "<td><a href='klant.php?id=" . $row->klant_nr . "'> Klant gegevens </a></td>";
                 echo "</tr>";
             }
