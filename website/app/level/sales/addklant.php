@@ -8,7 +8,7 @@ require $rootlink. '/app/templates/header.php';
 if(isset($_POST['submit'])){
     if(!empty($_POST['bedrijfs_naam']) || !empty($_POST['voornaam']) || !empty($_POST['achternaam'])
         || !empty($_POST['adres']) || !empty($_POST['postcode']) || !empty($_POST['residentie'])
-        !empty($_POST['telefoon_nr']) || !empty($_POST['email'])){
+        || !empty($_POST['telefoon_nr']) || !empty($_POST['email'])){
     $bedrijfs_naam = Security($_POST['bedrijfs_naam']);
     $voorletters = Security($_POST['voorletters']);
     $voornaam = Security($_POST['voornaam']);
