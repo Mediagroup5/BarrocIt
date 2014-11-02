@@ -4,10 +4,7 @@ $id = "project";
 include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
-
-
 ?>
-
 <style>
     .rood {
         background-color: indianred !important;
@@ -16,20 +13,19 @@ require $rootlink. '/app/templates/header.php';
 
 </style>
    
-    <H2 class="ha2">Projecten</h2>
+    <H2 class="ha2">Projects</h2>
     <table class="table table-striped">
         <thead>
-    
         <tr>
-            <th>Project Naam</th>
-            <th>Onderhoudscontract</th>
+            <th>Project Name</th>
+            <th>Maintenance Contract</th>
             <th>Hardware</th>
             <th>Software</th>
-            <th>Begin Datum</th>
-            <th>Eind Datum</th>
-            <th>Klant nummer</th>
-            <th>Afspraken</th>
-            <th>Status Project</th>
+            <th>Start date</th>
+            <th>End Date</th>
+            <th>Customer Number</th>
+            <th>Appointments</th>
+            <th>Active/non-active</th>
         </tr>
         </thead>
         <tbody>
@@ -61,7 +57,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td class='rood'>" . $row->klant_nr . "</td>";
                 echo "<td class='rood'>" . $row->afspraken . "</td>";
                 echo "<td class='rood'>" . $row->status_project . "</td>";
-                echo "<td class='rood'>Gedeactiveerd!</td>";
+                echo "<td class='rood'>Deactivated!</td>";
 				}
 				else
 				{
@@ -74,7 +70,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->klant_nr . "</td>";
                 echo "<td>" . $row->afspraken . "</td>";
                 echo "<td>" . $row->status_project . "</td>";
-                echo "<td><a href='edit.php?id=". $row->projectnr_id . "'> Bewerk </a></td>";
+                echo "<td><a href='edit.php?id=". $row->projectnr_id . "'> Edit </a></td>";
 				}
 				
              //   echo "<td><a href='delete.php?id=" . $row->projectnr_id . "'> Verwijderen </a></td>";
@@ -83,10 +79,7 @@ require $rootlink. '/app/templates/header.php';
         }
         ?>
         </tbody>
-
     </table>
-
-
     <?php
 include $rootlink. "/app/templates/footer.php";
     ?>

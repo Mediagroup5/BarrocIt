@@ -12,9 +12,9 @@ require $rootlink. '/app/templates/header.php';
     <div class="banner">
        
     <form action="add.php" method="post" class="form col-md-12">
-        <h2 class="ha2">Project toevoegen</h2>
+        <h2 class="ha2">Add project</h2>
         <div class="form-group col-md-4">
-            <label for="Naam">Onderhoudscontract</label>
+            <label for="Naam">Maintenance contract</label>
             <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Onderhoudscontract"/>
         </div>
         <div class="form-group col-md-4">
@@ -26,19 +26,19 @@ require $rootlink. '/app/templates/header.php';
             <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Software"/>
         </div>
         <div class="form-group col-md-4">
-            <label for="Datum">Begin Datum</label>
+            <label for="Datum">Start date</label>
             <input type="date" class="form-control" name="begin_datum" id="begin_datum" placeholder="Begin Datum"/>
         </div>
         <div class="form-group col-md-4">
-            <label for="Datum">Eind Datum</label>
+            <label for="Datum">End date</label>
             <input type="date" class="form-control" name="eind_datum" id="eind_datum" placeholder="Eind Datum"/>
         </div>
         <div class="form-group col-md-4">
-            <label for="Beschrijving">Klant Nummer</label>
+            <label for="Beschrijving">Customer number</label>
             <input type="text" class="form-control" name="Klant Nummer" id="klant_nr" placeholder="Klant nummer"/>
         </div>
         <div class="form-group col-md-4">
-            <label for="Naam">Afspraken</label>
+            <label for="Naam">Appointments</label>
             <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Afspraken"/>
         </div>
         <div class="form-group col-md-4">
@@ -46,7 +46,7 @@ require $rootlink. '/app/templates/header.php';
             <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Status Project"/>
         </div>
         <div class="form-group col-md-4">
-            <input type="submit" class="btn btn-warning" value="Toevoegen" name="submit"/>
+            <input type="submit" class="btn btn-primary" value="Add" name="submit"/>
         </div>
     </form>
     <?php
@@ -74,7 +74,7 @@ require $rootlink. '/app/templates/header.php';
             $sql = "INSERT INTO projecten (project_naam, onderhoudscontract, hardware, software, begin_datum, eind_datum, klant_nr, afspraken, status_project) VALUES ('$project_naam','$onderhoudscontract','$hardware', '$software', '$begin_datum', '$eind_datum', '$klant_nr', '$afspraken')";
 
             if (! $query = mysqli_query($con, $sql)){
-                echo 'project toevoegen is niet gelukt. <a href="index.php"> Klik hier om terug te keren</a>';
+                echo 'Failed to add project <a href="index.php"> click here to return to the home page</a>';
             }else{
                 header('location: index.php');
             }

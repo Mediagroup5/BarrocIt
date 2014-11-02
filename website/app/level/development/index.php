@@ -12,11 +12,11 @@ require $rootlink. '/app/templates/header.php';
         <tr>
             <th>Customer number</th>
             <th>Company name</th>
-            <th>Voorletters</th>
-            <th>Voornaam</th>
-            <th>Achternaam</th>
+            <th>Initials</th>
+            <th>First name</th>
+            <th>Last name</th>
             <th>View project</th>
-            <th>Klant gegevens</th>
+            <th>Customer data</th>
         </tr>
         </thead>
         <tbody>
@@ -34,7 +34,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->voornaam . "</td>";
                 echo "<td>" . $row->achternaam . "</td>";
                 echo "<td><a href='project.php?id=". $row->klant_nr . "'> View project </a></td>";
-                echo "<td><a href='klant.php?id=" . $row->klant_nr . "'> Klant gegevens </a></td>";
+                echo "<td><a href='klant.php?id=" . $row->klant_nr . "'> Customer data </a></td>";
                 echo "</tr>";
             }
         }
@@ -42,10 +42,6 @@ require $rootlink. '/app/templates/header.php';
         </tbody>
     </table>
 <!--    <a href="add.php">add</a>-->
-<<<<<<< HEAD
-
-=======
->>>>>>> FETCH_HEAD
 <a href="comment.php" class="btn btn-primary"> Comments </a>
     <?php
 include $rootlink. "/app/templates/footer.php";
