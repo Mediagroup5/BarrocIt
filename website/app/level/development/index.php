@@ -6,16 +6,16 @@ include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
 
-    <h2 class="ha2">Klanten</h2>
+    <h2 class="ha2">Customers</h2>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Klant nummer</th>
-            <th>Bedrijfsnaam</th>
+            <th>Customer number</th>
+            <th>Company name</th>
             <th>Voorletters</th>
             <th>Voornaam</th>
             <th>Achternaam</th>
-            <th>Project bekijken</th>
+            <th>View project</th>
             <th>Klant gegevens</th>
         </tr>
         </thead>
@@ -33,7 +33,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->voorletters . "</td>";
                 echo "<td>" . $row->voornaam . "</td>";
                 echo "<td>" . $row->achternaam . "</td>";
-                echo "<td><a href='project.php?id=". $row->klant_nr . "'> Project bekijk </a></td>";
+                echo "<td><a href='project.php?id=". $row->klant_nr . "'> View project </a></td>";
                 echo "<td><a href='klant.php?id=" . $row->klant_nr . "'> Klant gegevens </a></td>";
                 echo "</tr>";
             }
