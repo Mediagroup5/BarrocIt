@@ -6,7 +6,7 @@ include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
     <h2 class="ha2">Customer data</h2>
-    <table class="table table-condensed">
+    <table class="table table-striped">
         <thead>
         <tr>
             <th>Customer number</th>
