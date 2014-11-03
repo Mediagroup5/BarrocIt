@@ -33,10 +33,7 @@ header('location: afspraak.php');   //blijft op zelfde pagina.
 <head>
 
 <div class="container">
-    <div class="banner">
-        <h1 class="bannertxt">Sales</h1>
-    </div>
-    <h2 class="ha2">New Appointment</h2>
+    <h2 class="ha2">New Project</h2>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -51,32 +48,66 @@ header('location: afspraak.php');   //blijft op zelfde pagina.
                         echo'<option value="'.$row->klant_nr.'">'.$row->bedrijfs_naam.'</option>';
                     ?>
                 </select>
+                <br>
+
+                <div class="form-group">
+                    <label for="Maintenance contract">Maintenance contract</label>
+                    <select class="form-control col-md-4">
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                    </select>
+                </div>
                 <br><br>
 
-                <label for="datum">Date</label>
-                <input class="form-control" type="date" name="datum" id="datum" required>
-                <br><br>
+
+                <div class="form-group">
+                    <label for="Hardware">Hardware</label>
+                    <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Hardware"/>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Software">Software</label>
+                    <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Software"/>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Start date">Start date</label>
+                    <input type="date" class="form-control" name="begin_datum" id="begin_datum" placeholder="Start Date"/>
+                </div>
+                <br>
 
 
-                <label for="naam">Name</label>
-                <input  class="form-control" type="text" name="naam" id="naam" required>
-                <br><br>
+                <div class="form-group">
+                    <label for="End date">End date</label>
+                    <input type="date" class="form-control" name="eind_datum" id="eind_datum" placeholder="End Date"/>
+                </div>
+                <br>
 
 
-                <label for="tijd">Time</label>
-                <input  class="form-control" type="time" name="tijd" id="tijd" required>
+                <div class="form-group">
+                    <label for="Customer number">Customer number</label>
+                    <input type="text" class="form-control" name="Klant Nummer" id="klant_nr" placeholder="Customer number"/>
+                </div>
+                <br>
 
 
-                <br><br>
+                <div class="form-group">
+                    <label for="Appointments">Appointments</label>
+                    <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Appointments"/>
+                </div>
+                <br>
 
-                <label for="plaats">Place</label>
-                <input  class="form-control" type="text" name="plaats" id="plaats" required>
-                <br><br>
 
-                <label for="opmerkingen">remarks</label>
-                <textarea  class="form-control" name="opmerkingen" id="opmerkingen" cols="30" required></textarea>
-                <br><br>
-                <input  class="btn btn-primary" name="submit" type="submit" value="toevoegen">
+                <div class="form-group">
+                    <label for="Status Project">Status Project</label>
+                    <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Status Project"/>
+                </div>
+                <br>
+
+
+                <div class="form-group ">
+                    <input type="submit" class="btn btn-primary col-md-1" value="Add" name="submit"/>
+                </div>
 
             </form>
 
@@ -86,45 +117,6 @@ header('location: afspraak.php');   //blijft op zelfde pagina.
 </div>
 </body>
 </html>
-
-<h2>Add project</h2>
-    <form action="add.php" method="post">
-        <div class="form-group col-md-4">
-            <label for="Naam">Maintenance contract</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Onderhoudscontract"/>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="Naam">Hardware</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Hardware"/>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="Naam">Software</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Software"/>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="Datum">Start date</label>
-            <input type="date" class="form-control" name="begin_datum" id="begin_datum" placeholder="Begin Datum"/>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="Datum">End date</label>
-            <input type="date" class="form-control" name="eind_datum" id="eind_datum" placeholder="Eind Datum"/>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="Beschrijving">Customer number</label>
-            <input type="text" class="form-control" name="Klant Nummer" id="klant_nr" placeholder="Klant nummer"/>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="Naam">Appointments</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Afspraken"/>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="Naam">Status Project</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Status Project"/>
-        </div>
-        <div class="form-group col-md-3">
-            <input type="submit" class="btn btn-primary col-md-4" value="Add" name="submit"/>
-        </div>
-    </form>
     <?php
     if(isset($_POST['submit'])){
 

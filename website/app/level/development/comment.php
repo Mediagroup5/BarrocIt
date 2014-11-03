@@ -7,12 +7,13 @@ include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
     <h1>Comments</h1>
+<br><br>
     <table class="table table-striped">
-        <tr>
+<!--        <tr>
             <th>Name</th>
             <th>Date</th>
             <th>Comment</th>
-        </tr>
+        </tr>-->
         <?php
         $sql = "SELECT * FROM reacties";
         if (! $query = mysqli_query($con, $sql)){
@@ -20,13 +21,30 @@ require $rootlink. '/app/templates/header.php';
         }
         if (mysqli_num_rows($query) > 1 ){
             while ($row = mysqli_fetch_object($query)){
-                echo "<tr>";
-                echo "<td>" . $row->naam . "</td>";
-                echo "<td>" . $row->datum . "</td>";
-                echo "<td>" . $row->reactie . "</td>";
-                echo "</tr>";
+
+                $name = $row->naam;
+                $date = $row->datum;
+                $comment = $row->reactie;
+                ?>
+                <form action="comment.php" method="post">
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input type="text" name="name" id="name" value="<?php echo $name ?>" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="Date">Date</label>
+                        <input type="text" name="date" id="date" value="<?php echo $date ?>" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="Comment">Comment</label>
+                        <textarea type="text" name="comment" id="comment" class="form-control"><?php echo $comment?></textarea>
+                    </div>
+                    <br><br>
+                </form>
+        <?php
             }
         }
+        $dateToday = date("d/m/Y");
         ?>
     </table>
     <form action="comment.php" method="post">
@@ -37,7 +55,7 @@ require $rootlink. '/app/templates/header.php';
         </div>
         <div class="form-group">
             <label for="Datum">Date</label>
-            <input type="date" name="datum" class="form-control"/>
+            <input type="text" name="datum" value="<?php echo $dateToday ?>" class="form-control"/>
         </div>
         <div class="form-group">
             <label for="Reactie">Comment</label>
@@ -49,6 +67,7 @@ require $rootlink. '/app/templates/header.php';
         </div>
     </form>
 <?php
+
 if (isset($_POST['submit'])){
 
     $naam = mysqli_real_escape_string($con, $_POST['naam']);

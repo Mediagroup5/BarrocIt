@@ -17,6 +17,7 @@ require $rootlink. '/app/templates/header.php';
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>Project Number</th>
             <th>Project Name</th>
             <th>Maintenance Contract</th>
             <th>Hardware</th>
@@ -48,6 +49,7 @@ require $rootlink. '/app/templates/header.php';
 				
 				if($row->status_project == 0)
 				{
+                echo "<td class='rood'>" . $row->projectnr_id . "</td>";
 				echo "<td class='rood'>" . $row->project_naam . "</td>";
                 echo "<td class='rood'>" . $row->onderhoudscontract . "</td>";
                 echo "<td class='rood'>" . $row->hardware . "</td>";
