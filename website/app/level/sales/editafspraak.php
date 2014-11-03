@@ -46,7 +46,7 @@ if (! isset($_GET['id'])){
             <input type="text" class="form-control" value='<?php echo $row['plaats'];?>'name="plaats" id="plaats" placeholder="plaats "/>
         </div>
         
-           <div class="form-group col-md-10">
+           <div class="form-group col-md-8">
             <label for="opmerkingen">Remarks</label>
             <input type="text" class="form-control" value='<?php echo $row['opmerkingen'];?>'name="opmerkingen" id="opmerkingen" placeholder="opmerkingen "/>
         </div>
