@@ -33,7 +33,11 @@ if (! isset($_GET['id'])){
             <input type="number" class="form-control" name="bedrag" id="bedrag"
                    value="<?php echo $row->bedrag; ?>" placeholder="Bedrag"/>
         </div>
-
+        <div class="form-group col-md-4">
+            <label for="Factuur duur">Start date</label>
+            <input type="date" class="form-control" name="factuur_begin" id="factuur_begin"
+                   value="<?php echo $row->factuur_tot; ?>" placeholder="Factuur t/m"/>
+        </div>
 
         <div class="form-group col-md-4">
             <label for="Factuur duur">Invoice last date</label>

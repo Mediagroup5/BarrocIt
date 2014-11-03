@@ -38,22 +38,31 @@ beschrijving, aantal, status) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$b
 
     <form action="add.php" method="post" class="form col-md-12">
         <h2 class="ha2">Add Invoices</h2>
+                <label for="klant">Company Name</label>
+                <select  class="form-control" name="klant">
+                    <?php
+                    $sql = $con->query("SELECT klant_nr,bedrijfs_naam FROM klantgegevens");
+                    while($row = mysqli_fetch_object($sql))
 
-        <div class="form-group col-md-6">
-            <label for="Klant nummer">Company Name</label>
-            <input type="number" class="form-control" name="bedrijfs_naam" id="bedrijfs_naam" placeholder="hallo"/>
-        </div>
+                        echo'<option value="'.$row->klant_nr.'">'.$row->bedrijfs_naam.'</option>';
+                    ?>
+                </select>
+                <br><br>
         <div class="form-group col-md-6">
             <label for="Bedrag">Amount</label>
             <input type="number" class="form-control" name="bedrag" id="bedrag" placeholder="Bedrag"/>
         </div>
         <div class="form-group col-md-6">
-            <label for="Factuur duur">Invoice Last date</label>
-            <input type="date" class="form-control" name="factuur_duur" id="factuur_duur" placeholder="Factuur t/m"/>
+            <label for="Factuur duur">Start date</label>
+            <input type="date" class="form-control" name="factuur_begin" id="factuur_begin" placeholder="Start date"/>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="Factuur duur">Last date</label>
+            <input type="date" class="form-control" name="factuur_tot" id="factuur_tot" placeholder="Last date"/>
         </div>
         <div class="form-group col-md-6">
             <label for="Beschrijving">Description</label>
-            <input type="text" class="form-control" name="beschrijving" id="beschrijving" placeholder="Beschrijving van project"/>
+            <input type="text" class="form-control" name="beschrijving" id="beschrijving" placeholder="Description"/>
         </div>
         <div class="form-group col-md-6 ">
             <input type="submit" class="btn btn-warning" value="Submit" name="submit"/>

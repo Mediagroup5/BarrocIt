@@ -26,7 +26,6 @@ require $rootlink. '/app/templates/header.php';
             <th>BTW(incl)</th>
             <th>Start Date</th>
             <th>Last Date</th>
-            <th>Offer status</th>
             <th>Quantity</th>
             <th>Description</th>
             <th>Number</th>
