@@ -27,27 +27,27 @@ if (! isset($_GET['id'])){
     <form action="editafspraak.php" method="POST">
         
         <div class="form-group col-md-4">
-            <label for="datum">Datum</label>
+            <label for="datum">Date</label>
             <input type="date" class="form-control" value='<?php echo $row['datum'];?>' name="datum" id="datum" placeholder="datum van project"/>
             	
         </div>
         <div class="form-group col-md-4">
-            <label for="naam">Naam</label>
+            <label for="naam">Name</label>
             <input type="text" class="form-control" value='<?php echo $row['naam'];?>'name="naam" id="naam" placeholder="naam van contact persoon"/>
             
         </div>
         <div class="form-group col-md-4">
-            <label for="tijd">Hoelaat</label>
+            <label for="tijd">Time</label>
             <input type="text" class="form-control" value='<?php echo $row['tijd'];?>'name="tijd" id="tijd" placeholder="tijd "/>
         </div>
         
         <div class="form-group col-md-4">
-            <label for="plaats">plaats</label>
+            <label for="plaats">Place</label>
             <input type="text" class="form-control" value='<?php echo $row['plaats'];?>'name="plaats" id="plaats" placeholder="plaats "/>
         </div>
         
            <div class="form-group col-md-10">
-            <label for="opmerkingen">Opmerkingen</label>
+            <label for="opmerkingen">Remarks</label>
             <input type="text" class="form-control" value='<?php echo $row['opmerkingen'];?>'name="opmerkingen" id="opmerkingen" placeholder="opmerkingen "/>
         </div>
         

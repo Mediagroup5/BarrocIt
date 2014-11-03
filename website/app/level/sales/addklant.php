@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
     '".$postcode."', '".$postcode2."', '".$residentie."', '".$residentie2."',
     '".$telefoon_nr."', '".$telefoonnummer2."', '".$fax_nr."', '".$email."')") or die(mysqli_error($con));
     }else{
-        echo "Vul alle velden in!";
+        echo "All records required!";
     }
 }
 ?>

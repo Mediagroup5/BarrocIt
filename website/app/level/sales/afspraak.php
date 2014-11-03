@@ -16,8 +16,9 @@ require $rootlink. '/app/templates/header.php';
         <thead>
         <tr>
             <th>Date</th>
-            <th>Customer number</th>
+            <th>Time</th>
             <th>Name</th>
+             <th>Place</th>
                        <th>Edit Appointments </th>
                        <th><a href='addafspraak.php'>Add Appointments </a> </th>
 
@@ -25,7 +26,7 @@ require $rootlink. '/app/templates/header.php';
         </thead>
         <tbody>
         <?php
-        $sql = "SELECT afspraken_id, datum, klant_nr, naam FROM afspraken";
+        $sql = "SELECT afspraken_id, datum, tijd, naam, plaats FROM afspraken";
         if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }
@@ -33,9 +34,11 @@ require $rootlink. '/app/templates/header.php';
             while ($row = mysqli_fetch_assoc($query)){
                 echo "<tr>";
                 echo "<td>" . $row['datum'] . "</td>";
-                echo "<td>" . $row['klant_nr'] . "</td>";
+                echo "<td>" . $row['tijd'] . "</td>";
                 echo "<td>" . $row['naam'] . "</td>";
-                echo "<td><a href='editafspraak.php?id=". $row['afspraken_id'] . "'> Bewerk </a></td>";
+                echo "<td>" . $row['plaats'] . "</td>";
+
+                                echo "<td><a href='editafspraak.php?id=". $row['afspraken_id'] . "'> Edit </a></td>";
                 
                 echo "</tr>";
             }
