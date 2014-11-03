@@ -22,7 +22,7 @@ if (! isset($_GET['id'])){
 ?>
 <div class="container">
     <div class="page-header">
-        <h1>afspraken wijzigen</h1>
+        <h1>Edit Appointments</h1>
     </div>
     <form action="editafspraak.php" method="POST">
         
@@ -52,7 +52,7 @@ if (! isset($_GET['id'])){
         </div>
         
         <input type="hidden" name="afspraken_id" value="<?php echo $row['afspraken_id']; ?>"/>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-4">
             <input class="btn btn-warning" type="submit" value="Update" name="submit"/>
         </div>
     </form>
