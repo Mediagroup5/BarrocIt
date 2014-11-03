@@ -20,54 +20,38 @@ if (! isset($_GET['id'])){
 ?>
 <div class="container">
     <div class="page-header">
-        <h1>Factuur wijzigen</h1>
+        <h1>Invoices</h1>
     </div>
     <form action="edit.php" method="POST">
         <div class="form-group col-md-4 ">
-            <label for="Klant nummer">Klant nummer</label>
-            <input type="text" class="form-control" name="klant_nr" id="klant_nr"
+            <label for="bedrijfs_naam">Company Name</label>
+            <input type="number" class="form-control" name="bedrijfs_naam" id="bedrijf_naam"
                    value="<?php echo $row->klant_nr; ?>" placeholder="Klant nummer"/>
         </div>
         <div class="form-group col-md-4">
-            <label for="Bedrag">Bedrag</label>
-            <input type="text" class="form-control" name="bedrag" id="bedrag"
+            <label for="Bedrag">Amount</label>
+            <input type="number" class="form-control" name="bedrag" id="bedrag"
                    value="<?php echo $row->bedrag; ?>" placeholder="Bedrag"/>
         </div>
+
+
         <div class="form-group col-md-4">
-            <label for="Project nummer">Project nummer</label>
-            <input type="text" class="form-control" name="project_nr" id="project_nr"
-                   value="<?php echo $row->project_nr; ?>" placeholder="Project nummer"/>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="BTW">BTW</label>
-            <input type="text" class="form-control" name="btw" id="btw"
-                   value="<?php echo $row->btw; ?>" placeholder="BTW"/>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="Factuur duur">Factuur t/m</label>
-            <input type="text" class="form-control" name="factuur_tot" id="factuur_tot"
+            <label for="Factuur duur">Invoice last date</label>
+            <input type="date" class="form-control" name="factuur_tot" id="factuur_tot"
                    value="<?php echo $row->factuur_tot; ?>" placeholder="Factuur t/m"/>
         </div>
+
         <div class="form-group col-md-4">
-            <label for="Hoeveelheid">Hoeveelheid</label>
-            <input type="text" class="form-control" name="hoeveelheid" id="hoeveelheid"
-                   value="<?php echo $row->hoeveelheid; ?>" placeholder="Hoeveelheid"/>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="Beschrijving">Beschrijving</label>
-            <input type="text" class="form-control" name="beschrijving" id="beschrijving"
+            <label for="Beschrijving">Description</label>
+            <input type="date" class="form-control" name="beschrijving" id="beschrijving"
                    value="<?php echo $row->beschrijving; ?>" placeholder="Beschrijving"/>
         </div>
-        <div class="form-group col-md-4">
-            <label for="Aantal">Aantal</label>
-            <input type="text" class="form-control" name="aantal" id="aantal"
-                   value="<?php echo $row->aantal; ?>" placeholder="Aantal"/>
-        </div>
-        <div class="form-group col-md-4">
+
+<!--         <div class="form-group col-md-4">
             <label for="Status">Status</label>
-            <input type="text" class="form-control" name="status" id="status"
+            <input type="enum" class="form-control" name="status" id="status"
                    value="<?php echo $row->status; ?>" placeholder="Status"/>
-        </div>
+        </div> -->
         <input type="hidden" name="id" value=""/>
         <div class="form-group col-md-2">
             <input class="btn btn-warning" type="submit" value="Update" name="submit"/>

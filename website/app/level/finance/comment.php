@@ -6,12 +6,12 @@ include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 ?>
-    <h1>Reacties</h1>
+    <h1>Comments</h1>
     <table class="table table-striped">
         <tr>
-            <th>Naam</th>
-            <th>Datum</th>
-            <th>Reactie</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Reaction</th>
         </tr>
         <?php
         $sql = "SELECT * FROM reacties";
@@ -30,18 +30,18 @@ require $rootlink. '/app/templates/header.php';
         ?>
     </table>
     <form action="comment.php" method="post">
-        <h2>Reactie plaatsen</h2>
+        <h2> Add Comment</h2>
         <div class="form-group">
-            <label for="Naam">Naam</label>
+            <label for="Naam">Name</label>
             <input type="text" name="naam" class="form-control"/>
         </div>
         <div class="form-group">
-            <label for="Datum">Datum</label>
+            <label for="Datum">Date</label>
             <input type="date" name="datum" class="form-control"/>
         </div>
         <div class="form-group">
-            <label for="Reactie">Reactie</label>
-            <textarea name="reactie" cols="30" rows="10" class="form-control"></textarea>
+            <label for="Reactie">Reaction</label>
+            <textarea name="reactie" cols="60" rows="10" class="form-control"></textarea>
         </div>
         <input type="hidden" name="id"/>
         <div class="form-group">

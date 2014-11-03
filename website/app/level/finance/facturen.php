@@ -15,22 +15,24 @@ require $rootlink. '/app/templates/header.php';
 </style>
 
 <div class="container">
-    <h2 class="ha2">Facturen</h2>
+    <h2 class="ha2">Invoices</h2>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Klant nummer</th>
-            <th>Factuur nummer</th>
-            <th>Bedrag</th>
-            <th>Project nummer</th>
-            <th>BTW</th>
-            <th>Begin Datum</th>
-            <th>Verval Datum</th>
+            <th>Customer number</th>
+            <th>Invoice number</th>
+            <th>Amount</th>
+            <th>Project number</th>
+            <th>BTW(incl)</th>
+            <th>Start Date</th>
+            <th>Last Date</th>
             <th>Offer status</th>
-            <th>Hoeveelheid</th>
-            <th>Beschrijving</th>
-            <th>Aantal</th>
+            <th>Quantity</th>
+            <th>Description</th>
+            <th>Number</th>
             <th>Status</th>
+            <th>Manipulate</th>
+            <th>Remove</th>
         </tr>
         </thead>
         <tbody>
@@ -54,7 +56,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<tr>";
 
         
-          if($row->factuur_tot < time())
+          if($row->factuur_tot > time())
                 {
                 echo "<td class='rood'>" . $row->klant_nr . "</td>";
                 echo "<td class='rood'>" . $row->factuur_nr . "</td>";

@@ -35,7 +35,7 @@
       <div class="row">
 <?php
 
-setlocale(LC_MONETARY,"de_DE");
+
 
 
         
