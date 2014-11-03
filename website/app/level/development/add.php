@@ -7,12 +7,8 @@ require $rootlink. '/app/templates/header.php';
 ?>
 <!--<link rel="stylesheet" href="development.css"/>-->
 <!-- <link rel="stylesheet" type="text/css" href="http://bootswatch.com/paper/bootstrap.min.css"/> -->
-<div class="container">
-
-    <div class="banner">
-       
-    <form action="add.php" method="post" class="form col-md-12">
-        <h2 class="ha2">Add project</h2>
+<h2>Add project</h2>
+    <form action="add.php" method="post">
         <div class="form-group col-md-4">
             <label for="Naam">Maintenance contract</label>
             <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Onderhoudscontract"/>
@@ -45,8 +41,8 @@ require $rootlink. '/app/templates/header.php';
             <label for="Naam">Status Project</label>
             <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Status Project"/>
         </div>
-        <div class="form-group col-md-4">
-            <input type="submit" class="btn btn-primary" value="Add" name="submit"/>
+        <div class="form-group col-md-3">
+            <input type="submit" class="btn btn-primary col-md-4" value="Add" name="submit"/>
         </div>
     </form>
     <?php

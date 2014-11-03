@@ -13,7 +13,7 @@ require $rootlink. '/app/templates/header.php';
 
 </style>
    
-    <H2 class="ha2">Projects</h2>
+    <h2>Projects</h2>
     <table class="table table-striped">
         <thead>
         <tr>
