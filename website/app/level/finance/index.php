@@ -74,7 +74,8 @@ require $rootlink. '/app/templates/header.php';
                 while($factrow = mysqli_fetch_object($sqlfact))
 
                 {
-                   $count = $count + $factrow->bedrag;    
+                   $count = $count + $factrow->bedrag/100 * 121;    
+                    
                 }
 
                 echo "<td class='rood'>" . $count . "</td>";
@@ -115,7 +116,8 @@ require $rootlink. '/app/templates/header.php';
                 while($factrow = mysqli_fetch_object($sqlfact))
 
                 {
-                   $count = $count + $factrow->bedrag;    
+                   $count = $count + $factrow->bedrag /100 * 121;    
+                    
                 }
 
                 echo "<td>" . $count . "</td>";

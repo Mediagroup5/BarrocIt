@@ -61,22 +61,22 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td class='rood'>" . $row->factuur_nr . "</td>";
                 echo "<td class='rood'>" . $row->bedrag . "</td>";
                 echo "<td class='rood'>" . $row->project_nr . "</td>";
-                $count = 0;
+                $BTW = 0;
                 $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
                 while($factrow = mysqli_fetch_object($sqlfact))
 
                 {
-                   $count = $count + $factrow->bedrag /100 * 121;    
+                   $BTW = $BTW + $factrow->bedrag /100 * 121;    
                 }
-                echo "<td class='rood'>" . $count . "</td>";
+                echo "<td class='rood'>" . $BTW . "</td>";
                 echo "<td class='rood'>" . $row->factuur_begin . "</td>";
                 echo "<td class='rood'>" . $row->factuur_tot . "</td>";
                 echo "<td class='rood'>" . $row->hoeveelheid . "</td>";
                 echo "<td class='rood'>" . $row->beschrijving . "</td>";
                 echo "<td class='rood'>" . $row->aantal . "</td>";
                 echo "<td class='rood'>" . $row->status . "</td>";
-                // echo "<td class='rood'><a href='edit.php?id=". $row->klant_nr . "'> Bewerk </a></td>";
-                // echo "<td class='rood'><a href='delete.php?id=" . $row->klant_nr . "'> X </a></td>";
+                echo "<td class='rood'><a href='edit.php?id=". $row->klant_nr . "'>  </a></td>";
+                echo "<td class='rood'><a href='delete.php?id=" . $row->klant_nr . "'>  </a></td>";
                 }
                 else
                 {
@@ -88,14 +88,14 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->factuur_nr . "</td>";
                 echo "<td>" . $row->bedrag . "</td>";
                 echo "<td>" . $row->project_nr . "</td>";
-                $count = 0;
+                $BTW = 0;
                 $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
                 while($factrow = mysqli_fetch_object($sqlfact))
 
                 {
-                   $count = $count + $factrow->bedrag /100 * 121;   
+                   $BTW = $BTW + $factrow->bedrag /100 * 121;   
                 }
-                echo "<td>" . $count . "</td>";
+                echo "<td>" . $BTW . "</td>";
                 echo "<td>" . $row->factuur_begin . "</td>";
                 echo "<td>" . $row->factuur_tot . "</td>";
                 echo "<td>" . $row->hoeveelheid . "</td>";
