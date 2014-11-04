@@ -61,7 +61,19 @@ beschrijving, aantal, status) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$b
             <input type="date" class="form-control" name="factuur_tot" id="factuur_tot" placeholder="Last date"/>
         </div>
         <div class="form-group col-md-6">
+            <label for="Factuur duur">Quantity</label>
+            <input type="date" class="form-control" name="factuur_tot" id="factuur_tot" placeholder="Last date"/>
+        </div>
+        <div class="form-group col-md-6">
             <label for="Beschrijving">Description</label>
+            <input type="text" class="form-control" name="beschrijving" id="beschrijving" placeholder="Description"/>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="Beschrijving">Number</label>
+            <input type="text" class="form-control" name="beschrijving" id="beschrijving" placeholder="Description"/>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="Beschrijving">Status</label>
             <input type="text" class="form-control" name="beschrijving" id="beschrijving" placeholder="Description"/>
         </div>
         <div class="form-group col-md-6 ">

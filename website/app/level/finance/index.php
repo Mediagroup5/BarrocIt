@@ -81,13 +81,15 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td class='rood'>" . $row->limiet . "</td>";
                 echo "<td class='rood'>" . $row->grootboekrekeningnummer . "</td>";
                 echo "<td class='rood'>" . $row->bkr . "</td>";
-                echo "<td class='rood'><a href='facturen.php?id=". $row->klant_nr . "'> Activated Invoices </a></td>";
-                echo "<td class='rood'><a href='facturen.php?id=". $row->klant_nr . "'> Deactivated Invoices </a></td>";
+
+
+                echo "<td class='rood'><a href='facturen.php?id=". $row->klant_nr . "'> </a></td>";
+                echo "<td class='rood'><a href='facturen.php?id=". $row->klant_nr . "'>  </a></td>";
                 echo "<td class='rood'>" . $row->voorletters . "</td>";
                 echo "<td class='rood'>" . $row->voornaam . "</td>";
                 echo "<td class='rood'>". $row->achternaam . "</td>";
-                echo "<td class='rood'><a href='facturen.php?id=". $row->klant_nr . "'> See Invoices </a></td>";
-                echo "<td class='rood'><a href='klant.php?id=" . $row->klant_nr . "'> Customer Data </a></td>";
+                echo "<td class='rood'><a href='facturen.php?id=". $row->klant_nr . "'>  </a></td>";
+                echo "<td class='rood'><a href='klant.php?id=" . $row->klant_nr . "'> </a></td>";
                 
 
                 }
