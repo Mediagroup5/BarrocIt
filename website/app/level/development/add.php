@@ -10,21 +10,25 @@ echo 'Kan geen connectie maken met database';
 die();
 }  	//als hij geen connectie maakt dan doet hij dit.
 
-if( isset($_POST['submit'])){				//isset $_POST voegt gegevens toe aan database
-$datum 			= 		Security($_POST['datum']); //variabele aanmaken
-$naam 		= 	Security($_POST['naam']);//variabele aanmaken
-$tijd 			= 		Security($_POST['tijd']);//variabele aanmaken
-$klant = Security($_POST['klant']);
-$plaats 	= Security($_POST['plaats']);//variabele aanmaken
-$opmerkingen 	= Security($_POST['opmerkingen']);//variabele aanmaken
+if( isset($_POST['submit'])){//isset $_POST voegt gegevens toe aan database
+$klant                          =       Security($_POST['klant']);
+$maintenance_contract 			= 		Security($_POST['maintenance_contract']); //variabele aanmaken
+$hardware 		                = 	    Security($_POST['hardware']);//variabele aanmaken
+$software 			            = 		Security($_POST['software']);//variabele aanmaken
+$start_date 	                =       Security($_POST['start_date']);//variabele aanmaken
+$end_date 	                    =       Security($_POST['end_date']);//variabele aanmaken
+$appointments 	                =       Security($_POST['appointments']);//variabele aanmaken
+$status_project 	            =       Security($_POST['status_project']);//variabele aanmaken
 
-if (!$query 	= mysqli_query($con,"INSERT INTO afspraken (datum, klant_nr, naam, tijd, plaats, opmerkingen)
-VALUES ('$datum', '".$klant."', '$naam','$tijd', '$plaats', '$opmerkingen')"))  //hier voegt hij toe waar het precies inmoet in database.
+if (!$query 	= mysqli_query($con,"INSERT INTO projecten (klant_nr, onderhoudscontract, hardware, software, begin_datum,
+eind_datum, afspraken, status_project)
+VALUES ('$klant','$maintenance_contract', '$hardware','$software', '$start_date', '$end_date',
+'$appointments', '$status_project'"))  //hier voegt hij toe waar het precies inmoet in database.
 
 {
 echo 'kan data niet toevoegen aan database'; //alshet niet lukt krijg je dit
 }else{
-header('location: afspraak.php');   //blijft op zelfde pagina.
+header('location: project.php');
 }
 }
 ?>
@@ -37,7 +41,7 @@ header('location: afspraak.php');   //blijft op zelfde pagina.
     <table class="table table-striped">
         <thead>
         <tr>
-            <form action="" method="POST">
+            <form action="add.php" method="POST">
 
                 <label for="klant">Client</label>
                 <select  class="form-control" name="klant">
@@ -52,7 +56,7 @@ header('location: afspraak.php');   //blijft op zelfde pagina.
 
                 <div class="form-group">
                     <label for="Maintenance contract">Maintenance contract</label>
-                    <select class="form-control col-md-4">
+                    <select name="maintenance_contract" class="form-control col-md-4">
                         <option value="1">Yes</option>
                         <option value="2">No</option>
                     </select>
@@ -62,45 +66,38 @@ header('location: afspraak.php');   //blijft op zelfde pagina.
 
                 <div class="form-group">
                     <label for="Hardware">Hardware</label>
-                    <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Hardware"/>
+                    <input type="text" class="form-control" name="hardware" id="hardware" placeholder="Hardware"/>
                 </div>
                 <br>
                 <div class="form-group">
                     <label for="Software">Software</label>
-                    <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Software"/>
+                    <input type="text" class="form-control" name="software" id="software" placeholder="Software"/>
                 </div>
                 <br>
                 <div class="form-group">
                     <label for="Start date">Start date</label>
-                    <input type="date" class="form-control" name="begin_datum" id="begin_datum" placeholder="Start Date"/>
+                    <input type="date" class="form-control" name="start_date" id="start_date" placeholder="Start Date"/>
                 </div>
                 <br>
 
 
                 <div class="form-group">
                     <label for="End date">End date</label>
-                    <input type="date" class="form-control" name="eind_datum" id="eind_datum" placeholder="End Date"/>
-                </div>
-                <br>
-
-
-                <div class="form-group">
-                    <label for="Customer number">Customer number</label>
-                    <input type="text" class="form-control" name="Klant Nummer" id="klant_nr" placeholder="Customer number"/>
+                    <input type="date" class="form-control" name="end_date" id="end_date" placeholder="End Date"/>
                 </div>
                 <br>
 
 
                 <div class="form-group">
                     <label for="Appointments">Appointments</label>
-                    <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Appointments"/>
+                    <input type="text" class="form-control" name="appointments" id="appointments" placeholder="Appointments"/>
                 </div>
                 <br>
 
 
                 <div class="form-group">
                     <label for="Status Project">Status Project</label>
-                    <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Status Project"/>
+                    <input type="text" class="form-control" name="status_project" id="status_project" placeholder="Status Project"/>
                 </div>
                 <br>
 
@@ -117,8 +114,8 @@ header('location: afspraak.php');   //blijft op zelfde pagina.
 </div>
 </body>
 </html>
-    <?php
-    if(isset($_POST['submit'])){
+<!--    --><?php
+/*    if(isset($_POST['submit'])){
 
         if (! empty($_POST['project_naam'])
             && ! empty($_POST['onderhoudscontract'])
@@ -149,7 +146,7 @@ header('location: afspraak.php');   //blijft op zelfde pagina.
         }else{
             header('location: index.php');
         }
-    }
+    }*/
 include $rootlink. "/app/templates/footer.php";
     ?>
 </div>
