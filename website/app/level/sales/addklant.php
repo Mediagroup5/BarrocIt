@@ -23,12 +23,14 @@ if(isset($_POST['submit'])){
     $telefoonnummer2 = Security($_POST['telefoonnummer2']);
     $fax_nr = Security($_POST['fax_nr']);
     $email = Security($_POST['email']);
-
+    $bankrekeningnummer = Security($_POST['bankrekeningnummer']);
+    
+    
     $con->query("INSERT INTO klantgegevens(bedrijfs_naam, voorletters, voornaam, achternaam, adres, adres2,
-    postcode, postcode2, residentie, residentie2, telefoon_nr, telefoonnummer2, fax_nr, email)
+    postcode, postcode2, residentie, residentie2, telefoon_nr, telefoonnummer2, fax_nr, email, bankrekeningnummer)
     VALUES ('".$bedrijfs_naam."', '".$voorletters."', '".$voornaam."', '".$achternaam."', '".$adres."', '".$adres2."',
     '".$postcode."', '".$postcode2."', '".$residentie."', '".$residentie2."',
-    '".$telefoon_nr."', '".$telefoonnummer2."', '".$fax_nr."', '".$email."')") or die(mysqli_error($con));
+    '".$telefoon_nr."', '".$telefoonnummer2."', '".$fax_nr."', '".$email."' '".$bankrekeningnummer."')") or die(mysqli_error($con));
     }else{
         echo "All records required!";
     }
@@ -37,9 +39,7 @@ if(isset($_POST['submit'])){
 <div class="container">
     <h1>Add Customer</h1>
     <form action="./addklant.php" method="post">
-        <div class="form-group">
-            <label for="Klant nummer">Customer Number</label>
-        </div>
+        
         <div class="form-group">
             <label for="Bedrijfs naam">Company Name</label>
             <input type="text" class="form-control" name="bedrijfs_naam"/>
@@ -96,6 +96,10 @@ if(isset($_POST['submit'])){
         <div class="form-group">
             <label for="Email">Email</label>
             <input type="text" class="form-control" name="email"/>
+        </div>
+        <div class="form-group">
+            <label for="bankrekeningnummer">Bank account</label>
+            <input type="text" class="form-control" name="bankrekeningnummer"/>
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-warning" name="submit" value="submit"/>
