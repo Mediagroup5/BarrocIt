@@ -20,7 +20,7 @@ require $rootlink. '/app/templates/header.php';
             <th>Name</th>
              <th>Place</th>
                        <th>Edit Appointments </th>
-                       <th><a href='addafspraak.php'>Add Appointments </a> </th>
+                       <th><a href='addafspraak.php' class="btn btn-primary">Add Appointments </a> </th>
 
         </tr>
         </thead>
@@ -31,14 +31,14 @@ require $rootlink. '/app/templates/header.php';
             echo "Kan gegevens niet uit database halen";
         }
         if (mysqli_num_rows($query) > 0 ){
-            while ($row = mysqli_fetch_assoc($query)){
+            while ($row = mysqli_fetch_object($query)){
                 echo "<tr>";
-                echo "<td>" . $row['datum'] . "</td>";
-                echo "<td>" . $row['tijd'] . "</td>";
-                echo "<td>" . $row['naam'] . "</td>";
-                echo "<td>" . $row['plaats'] . "</td>";
-
-                                echo "<td><a href='editafspraak.php?id=". $row['afspraken_id'] . "'> Edit </a></td>";
+                echo "<td>" . $row->datum . "</td>";
+                echo "<td>" . $row->tijd . "</td>";
+                echo "<td>" . $row->naam . "</td>";
+                echo "<td>" . $row->plaats . "</td>";
+                echo '<td><a href="editafspraak.php?id='.$row->afspraken_id.'"><div class="btn btn-primary">Edit</div></a></td>';
+               
                 
                 echo "</tr>";
             }
