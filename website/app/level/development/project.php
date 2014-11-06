@@ -63,6 +63,7 @@ require $rootlink. '/app/templates/header.php';
 				}
 				else
 				{
+                echo "<td>" . $row->projectnr_id . "</td>";
                 echo "<td>" . $row->project_naam . "</td>";
                 echo "<td>" . $row->onderhoudscontract . "</td>";
                 echo "<td>" . $row->hardware . "</td>";
@@ -70,7 +71,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->begin_datum . "</td>";
                 echo "<td>" . $row->eind_datum . "</td>";
                 echo "<td>" . $row->klant_nr . "</td>";
-                echo "<td>" . $row->afspraken . "</td>";
+                 echo '<td> <a href="./afspraak.php?id='.$id.'&actie=activeer&fact_nr='.$row->projectnr_id.'"><div class="btn btn-primary">Appointments</div></a></td>';
                 echo "<td>" . $row->status_project . "</td>";
                 echo "<td><a href='edit.php?id=". $row->projectnr_id . "'> Edit </a></td>";
 				}

@@ -55,7 +55,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<tr>";
 
         
-          if($row->bkr == 'nee')
+          if($row->bkr == 'No')
 
                 {
                 echo "<td class='rood'>" . $row->klant_nr . "</td>";
