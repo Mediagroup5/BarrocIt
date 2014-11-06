@@ -40,7 +40,7 @@ require $rootlink. '/app/templates/header.php';
 		{
 		   $sql = "SELECT projectnr_id, project_naam, onderhoudscontract, hardware, software, begin_datum, eind_datum, klant_nr, afspraken, status_project FROM projecten";
 		}
-	   if (! $query = mysqli_query($con, $sql)){
+	    if (! $query = mysqli_query($con, $sql)){
             echo "Kan gegevens niet uit database halen";
         }
         if (mysqli_num_rows($query) > 0 ){
