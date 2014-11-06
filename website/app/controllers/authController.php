@@ -26,14 +26,14 @@ trigger_error('check de sql op fouten');
 					}
 			else {
 			        //error meegeven via sessie
-					$_SESSION['error'] = 'gebruikersnaam of wachtwoord is onjuist';
+					$_SESSION['error'] = 'Username or Password is Incorrect';
 					header('location: ../login.php');
 				 }
 			}
 			else
 			{
 			//error meegeven via sessie
-			   $_SESSION['error'] = 'Gebruikers niet gevonden';
+			   $_SESSION['error'] = 'User not Found';
 			    header('location: ../login.php');
 			}
 			
@@ -44,7 +44,7 @@ trigger_error('check de sql op fouten');
 			var_dump($_GET);
 			session_start();
 			session_destroy();
-			$_SESSION['error'] = "u bent succesvol uigelogd";
+			$_SESSION['error'] = "Succesfully Log Out";
 			header('location:../login.php');
 			
 			

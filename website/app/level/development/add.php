@@ -11,22 +11,23 @@ die();
 }  	//als hij geen connectie maakt dan doet hij dit.
 
 if( isset($_POST['submit'])){//isset $_POST voegt gegevens toe aan database
-$klant                          =       Security($_POST['klant']);
-$maintenance_contract 			= 		Security($_POST['maintenance_contract']); //variabele aanmaken
+$project_naam                   =       Security($_POST['project_naam']);
+$klant_nr                       =       Security($_POST['klant_nr']);
+$onderhoudscontract 			= 		Security($_POST['onderhoudscontract']); //variabele aanmaken
 $hardware 		                = 	    Security($_POST['hardware']);//variabele aanmaken
 $software 			            = 		Security($_POST['software']);//variabele aanmaken
-$start_date 	                =       Security($_POST['start_date']);//variabele aanmaken
-$end_date 	                    =       Security($_POST['end_date']);//variabele aanmaken
-$appointments 	                =       Security($_POST['appointments']);//variabele aanmaken
+$begin_datum	                =       Security($_POST['begin_datum']);//variabele aanmaken
+$eind_datum 	                =       Security($_POST['eind_datum']);//variabele aanmaken
+$afspraken 	                    =       Security($_POST['afspraken']);//variabele aanmaken
 $status_project 	            =       Security($_POST['status_project']);//variabele aanmaken
 
-if (!$query 	= mysqli_query($con,"INSERT INTO projecten (klant_nr, onderhoudscontract, hardware, software, begin_datum,
+if (!$query 	= mysqli_query($con,"INSERT INTO projecten (project_naam, klant_nr, onderhoudscontract, hardware, software, begin_datum,
 eind_datum, afspraken, status_project)
-VALUES ('$klant','$maintenance_contract', '$hardware','$software', '$start_date', '$end_date',
-'$appointments', '$status_project'"))  //hier voegt hij toe waar het precies inmoet in database.
+VALUES ('".$project_naam."', '".$klant_nr."', '".$onderhoudscontract."', '".$hardware."','".$software."', '".$begin_datum."',  '".$eind_datum."',
+'".$afspraken."', '".$status_project."')"))  //hier voegt hij toe waar het precies inmoet in database.
 
 {
-echo 'kan data niet toevoegen aan database'; //alshet niet lukt krijg je dit
+echo 'kan data niet toevoegen aan database'.mysqli_error($con); //alshet niet lukt krijg je dit
 }else{
 header('location: project.php');
 }
@@ -43,8 +44,8 @@ header('location: project.php');
         <tr>
             <form action="add.php" method="POST">
 
-                <label for="klant">Client</label>
-                <select  class="form-control" name="klant">
+                <label for="klant_nr">Client</label>
+                <select  class="form-control" name="klant_nr">
                     <?php
                     $sql = $con->query("SELECT klant_nr,bedrijfs_naam FROM klantgegevens");
                     while($row = mysqli_fetch_object($sql))
@@ -55,14 +56,19 @@ header('location: project.php');
                 <br>
 
                 <div class="form-group">
-                    <label for="Maintenance contract">Maintenance contract</label>
-                    <select name="maintenance_contract" class="form-control col-md-4">
+                    <label for="onderhoudscontract">Maintenance contract</label>
+                    <select name="onderhoudscontract" class="form-control col-md-4">
                         <option value="1">Yes</option>
                         <option value="2">No</option>
                     </select>
                 </div>
                 <br><br>
 
+                <div class="form-group">
+                    <label for="project_naam">Project Naam</label>
+                    <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
+                </div>
+                <br>
 
                 <div class="form-group">
                     <label for="Hardware">Hardware</label>
@@ -75,28 +81,28 @@ header('location: project.php');
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="Start date">Start date</label>
-                    <input type="date" class="form-control" name="start_date" id="start_date" placeholder="Start Date"/>
+                    <label for="begin_datum">Start date</label>
+                    <input type="date" class="form-control" name="begin_datum" id="begin_datum" placeholder="Start Date"/>
                 </div>
                 <br>
 
 
                 <div class="form-group">
-                    <label for="End date">End date</label>
-                    <input type="date" class="form-control" name="end_date" id="end_date" placeholder="End Date"/>
+                    <label for="eind_datum">End date</label>
+                    <input type="date" class="form-control" name="eind_datum" id="eind_datum" placeholder="Eind Datum"/>
                 </div>
                 <br>
 
 
                 <div class="form-group">
-                    <label for="Appointments">Appointments</label>
-                    <input type="text" class="form-control" name="appointments" id="appointments" placeholder="Appointments"/>
+                    <label for="afspraken">Appointments</label>
+                    <input type="text" class="form-control" name="afspraken" id="afspraken" placeholder="Appointments"/>
                 </div>
                 <br>
 
 
                 <div class="form-group">
-                    <label for="Status Project">Status Project</label>
+                    <label for="status_project">Status Project</label>
                     <input type="text" class="form-control" name="status_project" id="status_project" placeholder="Status Project"/>
                 </div>
                 <br>
@@ -114,39 +120,39 @@ header('location: project.php');
 </div>
 </body>
 </html>
-<!--    --><?php
-/*    if(isset($_POST['submit'])){
+// <?php
+//     if(isset($_POST['submit'])){
 
-        if (! empty($_POST['project_naam'])
-            && ! empty($_POST['onderhoudscontract'])
-            && ! empty($_POST['hardware'])
-            && ! empty($_POST['software'])
-            && ! empty($_POST['begin_datum'])
-            && ! empty($_POST['eind_datum'])
-            && ! empty($_POST['klant_nr'])
-            && ! empty($_POST['afspraken'])
-            && ! empty($_POST['status_project'])){
-            $project_naam = mysqli_real_escape_string($con, $_POST['project_naam']);
-            $onderhoudscontract = mysqli_real_escape_string($con, $_POST['onderhoudscontract']);
-            $hardware = mysqli_real_escape_string($con, $_POST['hardware']);
-            $software = mysqli_real_escape_string($con, $_POST['software']);
-            $begin_datum = mysqli_real_escape_string($con, $_POST['begin_datum']);
-            $eind_datum = mysqli_real_escape_string($con, $_POST['eind_datum']);
-            $klant_nr = mysqli_real_escape_string($con, $_POST['klant_nr']);
-            $afspraken = mysqli_real_escape_string($con, $_POST['afspraken']);
-            $status_project = mysqli_real_escape_string($con, $_POST['status_project']);
+//         if (! empty($_POST['project_naam'])
+//             && ! empty($_POST['onderhoudscontract'])
+//             && ! empty($_POST['hardware'])
+//             && ! empty($_POST['software'])
+//             && ! empty($_POST['begin_datum'])
+//             && ! empty($_POST['eind_datum'])
+//             && ! empty($_POST['klant_nr'])
+//             && ! empty($_POST['afspraken'])
+//             && ! empty($_POST['status_project'])){
+//             $project_naam = mysqli_real_escape_string($con, $_POST['project_naam']);
+//             $onderhoudscontract = mysqli_real_escape_string($con, $_POST['onderhoudscontract']);
+//             $hardware = mysqli_real_escape_string($con, $_POST['hardware']);
+//             $software = mysqli_real_escape_string($con, $_POST['software']);
+//             $begin_datum = mysqli_real_escape_string($con, $_POST['begin_datum']);
+//             $eind_datum = mysqli_real_escape_string($con, $_POST['eind_datum']);
+//             $klant_nr = mysqli_real_escape_string($con, $_POST['klant_nr']);
+//             $afspraken = mysqli_real_escape_string($con, $_POST['afspraken']);
+//             $status_project = mysqli_real_escape_string($con, $_POST['status_project']);
 
-            $sql = "INSERT INTO projecten (project_naam, onderhoudscontract, hardware, software, begin_datum, eind_datum, klant_nr, afspraken, status_project) VALUES ('$project_naam','$onderhoudscontract','$hardware', '$software', '$begin_datum', '$eind_datum', '$klant_nr', '$afspraken')";
+//             $sql = "INSERT INTO projecten (project_naam, onderhoudscontract, hardware, software, begin_datum, eind_datum, klant_nr, afspraken, status_project) VALUES ('$project_naam','$onderhoudscontract','$hardware', '$software', '$begin_datum', '$eind_datum', '$klant_nr', '$afspraken')";
 
-            if (! $query = mysqli_query($con, $sql)){
-                echo 'Failed to add project <a href="index.php"> click here to return to the home page</a>';
-            }else{
-                header('location: index.php');
-            }
-        }else{
-            header('location: index.php');
-        }
-    }*/
+//             if (! $query = mysqli_query($con, $sql)){
+//                 echo 'Failed to add project <a href="index.php"> click here to return to the home page</a>';
+//             }else{
+//                 header('location: index.php');
+//             }
+//         }else{
+//             header('location: index.php');
+//         }
+//     }
 include $rootlink. "/app/templates/footer.php";
     ?>
 </div>
