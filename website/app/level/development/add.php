@@ -120,7 +120,7 @@ header('location: project.php');
 </div>
 </body>
 </html>
-// <?php
+<?php
 //     if(isset($_POST['submit'])){
 
 //         if (! empty($_POST['project_naam'])

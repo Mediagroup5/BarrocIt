@@ -6,7 +6,7 @@ include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 
 if (! isset($_GET['id'])){
-    header('location: index.php');
+    header('location: edit.php');
 }else{
     $id = intval($_GET['id']);
     $sql = "SELECT projectnr_id, project_naam, onderhoudscontract, hardware, software, begin_datum, eind_datum, klant_nr, afspraken, status_project FROM projecten where projectnr_id = '$id'";
@@ -20,16 +20,16 @@ if (! isset($_GET['id'])){
 ?>
 <div class="container">
     <div class="page-header">
-        <h1>project wijzigen</h1>
+        <h1>Edit project</h1>
     </div>
     <form action="edit.php" method="POST">
         <div class="form-group col-md-4">
-            <label for="Naam">Project_naam</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Naam"/>
+            <label for="Project name">Project Name</label>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Project Name"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Naam">Onderhoudscontract</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Onderhoudscontract"/>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Maintenance contract"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Naam">Hardware</label>
@@ -41,19 +41,19 @@ if (! isset($_GET['id'])){
         </div>
         <div class="form-group col-md-4">
             <label for="Datum">Begin Datum</label>
-            <input type="date" class="form-control" name="begin_datum" id="begin_datum" placeholder="Begin Datum"/>
+            <input type="date" class="form-control" name="begin_datum" id="begin_datum" placeholder="Start Date"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Datum">Eind Datum</label>
-            <input type="date" class="form-control" name="eind_datum" id="eind_datum" placeholder="Eind Datum"/>
+            <input type="date" class="form-control" name="eind_datum" id="eind_datum" placeholder="End Datum"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Beschrijving">Klant Nummer</label>
-            <input type="text" class="form-control" name="Klant Nummer" id="klant_nr" placeholder="Klant nummer"/>
+            <input type="text" class="form-control" name="Klant Nummer" id="klant_nr" placeholder="Customer number"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Naam">Afspraken</label>
-            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Afspraken"/>
+            <input type="text" class="form-control" name="project_naam" id="project_naam" placeholder="Appointments"/>
         </div>
         <div class="form-group col-md-4">
             <label for="Naam">Status Project</label>
