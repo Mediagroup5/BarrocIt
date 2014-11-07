@@ -48,6 +48,8 @@ require("$rootlink/config/functions.php");
  
 //Users class
 require("$rootlink/config/classes/class.users.php");
+//Portfolio class
+require("$rootlink/config/classes/class.portfolio.php");
 
 Session_start();
 ?>

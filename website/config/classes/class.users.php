@@ -24,6 +24,93 @@ class User
 		
 	
 	}
+}
+
+Class UserData
+{
+
+   private $gebruikers_id;
+   private $username;
+   private $gebruikersrol;
+   private $actief;
+   
+    public function __construct($id)
+    {
+       
+	   $con = get_my_db();
+       $sql = $con->query("SELECT * FROM gebruikers WHERE gebruikers_id = '".$id."' LIMIT 1");
+	   $row = mysqli_fetch_object($sql);
+	   
+	   $this->gebruikers_id = $row->gebruikers_id;
+	   $this->username = $row->username;
+	   $this->gebruikersrol = $row->gebruikersrol;
+	   $this->actief = $row->actief;
 	}
+	
+	public static function FetchAllItems()
+	{
+	   $con = get_my_db();
+       $sql = $con->query("SELECT gebruikers_id FROM gebruikers");
+	   $content = "";
+	   while ($row = mysqli_fetch_object($sql))
+	   {
+			$user = new UserData($row->gebruikers_id);
+			switch($user->getRole())
+			{
+			   case 1:
+			   $rol = "Finance";
+			   break;
+			   case 2:
+			   $rol = "Development";
+			   break;
+			   case 3:
+			   $rol = "Sales";
+			   break;
+			   case 4:
+			   $rol = "Admin";
+			   break;
+			   
+			   Default:
+			   $rol = "No role found!";
+			   break;
+			   
+			}
+			if($user->getStatus() == 1)
+			{
+			$status = "Active";
+			}
+			else
+			{
+			$status = "Non-active";
+			}
+            $content = $content." <tr>
+                  <td>" . $user->getUserId() . "</td>
+                  <td>" . $user->getUsername() . "</td>
+                  <td>" . $rol . "</td>
+                  <td>" . $status . "</td>
+                  <td><a href='./port_list.php?id=". $user->getUserId() . "'> Show portfolio items </a></td>
+                  </tr>";
+             
+		}	
+		return $content;
+	}
+	
+	public function getUserId()
+	{
+	   return $this->gebruikers_id;
+	}
+	public function getUsername()
+	{
+	   return $this->username;
+	}
+	public function getStatus()
+	{
+	   return $this->actief;
+	}
+	public function getRole()
+	{
+	   return $this->gebruikersrol;
+	}
+}
 	
 ?>

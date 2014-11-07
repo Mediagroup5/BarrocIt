@@ -2,100 +2,81 @@
 $page = "users";
 $id = "edit";
 include '../../../config/config.php';
-require $rootlink. '/app/templates/header.php';
+include $rootlink. '/app/templates/header.php';
 
 if (! isset($_GET['id'])){
     header('location: index.php');
-}else{
-    $id = intval($_GET['id']);
-    $sql = "SELECT factuur_nr, klant_nr, bedrag, project_nr, btw, factuur_duur, hoeveelheid, beschrijving,
-    aantal, status FROM factuur where factuur_nr = '$id'";
-    $query = mysqli_query($con, $sql);
-    if(mysqli_num_rows($query) == 1){
-        $row = mysqli_fetch_object($query);
-    }
-
+}
+else
+{
+    $id = Security($_GET['id']);
+	
+	if(isset($_POST['submit']))
+	{
+	   if(trim($_POST['Username']) || trim($_POST['type']) || trim($_POST['desc']) || trim($_POST['startdate']) || trim($_POST['enddate']) || trim($_POST['comment']))
+	   {
+	      $type = $_POST['type'];
+		  $desc = $_POST['desc'];
+		  $startdate = $_POST['startdate'];
+		  $enddate = $_POST['enddate'];
+		  $comment = $_POST['comment'];
+	      update($type,$desc,$startdate,$enddate,$comment);
+		  header("location: ./port_list.php?id=");
+	   }
+	
+	}
+   	$port = new Portfolio($id);
+	$type = $port->getType();
+    $desc = $port->getOmschr();
+    $startdate = $port->getStartDatum();
+    $enddate = $port->getEindDatum();
+    $comment = $port->getOpmerking();
+    $userid = $port->getGebr_id();
+	$username = $port->getCustName($userid);
+	
 }
 ?>
 <div class="container">
     <div class="page-header">
-        <h1>Factuur wijzigen</h1>
+        <h1>portfolio wijzigen</h1>
     </div>
     <form action="edit.php" method="POST">
+	
         <div class="form-group col-md-4 ">
-            <label for="Klant nummer">Klant nummer</label>
-            <input type="text" class="form-control" name="klant_nr" id="klant_nr"
-                   value="<?php echo $row->klant_nr; ?>" placeholder="Klant nummer"/>
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" id="username"
+                   value="<?php echo $username; ?>" placeholder="Username"/ readonly>
         </div>
         <div class="form-group col-md-4">
-            <label for="Bedrag">Bedrag</label>
-            <input type="text" class="form-control" name="bedrag" id="bedrag"
-                   value="<?php echo $row->bedrag; ?>" placeholder="Datum"/>
+            <label for="type">Portfolio type</label>
+            <input type="text" class="form-control" name="type" id="type"
+                   value="<?php echo $type; ?>" placeholder="Portfolio type"/>
         </div>
         <div class="form-group col-md-4">
-            <label for="Project nummer">Project nummer</label>
-            <input type="text" class="form-control" name="project_nr" id="project_nr"
-                   value="<?php echo $row->project_nr; ?>" placeholder="Project nummer"/>
+            <label for="Description">Description</label>
+            <input type="text" class="form-control" name="desc" id="desc"
+                   value="<?php echo $desc; ?>" placeholder="Description"/>
         </div>
         <div class="form-group col-md-4">
-            <label for="BTW">BTW</label>
-            <input type="text" class="form-control" name="btw" id="btw"
-                   value="<?php echo $row->btw; ?>" placeholder="BTW"/>
+            <label for="startdate">Start date</label>
+            <input type="date" class="form-control" name="startdate" id="startdate"
+                   value="<?php echo $startdate; ?>" placeholder="Start date"/>
         </div>
         <div class="form-group col-md-4">
-            <label for="Factuur duur">Factuur duur</label>
-            <input type="text" class="form-control" name="factuur_duur" id="factuur_duur"
-                   value="<?php echo $row->factuur_duur; ?>" placeholder="Factuur duur"/>
+            <label for="enddate">End date</label>
+            <input type="date" class="form-control" name="enddate" id="enddate"
+                   value="<?php echo $enddate; ?>" placeholder="End date"/>
         </div>
+      
         <div class="form-group col-md-4">
-            <label for="Hoeveelheid">Hoeveelheid</label>
-            <input type="text" class="form-control" name="hoeveelheid" id="hoeveelheid"
-                   value="<?php echo $row->hoeveelheid; ?>" placeholder="Hoeveelheid"/>
+            <label for="comment">Comment</label>
+            <input type="text" class="form-control" name="comment" id="comment"
+                   value="<?php echo $comment; ?>" placeholder="Comment"/>
         </div>
-        <div class="form-group col-md-4">
-            <label for="Beschrijving">Beschrijving</label>
-            <input type="text" class="form-control" name="beschrijving" id="beschrijving"
-                   value="<?php echo $row->beschrijving; ?>" placeholder="Beschrijving"/>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="Aantal">Aantal</label>
-            <input type="text" class="form-control" name="aantal" id="aantal"
-                   value="<?php echo $row->aantal; ?>" placeholder="Aantal"/>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="Status">Status</label>
-            <input type="text" class="form-control" name="status" id="status"
-                   value="<?php echo $row->status; ?>" placeholder="Status"/>
-        </div>
-        <input type="hidden" name="id" value=""/>
-        <div class="form-group col-md-2">
+        
+         <div class="form-group col-md-2">
             <input class="btn btn-warning" type="submit" value="Update" name="submit"/>
         </div>
     </form>
 
 </div>
-<?php
-if (isset($_POST['submit'])){
-    $klant_nr = mysqli_real_escape_string($con, $_POST['klant_nr']);
-    $bedrag = mysqli_real_escape_string($con, $_POST['bedrag']);
-    $project_nr = mysqli_real_escape_string($con, $_POST['project_nr']);
-    $btw = mysqli_real_escape_string($con, $_POST['btw']);
-    $factuur_duur = mysqli_real_escape_string($con, $_POST['factuur_duur']);
-    $hoeveelheid = mysqli_real_escape_string($con, $_POST['hoeveelheid']);
-    $beschrijving = mysqli_real_escape_string($con, $_POST['beschrijving']);
-    $aantal = mysqli_real_escape_string($con, $_POST['aantal']);
-    $status = mysqli_real_escape_string($con, $_POST['status']);
-    $id = $_POST['id'];
-
-    $sql = "UPDATE factuur SET klant_nr = '$klant_nr', bedrag = '$bedrag', project_nr = '$project_nr',
-    btw = '$btw', factuur_duur = '$factuur_duur', hoeveelheid = '$hoeveelheid', beschrijving = '$beschrijving',
-    aantal = '$aantal', status = '$status'
-     WHERE factuur_nr = '$id'";
-
-    if(! $query = mysqli_query($con, $sql)){
-        echo 'update query mislukt';
-    }else{
-        header('location: index.php');
-    }
-}
-?>
