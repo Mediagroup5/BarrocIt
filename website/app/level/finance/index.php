@@ -55,7 +55,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<tr>";
 
         
-          if($row->bkr == 'nee')
+          if($row->bkr == 'No')
 
                 {
                 echo "<td class='rood'>" . $row->klant_nr . "</td>";
@@ -124,13 +124,14 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->limiet . "</td>";
                 echo "<td>" . $row->grootboekrekeningnummer . "</td>";
                 echo "<td>" . $row->bkr . "</td>";
-                echo "<td><a href='facturen.php?status=activated&id=". $row->klant_nr . "'> Activated Invoices </a></td>";
-                echo "<td><a href='facturen.php?status=deactivated&id=". $row->klant_nr . "'> Deactivated Invoices </a></td>";
+                echo '<td><a href="facturen.php?status=activated&id='.$row->klant_nr.'"><div class="btn btn-primary">Activated</div></a></td>';
+                echo '<td><a href="facturen.php?status=deactivated&id='.$row->klant_nr.'"><div class="btn btn-primary">Deactivated</div></a></td>';
                 echo "<td>" . $row->voorletters . "</td>";
                 echo "<td>" . $row->voornaam . "</td>";
                 echo "<td>". $row->achternaam . "</td>";
-                echo "<td><a href='facturen.php?id=". $row->klant_nr . "'> See Invoices </a></td>";
-                echo "<td><a href='klant.php?id=" . $row->klant_nr . "'> Customer Data </a></td>";
+                echo '<td><a href="facturen.php?id='.$row->klant_nr.'"><div class="btn btn-primary">See Invoices</div></a></td>';
+                echo '<td><a href="klant.php?id='.$row->klant_nr.'"><div class="btn btn-primary">Customer Data</div></a></td>';
+                
 
                 }
 

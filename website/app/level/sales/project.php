@@ -62,15 +62,15 @@ if(isset($_GET['actie']) && isset($_GET['fact_nr']))
                 echo "<td>" . $row->begin_datum . "</td>";
                 echo "<td>" . $row->eind_datum . "</td>";
                 echo "<td>" . $row->klant_nr . "</td>";
-                echo "<td>" . $row->afspraken . "</td>";
+                echo '<td> <a href="./afspraak.php?id='.$id.'&actie=activeer&fact_nr='.$row->projectnr_id.'"><div class="btn btn-primary">Appointments</div></a></td>';
 				
 				if($row->status_project == 0)
 				{
-                    echo '<td> <a href="./project.php?id='.$id.'&actie=activeer&fact_nr='.$row->projectnr_id.'"><div class="btn btn-warning">Activate</div></a></td>';
+                    echo '<td> <a href="./project.php?id='.$id.'&actie=activeer&fact_nr='.$row->projectnr_id.'"><div class="btn btn-primary">Activate</div></a></td>';
 			    }
 				elseif($row->status_project == 1)
 				{
-			        echo '<td> <a href="./project.php?id='.$id.'&actie=deactiveer&fact_nr='.$row->projectnr_id.'"><div class="btn btn-warning">Deactivate</div></a></td>';
+			        echo '<td> <a href="./project.php?id='.$id.'&actie=deactiveer&fact_nr='.$row->projectnr_id.'"><div class="btn btn-primary">Deactivate</div></a></td>';
 				}
 				
 						

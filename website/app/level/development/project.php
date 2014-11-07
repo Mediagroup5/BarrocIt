@@ -71,10 +71,14 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->begin_datum . "</td>";
                 echo "<td>" . $row->eind_datum . "</td>";
                 echo "<td>" . $row->klant_nr . "</td>";
-                echo "<td>" . $row->afspraken . "</td>";
+                echo '<td> <a href="./afspraak.php?id='.$id.'&actie=activeer&fact_nr='.$row->projectnr_id.'"><div class="btn btn-primary">Appointments</div></a></td>';
                 echo "<td>" . $row->status_project . "</td>";
+<<<<<<< HEAD
                 echo "<td>Activated!</td>";
                 echo "<td><a class='btn btn-primary' href='edit.php?id=". $row->projectnr_id . "'> Edit </a></td>";
+=======
+                echo '<td><a href="edit.php?id='.$row->projectnr_id.'"><div class="btn btn-primary">Edit</div></a></td>';
+>>>>>>> origin/master
 				}
 				
              //   echo "<td><a href='delete.php?id=" . $row->projectnr_id . "'> Verwijderen </a></td>";

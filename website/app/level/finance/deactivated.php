@@ -87,7 +87,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->beschrijving . "</td>";
                 echo "<td>" . $row->aantal . "</td>";
                 echo "<td>" . $row->status . "</td>";
-                echo "<td><a href='edit.php?id=". $row->klant_nr . "'> Bewerk </a></td>";
+                echo "<td><a href='edit.php?id=". $row->klant_nr . "'> Edit </a></td>";
                 echo "<td><a href='delete.php?id=" . $row->klant_nr . "'> X </a></td>";
 
                 }

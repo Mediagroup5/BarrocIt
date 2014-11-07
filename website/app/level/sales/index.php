@@ -19,7 +19,7 @@ require $rootlink. '/app/templates/header.php';
             <th>First Name</th>
             <th>Last Name</th>
             <th>View Projects</th>
-            <th><a href='addklant.php?'>Add customer</a> </th>
+            <th><a href='addklant.php?' class="btn btn-primary">Add customer</a> </th>
 
      </tr>
         </thead>
@@ -36,7 +36,8 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->voorletters . "</td>";
                 echo "<td>" . $row->voornaam . "</td>";
                 echo "<td>" . $row->achternaam . "</td>";
-                echo "<td><a href='project.php?id=". $row->klant_nr . "'> View</a></td>";
+                echo '<td><a href="project.php?id='.$row->klant_nr.'"><div class="btn btn-primary">Vieuw</div></a></td>';
+               
 
 	
                 echo "</tr>";
