@@ -93,21 +93,6 @@ header('location: project.php');
                 </div>
                 <br>
 
-
-                <div class="form-group">
-                    <label for="afspraken">Appointments</label>
-                    <input type="text" class="form-control" name="afspraken" id="afspraken" placeholder="Appointments"/>
-                </div>
-                <br>
-
-
-                <div class="form-group">
-                    <label for="status_project">Status Project</label>
-                    <input type="text" class="form-control" name="status_project" id="status_project" placeholder="Status Project"/>
-                </div>
-                <br>
-
-
                 <div class="form-group ">
                     <input type="submit" class="btn btn-primary col-md-1" value="Add" name="submit"/>
                 </div>

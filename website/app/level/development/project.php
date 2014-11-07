@@ -63,6 +63,7 @@ require $rootlink. '/app/templates/header.php';
 				}
 				else
 				{
+                echo "<td>" . $row->projectnr_id . "</td>";
                 echo "<td>" . $row->project_naam . "</td>";
                 echo "<td>" . $row->onderhoudscontract . "</td>";
                 echo "<td>" . $row->hardware . "</td>";
@@ -72,7 +73,8 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->klant_nr . "</td>";
                 echo "<td>" . $row->afspraken . "</td>";
                 echo "<td>" . $row->status_project . "</td>";
-                echo "<td><a href='edit.php?id=". $row->projectnr_id . "'> Edit </a></td>";
+                echo "<td>Activated!</td>";
+                echo "<td><a class='btn btn-primary' href='edit.php?id=". $row->projectnr_id . "'> Edit </a></td>";
 				}
 				
              //   echo "<td><a href='delete.php?id=" . $row->projectnr_id . "'> Verwijderen </a></td>";
