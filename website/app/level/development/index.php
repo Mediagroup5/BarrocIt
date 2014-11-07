@@ -34,7 +34,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->voornaam . "</td>";
                 echo "<td>" . $row->achternaam . "</td>";
                 echo '<td><a href="project.php?id='.$row->klant_nr.'"><div class="btn btn-primary">Vieuw Project</div></a></td>';
-                echo '<td><a href="delete.php?id='.$row->klant_nr.'"><div class="btn btn-primary">Customer Data</div></a></td>';
+                echo '<td><a href="klant.php?id='.$row->klant_nr.'"><div class="btn btn-primary">Customer Data</div></a></td>';
                 echo "</tr>";
             }
         }
