@@ -10,9 +10,9 @@ if (! isset($_GET['id'])){
 }else{
     $id = intval($_GET['id']);
     $sql = "SELECT klant_nr, bedrijfs_naam, voorletters, voornaam, achternaam, adres FROM klantgegevens WHERE klant_nr = '$id'";
-    $query = mysqli_query($con, $sql);
-    if(mysqli_num_rows($query) == 1){
-        $row = mysqli_fetch_object($query);
+    $query = DB::query($sql);
+    if(DB::num_rows($query) == 1){
+        $row = DB::fetch($query);
     }
 
 }
@@ -77,7 +77,7 @@ if (isset($_POST['submit'])){
 	$klant_nr = $_POST['klant_nr'];
     $sql = "UPDATE klantgegevens SET klant_nr = '$klant_nr', bedrijfs_naam = '$bedrijfs_naam', voorletters = '$voorletters', voornaam = '$voornaam', achternaam = '$achternaam' WHERE klant_nr = '$klant_nr'";
 
-    if(! $query = mysqli_query($con, $sql)){
+    if(! $query = DB::query($sql)){
         echo 'update query mislukt';
     }else{
         header('location: index.php');

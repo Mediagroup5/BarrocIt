@@ -25,7 +25,7 @@ require $rootlink. '/app/templates/header.php';
 		$plaats 	= Security($_POST['plaats']);//variabele aanmaken
 		$opmerkingen 	= Security($_POST['opmerkingen']);//variabele aanmaken
 
-		if (!$query 	= mysqli_query($con,"INSERT INTO afspraken (datum, klant_nr, naam, tijd, plaats, opmerkingen) 
+		if (!$query 	= DB::query("INSERT INTO afspraken (datum, klant_nr, naam, tijd, plaats, opmerkingen) 
 											VALUES ('$datum', '".$klant."', '$naam','$tijd', '$plaats', '$opmerkingen')"))  //hier voegt hij toe waar het precies inmoet in database.
 
 		{
@@ -58,7 +58,7 @@ require $rootlink. '/app/templates/header.php';
 <select  class="form-control" name="klant">
 <?php
 $sql = $con->query("SELECT klant_nr,bedrijfs_naam FROM klantgegevens");
-while($row = mysqli_fetch_object($sql))
+while($row = DB::fetch($sql))
 				
   echo'<option value="'.$row->klant_nr.'">'.$row->bedrijfs_naam.'</option>';
   ?>

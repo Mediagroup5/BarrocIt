@@ -21,7 +21,7 @@ $eind_datum 	                =       Security($_POST['eind_datum']);//variabele 
 $afspraken 	                    =       Security($_POST['afspraken']);//variabele aanmaken
 $status_project 	            =       Security($_POST['status_project']);//variabele aanmaken
 
-if (!$query 	= mysqli_query($con,"INSERT INTO projecten (project_naam, klant_nr, onderhoudscontract, hardware, software, begin_datum,
+if (!$query = DB::query("INSERT INTO projecten (project_naam, klant_nr, onderhoudscontract, hardware, software, begin_datum,
 eind_datum, afspraken, status_project)
 VALUES ('".$project_naam."', '".$klant_nr."', '".$onderhoudscontract."', '".$hardware."','".$software."', '".$begin_datum."',  '".$eind_datum."',
 '".$afspraken."', '".$status_project."')"))  //hier voegt hij toe waar het precies inmoet in database.
@@ -106,38 +106,6 @@ header('location: project.php');
 </body>
 </html>
 <?php
-//     if(isset($_POST['submit'])){
-
-//         if (! empty($_POST['project_naam'])
-//             && ! empty($_POST['onderhoudscontract'])
-//             && ! empty($_POST['hardware'])
-//             && ! empty($_POST['software'])
-//             && ! empty($_POST['begin_datum'])
-//             && ! empty($_POST['eind_datum'])
-//             && ! empty($_POST['klant_nr'])
-//             && ! empty($_POST['afspraken'])
-//             && ! empty($_POST['status_project'])){
-//             $project_naam = mysqli_real_escape_string($con, $_POST['project_naam']);
-//             $onderhoudscontract = mysqli_real_escape_string($con, $_POST['onderhoudscontract']);
-//             $hardware = mysqli_real_escape_string($con, $_POST['hardware']);
-//             $software = mysqli_real_escape_string($con, $_POST['software']);
-//             $begin_datum = mysqli_real_escape_string($con, $_POST['begin_datum']);
-//             $eind_datum = mysqli_real_escape_string($con, $_POST['eind_datum']);
-//             $klant_nr = mysqli_real_escape_string($con, $_POST['klant_nr']);
-//             $afspraken = mysqli_real_escape_string($con, $_POST['afspraken']);
-//             $status_project = mysqli_real_escape_string($con, $_POST['status_project']);
-
-//             $sql = "INSERT INTO projecten (project_naam, onderhoudscontract, hardware, software, begin_datum, eind_datum, klant_nr, afspraken, status_project) VALUES ('$project_naam','$onderhoudscontract','$hardware', '$software', '$begin_datum', '$eind_datum', '$klant_nr', '$afspraken')";
-
-//             if (! $query = mysqli_query($con, $sql)){
-//                 echo 'Failed to add project <a href="index.php"> click here to return to the home page</a>';
-//             }else{
-//                 header('location: index.php');
-//             }
-//         }else{
-//             header('location: index.php');
-//         }
-//     }
 include $rootlink. "/app/templates/footer.php";
-    ?>
+?>
 </div>

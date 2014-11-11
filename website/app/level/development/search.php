@@ -21,7 +21,7 @@ require $rootlink. '/app/templates/header.php';
     <tbody>
     <?php
     $sql = "SELECT klant_nr, bedrijfs_naam, voorletter, voornaam, achternaam FROM klantgegevens";
-    if (! $query = mysqli_query($con, $sql)){
+    if (! $query = DB::query($sql)){
         echo "Kan gegevens niet uit database halen";
     }
     if (mysqli_num_rows($query) > 1 ){

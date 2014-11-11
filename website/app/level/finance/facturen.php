@@ -66,12 +66,12 @@ else
       
 
         }
-        if (! $query = mysqli_query($con, $sql)){
+        if (! $query = DB::query($sql)){
             echo "Kan gegevens niet uit database halen";
         }
       
-        if (mysqli_num_rows($query) > 0 ){
-            while ($row = mysqli_fetch_object($query)){
+        if (DB::num_rows($query) > 0 ){
+            while ($row = DB::fetch($query)){
                 echo "<tr>";
 // automatisch stopzette
         
@@ -84,8 +84,8 @@ else
                 echo "<td class='rood'>" . $row->bedrag . "</td>";
                 echo "<td class='rood'>" . $row->project_nr . "</td>";
                 $BTW = 0;
-                $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
-                while($factrow = mysqli_fetch_object($sqlfact))
+                $sqlfact = DB::query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+                while($factrow = DB::fetch($sqlfact))
                 {
                    $BTW = $BTW + $factrow->bedrag /100 * 121;    
                 }
@@ -96,8 +96,8 @@ else
                 echo "<td class='rood'>" . $row->beschrijving . "</td>";
                 echo "<td class='rood'>" . $row->aantal . "</td>";
                 echo "<td class='rood'>" . $row->status . "</td>";
-                echo "<td class='rood'><a href='edit.php?id=". $row->klant_nr . "'>  </a></td>";
-                echo "<td class='rood'><a href='delete.php?id=" . $row->klant_nr . "'>  </a></td>";
+                echo "<td class='rood'><a href='edit.php?id=". $row->factuur_nr . "'>  </a></td>";
+                echo "<td class='rood'><a href='delete.php?id=" . $row->factuur_nr . "'>  </a></td>";
 				
                 }
                 else
@@ -108,8 +108,8 @@ else
                 echo "<td>" . $row->bedrag . "</td>";
                 echo "<td>" . $row->project_nr . "</td>";
                 $BTW = 0;
-                $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
-                while($factrow = mysqli_fetch_object($sqlfact))
+                $sqlfact = DB::query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+                while($factrow = DB::fetch($sqlfact))
                 {
                    $BTW = $BTW + $factrow->bedrag /100 * 121;   
                 }
@@ -120,8 +120,8 @@ else
                 echo "<td>" . $row->beschrijving . "</td>";
                 echo "<td>" . $row->aantal . "</td>";
                 echo "<td>" . $row->status . "</td>";
-                echo '<td><a href="edit.php?id='.$row->klant_nr.'"><div class="btn btn-primary">Edit</div></a></td>';
-                echo '<td><a href="delete.php?id='.$row->klant_nr.'"><div class="btn btn-primary">Delete</div></a></td>';
+                echo '<td><a href="edit.php?id='.$row->factuur_nr.'"><div class="btn btn-primary">Edit</div></a></td>';
+                echo '<td><a href="delete.php?id='.$row->factuur_nr.'"><div class="btn btn-primary">Delete</div></a></td>';
             
 
                 }
@@ -141,8 +141,8 @@ else
                 echo "<td>" . $row->bedrag . "</td>";
                 echo "<td>" . $row->project_nr . "</td>";
                 $BTW = 0;
-                $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
-                while($factrow = mysqli_fetch_object($sqlfact))
+                $sqlfact = DB::query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+                while($factrow = DB::fetch($sqlfact))
                 {
                    $BTW = $BTW + $factrow->bedrag /100 * 121;   
                 }
@@ -174,8 +174,8 @@ else
                 echo "<td class='rood'>" . $row->bedrag . "</td>";
                 echo "<td class='rood'>" . $row->project_nr . "</td>";
                 $BTW = 0;
-                $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
-                while($factrow = mysqli_fetch_object($sqlfact))
+                $sqlfact = DB::query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+                while($factrow = DB::fetch($sqlfact))
                 {
                    $BTW = $BTW + $factrow->bedrag /100 * 121;    
                 }

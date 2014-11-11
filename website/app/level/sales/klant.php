@@ -49,13 +49,13 @@ require $rootlink. '/app/templates/header.php';
         <tbody>
         <?php
         $sql = "SELECT klant_nr, bedrijfs_naam, voorletters, voornaam, achternaam FROM klantgegevens";
-        if (! $query = mysqli_query($con, $sql)){
+        if (! $query = DB::query($sql)){
             echo "Kan gegevens niet uit database halen";
         }
 
         
-        if (mysqli_num_rows($query) > 0 ){
-            while ($row = mysqli_fetch_object($query)){
+        if (DB::num_rows($query) > 0 ){
+            while ($row = DB::fetch($query)){
                 echo "<tr>";
                 echo "<td>" . $row->klant_nr . "</td>";
                 echo "<td>" . $row->bedrijfs_naam . "</td>";

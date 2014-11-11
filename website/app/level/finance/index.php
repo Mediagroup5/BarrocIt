@@ -46,12 +46,12 @@ require $rootlink. '/app/templates/header.php';
       
 
         }
-        if (! $query = mysqli_query($con, $sql)){
+        if (! $query = DB::query($sql)){
             echo "Kan gegevens niet uit database halen";
         }
       
-        if (mysqli_num_rows($query) > 0 ){
-            while ($row = mysqli_fetch_object($query)){
+        if (DB::num_rows($query) > 0 ){
+            while ($row = DB::fetch($query)){
                 echo "<tr>";
 
         
@@ -62,16 +62,16 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td class='rood'>" . $row->bedrijfs_naam . "</td>";
                 echo "<td class='rood'>" . $row->bankrekeningnummer . "</td>";
                 $count = 0;
-                $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
-                while($factrow = mysqli_fetch_object($sqlfact))
+                $sqlfact = DB::query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+                while($factrow = DB::fetch($sqlfact))
 
                 {
                    $count = $count + ($factrow->bedrag -$row->limiet);    
                 }
                 echo "<td class='rood'>" . $count . "</td>";
                 $count = 0;
-                $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
-                while($factrow = mysqli_fetch_object($sqlfact))
+                $sqlfact = DB::query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+                while($factrow = DB::fetch($sqlfact))
 
                 {
                    $count = $count + $factrow->bedrag/100 * 121;    
@@ -104,16 +104,16 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td>" . $row->bedrijfs_naam . "</td>";
                 echo "<td>" . $row->bankrekeningnummer . "</td>";
                 $count = 0;
-                $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
-                while($factrow = mysqli_fetch_object($sqlfact))
+                $sqlfact = DB::query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+                while($factrow = DB::fetch($sqlfact))
 
                 {
                    $count = $count + ($factrow->bedrag -$row->limiet);    
                 }
                 echo "<td>" . $count . "</td>";
                 $count = 0;
-                $sqlfact = $con->query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
-                while($factrow = mysqli_fetch_object($sqlfact))
+                $sqlfact = DB::query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+                while($factrow = DB::fetch($sqlfact))
 
                 {
                    $count = $count + $factrow->bedrag /100 * 121;    

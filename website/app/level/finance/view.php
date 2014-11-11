@@ -28,11 +28,11 @@ require $rootlink. '/app/templates/header.php';
         <?php
         $sql = "SELECT klant_nr, bedrijfs_naam, voorletter, voornaam, achternaam, adres,
          postcode, woonplaats, telefoon_nr, fax_nr, email FROM klantgegevens";
-        if (! $query = mysqli_query($con, $sql)){
+        if (! $query = DB::query($sql)){
             echo "Kan gegevens niet uit database halen";
         }
-        if (mysqli_num_rows($query) > 0 ){
-            while ($row = mysqli_fetch_assoc($query)){
+        if (DB::num_rows($query) > 0 ){
+            while ($row = DB::fetch_assoc($query)){
                 echo "<tr>";
                 echo "<td>" . $row['klant_nr'] . "</td>";
                 echo "<td>" . $row['bedrijfs_naam'] . "</td>";

@@ -11,9 +11,9 @@ if (! isset($_GET['id'])){
     $id = intval($_GET['id']);
     $sql = "SELECT factuur_nr, klant_nr, bedrag, project_nr, btw, factuur_tot, hoeveelheid, beschrijving,
     aantal, status FROM factuur where factuur_nr = '$id'";
-    $query = mysqli_query($con, $sql);
-    if(mysqli_num_rows($query) > 0){
-        $row = mysqli_fetch_object($query);
+    $query = DB::query($sql);
+    if(DB::num_rows($query) > 0){
+        $row = DB::fetch($query);
     }
 
 }
@@ -81,7 +81,7 @@ if (isset($_POST['submit'])){
     aantal = '$aantal', status = '$status'
      WHERE factuur_nr = '$id'";
 
-    if(! $query = mysqli_query($con, $sql)){
+    if(! $query = DB::query($sql)){
         echo 'update query mislukt';
     }else{
         header('location: index.php');

@@ -49,11 +49,11 @@ if(isset($_GET['actie']) && isset($_GET['fact_nr']))
         <?php
         $sql = "SELECT projectnr_id, project_naam, onderhoudscontract, hardware, software, begin_datum, eind_datum, klant_nr, afspraken, status_project FROM projecten WHERE klant_nr = '".$id."'";
      
-		if (! $query = mysqli_query($con, $sql)){
+		if (! $query = DB::query($sql)){
             echo "Kan gegevens niet uit database halen";
         }
-        if (mysqli_num_rows($query) > 0 ){
-            while ($row = mysqli_fetch_object($query)){
+        if (DB::num_rows($query) > 0 ){
+            while ($row = DB::fetch($query)){
                 echo "<tr>";
                 echo "<td>" . $row->project_naam . "</td>";
                 echo "<td>" . $row->onderhoudscontract . "</td>";

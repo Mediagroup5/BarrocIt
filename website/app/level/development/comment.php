@@ -16,7 +16,7 @@ require $rootlink. '/app/templates/header.php';
         </tr>-->
         <?php
         $sql = "SELECT * FROM reacties";
-        if (! $query = mysqli_query($con, $sql)){
+        if (! $query = DB::query($sql)){
             echo "Kan gegevens niet uit database halen";
         }
         if (mysqli_num_rows($query) > 1 ){
@@ -70,13 +70,13 @@ require $rootlink. '/app/templates/header.php';
 
 if (isset($_POST['submit'])){
 
-    $naam = mysqli_real_escape_string($con, $_POST['naam']);
-    $datum = mysqli_real_escape_string($con, $_POST['datum']);
-    $reactie = mysqli_real_escape_string($con, $_POST['reactie']);
+    $naam = Security($_POST['naam']);
+    $datum = Security($_POST['datum']);
+    $reactie = Security($_POST['reactie']);
 
     $sql = "INSERT INTO reacties (naam, datum, reactie) VALUES ('$naam', '$datum','$reactie')";
 
-    if(! $query = mysqli_query($con, $sql)){
+    if(! $query = DB::query($sql)){
         echo "Toevoegen mislukt...";
     }else{
         $msg = "Toevoegen is gelukt";

@@ -15,11 +15,11 @@ require $rootlink. '/app/templates/header.php';
         </tr>
         <?php
         $sql = "SELECT * FROM reacties";
-        if (! $query = mysqli_query($con, $sql)){
+        if (! $query = DB::query($sql)){
             echo "Kan gegevens niet uit database halen";
         }
-        if (mysqli_num_rows($query) > 1 ){
-            while ($row = mysqli_fetch_object($query)){
+        if (DB::num_rows($query) > 1 ){
+            while ($row = DB::fetch($query)){
                 echo "<tr>";
                 echo "<td>" . $row->naam . "</td>";
                 echo "<td>" . $row->datum . "</td>";
@@ -57,7 +57,7 @@ if (isset($_POST['submit'])){
 
     $sql = "INSERT INTO reacties (naam, datum, reactie) VALUES ('$naam', '$datum','$reactie')";
 
-    if(! $query = mysqli_query($con, $sql)){
+    if(! $query = DB::query($sql)){
         echo "Toevoegen mislukt...";
     }else{
         $msg = "Toevoegen is gelukt";

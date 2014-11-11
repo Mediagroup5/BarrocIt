@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
     postcode, postcode2, residentie, residentie2, telefoon_nr, telefoonnummer2, fax_nr, email, bankrekeningnummer)
     VALUES ('".$bedrijfs_naam."', '".$voorletters."', '".$voornaam."', '".$achternaam."', '".$adres."', '".$adres2."',
     '".$postcode."', '".$postcode2."', '".$residentie."', '".$residentie2."',
-    '".$telefoon_nr."', '".$telefoonnummer2."', '".$fax_nr."', '".$email."' '".$bankrekeningnummer."')") or die(mysqli_error($con));
+    '".$telefoon_nr."', '".$telefoonnummer2."', '".$fax_nr."', '".$email."' '".$bankrekeningnummer."')") or die(mysqli_error(DB::$con));
     }else{
         echo "All records required!";
     }

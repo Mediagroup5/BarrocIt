@@ -11,7 +11,7 @@ if (! isset($_GET['id'])){
     $id = intval($_GET['id']);
     $sql = "SELECT projectnr_id, project_naam, onderhoudscontract, hardware, software, begin_datum, eind_datum
      FROM projecten where projectnr_id = '$id'";
-    $query = mysqli_query($con, $sql);
+    $query = DB::query($sql);
     if(mysqli_num_rows($query) == 1){
         $row = mysqli_fetch_object($query);
 
@@ -77,21 +77,21 @@ if (! isset($_GET['id'])){
 </div>
 <?php
 if (isset($_POST['submit'])){
-    $project_naam = mysqli_real_escape_string($con, $_POST['project_naam']);
-    $onderhoudscontract = mysqli_real_escape_string($con, $_POST['onderhoudscontract']);
-    $hardware = mysqli_real_escape_string($con, $_POST['hardware']);
-    $software = mysqli_real_escape_string($con, $_POST['software']);
-    $begin_datum = mysqli_real_escape_string($con, $_POST['begin_datum']);
-    $eind_datum = mysqli_real_escape_string($con, $_POST['eind_datum']);
-    /*$klant_nr = mysqli_real_escape_string($con, $_POST['klant_nr']);
-    $afspraken = mysqli_real_escape_string($con, $_POST['afspraken']);
-    $status_project = mysqli_real_escape_string($con, $_POST['status_project']);*/
+    $project_naam = Security($_POST['project_naam']);
+    $onderhoudscontract = Security($_POST['onderhoudscontract']);
+    $hardware = Security($_POST['hardware']);
+    $software = Security($_POST['software']);
+    $begin_datum = Security($_POST['begin_datum']);
+    $eind_datum = Security($_POST['eind_datum']);
+    /*$klant_nr = Security($_POST['klant_nr']);
+    $afspraken = Security($_POST['afspraken']);
+    $status_project = Security($_POST['status_project']);*/
     $projectnr_id = $_POST['projectnr_id'];
     $sql = "UPDATE projecten SET project_naam = '$project_naam',
      onderhoudscontract = '$onderhoudscontract', hardware = '$hardware', software = '$software',
       begin_datum = '$begin_datum', eind_datum = '$eind_datum' WHERE projectnr_id = '$projectnr_id'";
 
-    if(! $query = mysqli_query($con, $sql)){
+    if(! $query = DB::query($sql)){
         echo 'update query mislukt';
     }else{
         header('location: index.php');

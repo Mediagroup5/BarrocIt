@@ -10,7 +10,7 @@ $search = mysqli_real_escape_string($con, $_GET['search']);
 	if ($search) {
 	
 		$query = "SELECT * FROM klantgegevens WHERE bedrijfs_naam LIKE '%" . $search ."%' ";
-		$result = mysqli_query($con, $query);
+		$result = DB::query( $query);
 ?>
 
 	<div class="container">
@@ -30,7 +30,7 @@ $search = mysqli_real_escape_string($con, $_GET['search']);
 				
 				<tbody class="projects">
 					<?php 
-						while ($row = mysqli_fetch_object($result)) {
+						while ($row = DB::fetch($result)) {
 							echo '<tr>';
 							echo '<td>' . $row->klant_nr . '</a></td>';
 							echo '<td>' . $row->bedrijfs_naam . '</a></td>';

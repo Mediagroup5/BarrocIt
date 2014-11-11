@@ -3,20 +3,19 @@ require '../../config/config.php';
 //handelt de inlogform af...
 if (isset($_POST['authUser']))
 {
-session_start();
-$username = mysqli_real_escape_string($con, $_POST['username']) ;
+$username = Security($_POST['username']);
 
-$password = mysqli_real_escape_string($con, $_POST['password']);
+$password = Security($_POST['password']);
 
 
 
 $sql = "SELECT username, password, gebruikersrol FROM gebruikers WHERE username = '$username'";
-if (! $query =  mysqli_query($con, $sql)){
+if (! $query =  DB::query($sql)){
 trigger_error('check de sql op fouten');
 	}
 			
-			if (mysqli_num_rows($query) == 1){		
-			$row = mysqli_fetch_object($query);
+			if (DB::num_rows($query) == 1){		
+			$row = DB::fetch($query);
 					
 					if ($password == $row->password) {
 				

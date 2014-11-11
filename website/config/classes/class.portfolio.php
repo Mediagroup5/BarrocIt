@@ -13,9 +13,8 @@ class Portfolio
     public function __construct($id)
     {
        
-	   $con = get_my_db();
-       $sql = $con->query("SELECT * FROM portfolio WHERE port_id = '".$id."' LIMIT 1");
-	   $row = mysqli_fetch_object($sql);
+	   $sql = DB::query("SELECT * FROM portfolio WHERE port_id = '".$id."' LIMIT 1");
+	   $row = DB::fetch($sql);
 	   
 	   $this->port_id = $row->port_id;
 	   $this->gebruikers_id = $row->gebruikers_id;
@@ -28,10 +27,9 @@ class Portfolio
 	
 	public static function FetchAllItems($id)
 	{
-	   $con = get_my_db();
-       $sql = $con->query("SELECT port_id FROM portfolio WHERE gebruikers_id = '".$id."'");
+	    $sql = DB::query("SELECT port_id FROM portfolio WHERE gebruikers_id = '".$id."'");
 	   $content = "";
-	   while ($row = mysqli_fetch_object($sql))
+	   while ($row = DB::fetch($sql))
 	   {
 			$port = new Portfolio($row->port_id);
             $content = $content." <tr>
@@ -50,18 +48,17 @@ class Portfolio
 	//Update functie
 	public function update($type,$desc,$startdate,$enddate,$comment)
 	{
-	    $con = get_my_db();
-     	$con->query("UPDATE portfolio SET type = '".$type."', omschrijving = '".$desc."', aanv_datum = '".$startdate."', eind_datum = '".$enddate."', opmerking = '".$comment."' WHERE port_id = '".$id."' LIMIT 1") OR DIE(mysqli_error($con));
+     	DB::query("UPDATE portfolio SET type = '".$type."', omschrijving = '".$desc."', aanv_datum = '".$startdate."', eind_datum = '".$enddate."', opmerking = '".$comment."' WHERE port_id = '".$id."' LIMIT 1") OR DIE(mysqli_error($con));
 	}
 	
 	//Alle get functies
 	public function getCustName($id)
 	{
 	   $con = get_my_db();
-	   $sql = $con->query("SELECT username FROM gebruikers WHERE gebruikers_id = '".$id."' LIMIT 1") or die(mysqli_error($con));
-	   if(mysqli_num_rows($sql) > 0)
+	   $sql = DB::query("SELECT username FROM gebruikers WHERE gebruikers_id = '".$id."' LIMIT 1") or die(mysqli_error($con));
+	   if(DB::num_rows($sql) > 0)
 	   {
-	      $row = mysqli_fetch_object($sql);
+	      $row = DB::fetch($sql);
 	      return $row->username;
 	   }
 	   else

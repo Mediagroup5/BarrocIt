@@ -7,7 +7,7 @@ if (! isset($_GET['id'])){
     $id = intval($_GET['id']);
     $sql = "DELETE FROM projecten WHERE projectnr_id = '$id'";
 
-    if(! $query = mysqli_query($con, $sql)){
+    if(! $query = DB::query($sql)){
         echo 'Fout bij verwijderen van item';
     }else{
         header('location: index.php');

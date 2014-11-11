@@ -36,11 +36,11 @@ require $rootlink. '/app/templates/header.php';
             $id = Security($_GET['id']);
         }
         $sql = "SELECT * FROM klantgegevens WHERE klant_nr = '$id'";
-        if (! $query = mysqli_query($con, $sql)){
+        if (! $query = DB::query($sql)){
             echo "Failed to get customer data from database...";
         }
-        if (mysqli_num_rows($query) > 0 ){
-            while ($row = mysqli_fetch_object($query)){
+        if (DB::num_rows($query) > 0 ){
+            while ($row = DB::fetch($query)){
 
 
 

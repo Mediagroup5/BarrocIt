@@ -12,8 +12,6 @@ if(isset($_POST['submit'])){
         $klant_nr = Security($_POST['klant']);
         $bedrag = Security($_POST['bedrag']);
         $project_nr = Security($_POST['pr_nr']);
-      //  $btw = Security($_POST['btw']);
-      //  $factuur_tot = Security($_POST['factuur_tot']);
         $hoeveelheid = Security($_POST['hoeveelheid']);
         $beschrijving = Security($_POST['beschrijving']);
          $status = Security($_POST['status']);
@@ -24,8 +22,8 @@ if(isset($_POST['submit'])){
         $sql = "INSERT INTO factuur (klant_nr, bedrag, project_nr, factuur_begin, factuur_tot, hoeveelheid,
 beschrijving, status) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$time', '$newtime', '$hoeveelheid', '$beschrijving', '$status' )";
 
-        if (! $query = mysqli_query($con, $sql)){
-            echo 'Factuur toevoegen is niet gelukt...</a>'.mysqli_error($con);
+        if (! $query = DB::query($sql)){
+            echo 'Factuur toevoegen is niet gelukt...</a>'.mysqli_error(DB::$con);
         }else{
             header('location: facturen.php');
         }
@@ -41,8 +39,8 @@ beschrijving, status) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$time', '$
                 <label for="klant">Company Name</label>
                 <select  class="form-control" name="klant">
                     <?php
-                    $sql = $con->query("SELECT klant_nr,bedrijfs_naam FROM klantgegevens");
-                    while($row = mysqli_fetch_object($sql))
+                    $sql = DB::query("SELECT klant_nr,bedrijfs_naam FROM klantgegevens");
+                    while($row = DB::fetch($sql))
 
                         echo'<option value="'.$row->klant_nr.'">'.$row->bedrijfs_naam.'</option>';
                     ?>
@@ -50,7 +48,7 @@ beschrijving, status) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$time', '$
                 <br><br>
         <div class="form-group col-md-6">
             <label for="Bedrag">Amount</label>
-            <input type="text" class="form-control" name="bedrag" id="bedrag" placeholder="Bedrag"/>
+            <input type="number" class="form-control" name="bedrag" id="bedrag" placeholder="Bedrag"/>
         </div>
         <div class="form-group col-md-6">
             <label for="Factuur duur">Quantity</label>
@@ -62,11 +60,11 @@ beschrijving, status) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$time', '$
         </div>
 		 <div class="form-group col-md-6">
             <label for="pr_nr">Project Number</label>
-            <input type="text" class="form-control" name="pr_nr" id="pr_nr" placeholder="Project number"/>
+            <input type="number" class="form-control" name="pr_nr" id="pr_nr" placeholder="Project number"/>
         </div>
         <div class="form-group col-md-6">
             <label for="Status">Status</label>
-            <input type="text" class="form-control" name="status" id="Status" placeholder="Status"/>
+            <input type="number" class="form-control" name="status" id="Status" placeholder="Status"/>
         </div>
         <div class="form-group col-md-6 ">
             <input type="submit" class="btn btn-warning" value="Submit" name="submit"/>

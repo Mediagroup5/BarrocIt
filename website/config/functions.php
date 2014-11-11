@@ -2,9 +2,8 @@
 //Beveiliging tegen injecties
  function Security($input) {
 	$output = $input;
-	$mysqli = get_my_db();
 	$output = addslashes($output);
-	$output = $mysqli->real_escape_string($output);
+	$output = DB::escape($output);
 	$output = htmlspecialchars($output);
 	
 	return $output;
@@ -13,9 +12,8 @@
 //eigen gebruiker veranderd? Update de sessie.
 	function UpdateUser($id)
 	{
-	$con = get_my_db();
-	$sql = $con->query("SELECT * FROM users WHERE id = '".$id."' LIMIT 1");
-	$data = mysqli_fetch_object($sql);
+	$sql = DB::query("SELECT * FROM users WHERE id = '".$id."' LIMIT 1");
+	$data = DB::fetch($sql);
 	$_SESSION['userdata'] = $data;
 	return true;
 	}

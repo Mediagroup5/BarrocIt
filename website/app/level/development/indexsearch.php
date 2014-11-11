@@ -11,7 +11,7 @@ $search = Security($_GET['search']);
 	
 		$query = "SELECT * FROM klantgegevens WHERE bedrijfs_naam LIKE '%" . $search ."%'
 		OR klant_nr LIKE '%" . $search ."%' ";
-		$result = mysqli_query($con, $query);
+		$result = DB::query($query);
 ?>
 
 	<div class="container">

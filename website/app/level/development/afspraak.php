@@ -26,7 +26,7 @@ require $rootlink. '/app/templates/header.php';
         <tbody>
         <?php
         $sql = "SELECT afspraken_id, datum, tijd, naam, plaats FROM afspraken WHERE klant_nr = '".Security($_GET['id'])."'";
-        if (! $query = mysqli_query($con, $sql)){
+        if (! $query = DB::query($sql)){
             echo "Kan gegevens niet uit database halen";
         }
         if (mysqli_num_rows($query) > 0 ){

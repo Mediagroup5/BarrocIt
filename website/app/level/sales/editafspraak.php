@@ -12,8 +12,8 @@ if (! isset($_GET['id'])){
 }else{
     $id = intval($_GET['id']);
     $sql = "SELECT afspraken_id, datum, naam, tijd, plaats, opmerkingen FROM afspraken where afspraken_id = '$id'";
-    $query = mysqli_query($con, $sql);
-    if(mysqli_num_rows($query) == 1){
+    $query = DB::query($sql);
+    if(DB::num_rows($query) == 1){
         $row = mysqli_fetch_assoc($query);
     }
 
@@ -68,7 +68,7 @@ if (isset($_POST['submit'])){
     $afspraken_id = $_POST['afspraken_id'];
     $sql = "UPDATE afspraken SET datum = '$datum', naam = '$naam', tijd = '$tijd', plaats = '$plaats', opmerkingen = '$opmerkingen' WHERE afspraken_id = '$afspraken_id'";
 
-    if(! $query = mysqli_query($con, $sql)){
+    if(! $query = DB::query($sql)){
         echo 'update query mislukt';
     }else{
         header('location: afspraak.php');
