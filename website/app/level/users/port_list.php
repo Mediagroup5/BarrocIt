@@ -16,12 +16,12 @@ else
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Medewerker</th>
-            <th>Portfiliotype</th>
-            <th>omschrijving</th>
-            <th>Aanvangsdatum</th>
-            <th>Einddatum</th>
-            <th>Opmerking</th>
+            <th>User</th>
+            <th>Portfilio type</th>
+            <th>Description</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Comment</th>
         </tr>
         </thead>
         <tbody>
