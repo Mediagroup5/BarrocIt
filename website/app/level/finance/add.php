@@ -9,7 +9,7 @@ require $rootlink. '/app/templates/header.php';
 if(isset($_POST['submit'])){//isset $_POST voegt gegevens toe aan database
 
    // check of alles is ingevult.
-    if(! empty($_POST['klant']) && ! empty($_POST['bedrag']) && ! empty($_POST['pr_nr']) && ! empty($_POST['hoeveelheid']) && ! empty($_POST['beschrijving']) && ! empty($_POST['status'])){
+    if(! empty($_POST['klant']) && ! empty($_POST['bedrag']) && ! empty($_POST['pr_nr']) && ! empty($_POST['hoeveelheid']) && ! empty($_POST['beschrijving'])){
         $klant_nr = Security($_POST['klant']);//variabele aanmaken
         $bedrag = Security($_POST['bedrag']);//variabele aanmaken
         $project_nr = Security($_POST['pr_nr']);//variabele aanmaken
