@@ -66,7 +66,7 @@ require $rootlink. '/app/templates/header.php';
                 while($factrow = DB::fetch($sqlfact))
 
                 {
-                   $count = $count + ($factrow->bedrag -$row->limiet);    
+                   $count = $count + ($factrow->bedrag/100 * 121 -$row->limiet);    
                 }
                 echo "<td class='rood'>" . $count . "</td>";
                 $count = 0;
@@ -108,7 +108,7 @@ require $rootlink. '/app/templates/header.php';
                 while($factrow = DB::fetch($sqlfact))
 
                 {
-                   $count = $count + ($factrow->bedrag -$row->limiet);    
+                   $count = $count + ($factrow->bedrag/100 * 121 -$row->limiet);    
                 }
                 echo "<td>" . $count . "</td>";
                 $count = 0;
