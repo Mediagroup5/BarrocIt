@@ -1,6 +1,7 @@
 <?php
 //Mysqli Class - verbinding met database
-
+//om een query uit te voeren doe je voortaan:    DB::query("SQL hier");
+//Om iets te fetchen gebruik je:                 DB::fetch("Query result hier");
 Class DB
 {
    //variables

@@ -1,5 +1,5 @@
 <?php
-
+// Portfolio class voor de portfolio pagina
 class Portfolio
 {
    private $port_id;
@@ -10,6 +10,7 @@ class Portfolio
    private $eind_datum;
    private $opmerking;
    
+   // contructor
     public function __construct($id)
     {
        
@@ -24,7 +25,7 @@ class Portfolio
 	   $this->eind_datum = $row->eind_datum;
 	   $this->opmerking = $row->opmerking;
 	}
-	
+	// haalt alle portfolio items op van een bepaalde gebruiker.
 	public static function FetchAllItems($id)
 	{
 	    $sql = DB::query("SELECT port_id FROM portfolio WHERE gebruikers_id = '".$id."'");
@@ -45,13 +46,13 @@ class Portfolio
 		}	
 		return $content;
 	}
-	//Update functie
+	//Update een item
 	public function update($type,$desc,$startdate,$enddate,$comment)
 	{
      	DB::query("UPDATE portfolio SET type = '".$type."', omschrijving = '".$desc."', aanv_datum = '".$startdate."', eind_datum = '".$enddate."', opmerking = '".$comment."' WHERE port_id = '".$id."' LIMIT 1") OR DIE(mysqli_error($con));
 	}
 	
-	//Alle get functies
+	//Functie voor ophalen customer name
 	public function getCustName($id)
 	{
 	   $sql = DB::query("SELECT username FROM gebruikers WHERE gebruikers_id = '".$id."' LIMIT 1") or die(mysqli_error($con));
