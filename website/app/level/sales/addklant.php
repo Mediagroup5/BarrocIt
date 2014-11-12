@@ -102,7 +102,7 @@ if(isset($_POST['submit'])){
             <input type="text" class="form-control" name="bankrekeningnummer"/>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-warning" name="submit" value="submit"/>
+            <input type="submit" class="btn btn-primary" name="submit" value="submit"/>
         </div>
     </form>
 </div>
