@@ -5,23 +5,26 @@ include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 
+//submit
 if(isset($_POST['submit'])){
 
-
+   // check of alles is ingevult.
     if(! empty($_POST['klant']) && ! empty($_POST['bedrag']) && ! empty($_POST['pr_nr']) && ! empty($_POST['hoeveelheid']) && ! empty($_POST['beschrijving']) && ! empty($_POST['status'])){
-        $klant_nr = Security($_POST['klant']);
+       //variables
+	   $klant_nr = Security($_POST['klant']);
         $bedrag = Security($_POST['bedrag']);
         $project_nr = Security($_POST['pr_nr']);
         $hoeveelheid = Security($_POST['hoeveelheid']);
         $beschrijving = Security($_POST['beschrijving']);
-         $status = Security($_POST['status']);
+        $status = Security($_POST['status']);
 
 		
 		$time = time();
 		$newtime = strtotime(' + 1 month', $time);    
+		//query
         $sql = "INSERT INTO factuur (klant_nr, bedrag, project_nr, factuur_begin, factuur_tot, hoeveelheid,
 beschrijving, status) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$time', '$newtime', '$hoeveelheid', '$beschrijving', '$status' )";
-
+        // voer query uit
         if (! $query = DB::query($sql)){
             echo 'Factuur toevoegen is niet gelukt...</a>'.mysqli_error(DB::$con);
         }else{
@@ -39,6 +42,7 @@ beschrijving, status) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$time', '$
                 <label for="klant">Company Name</label>
                 <select  class="form-control" name="klant">
                     <?php
+					//haalt alle klanten op
                     $sql = DB::query("SELECT klant_nr,bedrijfs_naam FROM klantgegevens");
                     while($row = DB::fetch($sql))
                     {

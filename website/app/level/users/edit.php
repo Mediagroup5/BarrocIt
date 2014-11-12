@@ -11,10 +11,13 @@ else
 {
     $id = Security($_GET['id']);
 	
+	//check of submit is mee gestuurd
 	if(isset($_POST['submit']))
 	{
+	//check of alles is ingevult
 	   if(trim($_POST['Username']) || trim($_POST['type']) || trim($_POST['desc']) || trim($_POST['startdate']) || trim($_POST['enddate']) || trim($_POST['comment']))
 	   {
+	      //defineer variables
 	      $type = $_POST['type'];
 		  $desc = $_POST['desc'];
 		  $startdate = $_POST['startdate'];
@@ -25,6 +28,7 @@ else
 	   }
 	
 	}
+	//haal data op uit de class
    	$port = new Portfolio($id);
 	$type = $port->getType();
     $desc = $port->getOmschr();

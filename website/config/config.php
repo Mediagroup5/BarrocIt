@@ -1,16 +1,24 @@
 <?php
-
 error_reporting(E_ALL);
+Session_start();
 
-//MYSQLI class
+//Wesite config ophalen. Omdat we met andere mappen structuren werken.
+if(!isset($_SESSION['link']))
+{
+    $dbconfig = mysqli_connect("127.0.0.1","root","","barroc_it");
+    $sqlconf = $dbconfig->query("SELECT * FROM site_config");
+    $conf = mysqli_fetch_object($sqlconf);
 
-$dbconfig = mysqli_connect("127.0.0.1","root","","barroc_it");
-//Wesite config ophalen
-$sqlconf = $dbconfig->query("SELECT * FROM site_config");
-$conf = mysqli_fetch_object($sqlconf);
-
-$link = $conf->link;
-$rootlink = $_SERVER['DOCUMENT_ROOT']. $conf->rootlink;
+    $link = $conf->link;
+    $rootlink = $_SERVER['DOCUMENT_ROOT']. $conf->rootlink;
+    $_SESSION['link'] = $link;
+    $_SESSION['rootlink'] = $rootlink;
+}
+else
+{
+    $link = $_SESSION['link'];
+    $rootlink = $_SESSION['rootlink'];
+}
 
 require("$rootlink/config/classes/class.mysqli.php");
 
@@ -42,5 +50,4 @@ require("$rootlink/config/classes/class.users.php");
 require("$rootlink/config/classes/class.portfolio.php");
 
 
-Session_start();
 ?>

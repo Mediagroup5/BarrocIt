@@ -19,6 +19,7 @@ require $rootlink. '/app/templates/header.php';
         </thead>
         <tbody>
         <?php
+		//haalt alle gebruikers op
         echo UserData::FetchAllItems();
         ?>
         </tbody>

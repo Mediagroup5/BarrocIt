@@ -9,6 +9,20 @@
 	return $output;
 }
 
+ function GetRootLink()
+ {
+ 
+ $dbconfig = mysqli_connect("127.0.0.1","root","","barroc_it");
+//Wesite config ophalen
+ $sqlconf = $dbconfig->query("SELECT * FROM site_config");
+ $conf = mysqli_fetch_object($sqlconf);
+
+ $link = $conf->link;
+ $rootlink = $_SERVER['DOCUMENT_ROOT']. $conf->rootlink;
+ $_SESSION['link'] = $link;
+ $_SESSION['rootlink'] = $rootlink;
+ 
+ }
 //eigen gebruiker veranderd? Update de sessie.
 	function UpdateUser($id)
 	{
