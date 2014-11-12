@@ -1,8 +1,8 @@
 <?php
 //USERS CLASS by Jordy
-//Haalt alle UserData uit een sessie
-
-
+//Haalt alle Data uit een sessie
+//Je kan nu gebruik maken van GetUserData("id");
+//Maar je kunt hier natuurlijk ook de andere values mee ophalen.
 class User
 {
 	
@@ -25,7 +25,7 @@ class User
 	
 	}
 }
-
+//UserData class
 Class UserData
 {
 
@@ -33,7 +33,7 @@ Class UserData
    private $username;
    private $gebruikersrol;
    private $actief;
-   
+   //contructor
     public function __construct($id)
     {
        
@@ -45,7 +45,7 @@ Class UserData
 	   $this->gebruikersrol = $row->gebruikersrol;
 	   $this->actief = $row->actief;
 	}
-	
+	// haalt alle gebruikers op
 	public static function FetchAllItems()
 	{
        $sql = DB::query("SELECT gebruikers_id FROM gebruikers");
@@ -92,7 +92,7 @@ Class UserData
 		}	
 		return $content;
 	}
-	
+	// Functies voor het ophalen van gegevens.
 	public function getUserId()
 	{
 	   return $this->gebruikers_id;
