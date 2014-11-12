@@ -49,13 +49,17 @@ class Portfolio
 	//Update een item
 	public static function update($id, $type,$desc,$startdate,$enddate,$comment)
 	{
-     	DB::query("UPDATE portfolio SET type = '".$type."', omschrijving = '".$desc."', aanv_datum = '".$startdate."', eind_datum = '".$enddate."', opmerking = '".$comment."' WHERE port_id = '".$id."' LIMIT 1") OR DIE(mysqli_error($con));
+     	DB::query("UPDATE portfolio SET type = '".$type."', omschrijving = '".$desc."', aanv_datum = '".$startdate."', eind_datum = '".$enddate."', opmerking = '".$comment."' WHERE port_id = '".$id."' LIMIT 1") OR DIE(mysqli_error(DB::$con));
+	}
+	public static function insert($gebruikers_id,$type,$desc,$startdate,$enddate,$comment)
+	{
+     	DB::query("INSERT INTO portfolio (gebruikers_id,type,omschrijving,aanv_datum,eind_datum,opmerking) VALUES ('".$gebruikers_id."','".$type."','".$desc."','".$startdate."','".$enddate."','".$comment."')") OR DIE(mysqli_error(DB::$con));
 	}
 	
 	//Functie voor ophalen customer name
 	public function getCustName($id)
 	{
-	   $sql = DB::query("SELECT username FROM gebruikers WHERE gebruikers_id = '".$id."' LIMIT 1") or die(mysqli_error($con));
+	   $sql = DB::query("SELECT username FROM gebruikers WHERE gebruikers_id = '".$id."' LIMIT 1") or die(mysqli_error(DB::$con));
 	   if(DB::num_rows($sql) > 0)
 	   {
 	      $row = DB::fetch($sql);
