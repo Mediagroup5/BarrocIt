@@ -86,7 +86,7 @@
 	
 	
 	    if($id == "users_index") { echo '<li class="active">'; } else { echo "<li>"; }
-	    echo '<a href="../users/index.php">Portfolio klant</a></li>';
+	    echo '<a href="../users/index.php">Portfolio</a></li>';
 					  
  
 	

@@ -20,8 +20,8 @@ else
 		  $startdate = $_POST['startdate'];
 		  $enddate = $_POST['enddate'];
 		  $comment = $_POST['comment'];
-	      update($type,$desc,$startdate,$enddate,$comment);
-		  header("location: ./port_list.php?id=");
+	      Portfolio::update($id,$type,$desc,$startdate,$enddate,$comment);
+		  header("location: ./port_list.php?id=3");
 	   }
 	
 	}
@@ -40,7 +40,7 @@ else
     <div class="page-header">
         <h1>portfolio wijzigen</h1>
     </div>
-    <form action="edit.php" method="POST">
+    <form action="edit.php?id=<?php echo $id; ?>" method="POST">
 	
         <div class="form-group col-md-4 ">
             <label for="username">Username</label>

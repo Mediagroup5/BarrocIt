@@ -47,7 +47,7 @@ class Portfolio
 		return $content;
 	}
 	//Update een item
-	public function update($type,$desc,$startdate,$enddate,$comment)
+	public static function update($id, $type,$desc,$startdate,$enddate,$comment)
 	{
      	DB::query("UPDATE portfolio SET type = '".$type."', omschrijving = '".$desc."', aanv_datum = '".$startdate."', eind_datum = '".$enddate."', opmerking = '".$comment."' WHERE port_id = '".$id."' LIMIT 1") OR DIE(mysqli_error($con));
 	}
