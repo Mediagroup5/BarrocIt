@@ -24,7 +24,7 @@ require $rootlink. '/app/templates/header.php';
             <th>Revenue amount</th>
             <th>Limiet</th>
             <th>Ledger account</th>
-            <th>BKR</th>
+            <th>BKR(Credit Office Registration)</th>
             <th>Activated invoices</th>
             <th>Deactivated invoices</th>
             <th>Initials</th>
