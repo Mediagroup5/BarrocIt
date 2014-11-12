@@ -97,7 +97,7 @@ else
                 echo "<td class='rood'>" . $row->aantal . "</td>";
                 echo "<td class='rood'>Suspended</td>";
                 echo "<td class='rood'><a href='edit.php?id=". $row->factuur_nr . "'>  </a></td>";
-                echo "<td class='rood'><a href='delete.php?id=" . $row->factuur_nr . "'>  </a></td>";
+                echo "<td class='rood'><a href='delete.php?id=" . $row->factuur_nr . "'><div class='btn btn-primary'>Delete</div></a></td>";
 				
                 }
                 else
@@ -187,7 +187,7 @@ else
                 echo "<td class='rood'>" . $row->aantal . "</td>";
                 echo "<td class='rood'>" . $row->status . "</td>";
                 echo '<td><a href="edit.php?id='.$row->klant_nr.'"><div class="btn btn-primary"></div></a></td>';
-                echo '<td><a href="delete.php?id='.$row->klant_nr.'"><div class="btn btn-primary"></div></a></td>';
+                echo '<td><a href="delete.php?id='.$row->klant_nr.'"><div class="btn btn-primary"><div class="btn btn-primary">Delete</div></div></a></td>';
 				
 
                 }
