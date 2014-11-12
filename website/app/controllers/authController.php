@@ -4,7 +4,7 @@ require '../../config/config.php';
 if (isset($_POST['authUser']))
 {
 $username = Security($_POST['username']);
-$password = sha1($_POST['password']);
+$password = Passhash($_POST['password']);
 
 
 

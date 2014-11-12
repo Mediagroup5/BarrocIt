@@ -33,7 +33,7 @@
 	}
 	
 	//hash
-function Jordyhash($string) {
+function Passhash($string) {
 	$output = sha1($string);
 	
 	return $output;
