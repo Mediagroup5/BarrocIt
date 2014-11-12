@@ -3,7 +3,16 @@
 error_reporting(E_ALL);
 
 //MYSQLI class
-require($_SERVER['DOCUMENT_ROOT']."/BarrocIt/website/config/classes/class.mysqli.php");
+
+$dbconfig = mysqli_connect("127.0.0.1","root","","barrocit");
+//Wesite config ophalen
+$sqlconf = $dbconfig->query("SELECT * FROM site_config");
+$conf = mysqli_fetch_object($sqlconf);
+
+$link = $conf->link;
+$rootlink = $_SERVER['DOCUMENT_ROOT']. $conf->rootlink;
+
+require("$rootlink/config/classes/class.mysqli.php");
 
 
 //Hostname, bijvoorbeeld: localhost of 127.0.0.1
@@ -11,7 +20,7 @@ $host = "127.0.0.1";
 //Database gebruikersnaam
 $dbuser = "root";
 //Database wachtwoord
-$dbpass = "Lolo1211";
+$dbpass = "";
 //Database naam
 $dbname = "barrocit";
 
@@ -24,13 +33,6 @@ if (mysqli_connect_error($con))
   die('Kan niet connecten: ' . mysqli_connect_error());
 }
 
-  
-//Wesite config ophalen
-$sqlconf = DB::query("SELECT * FROM site_config");
-$conf = DB::fetch($sqlconf);
-
-$link = $conf->link;
-$rootlink = $_SERVER['DOCUMENT_ROOT']. $conf->rootlink;
   
 //Functies
 require("$rootlink/config/functions.php");
