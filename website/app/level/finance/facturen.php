@@ -50,7 +50,7 @@ else
             <th>Description</th>
             <th>Number</th>
             <th>Status</th>
-            <th>Manipulate</th>
+            <th>Edit</th>
             <th>Remove</th>
         </tr>
         </thead>
