@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 
 //MYSQLI class
 
-$dbconfig = mysqli_connect("127.0.0.1","root","","barrocit");
+$dbconfig = mysqli_connect("127.0.0.1","root","","barroc-it");
 //Wesite config ophalen
 $sqlconf = $dbconfig->query("SELECT * FROM site_config");
 $conf = mysqli_fetch_object($sqlconf);
@@ -22,7 +22,7 @@ $dbuser = "root";
 //Database wachtwoord
 $dbpass = "";
 //Database naam
-$dbname = "barrocit";
+$dbname = "barroc-it";
 
 $con = new DB($host,$dbuser,$dbpass,$dbname);
     
