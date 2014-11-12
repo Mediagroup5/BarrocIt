@@ -15,13 +15,12 @@ if(isset($_POST['submit'])){//isset $_POST voegt gegevens toe aan database
         $project_nr = Security($_POST['pr_nr']);//variabele aanmaken
         $hoeveelheid = Security($_POST['hoeveelheid']);//variabele aanmaken
         $beschrijving = Security($_POST['beschrijving']);//variabele aanmaken
-        $status = Security($_POST['status']);//variabele aanmaken
-
+       
 		
 		$time = time();
 		$newtime = strtotime(' + 1 month', $time);    
 		//query
-        $sql = "INSERT INTO factuur (klant_nr, bedrag, project_nr, factuur_begin, factuur_tot, hoeveelheid,beschrijving, status) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$time', '$newtime', '$hoeveelheid', '$beschrijving', '$status' )";
+        $sql = "INSERT INTO factuur (klant_nr, bedrag, project_nr, factuur_begin, factuur_tot, hoeveelheid,beschrijving) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$time', '$newtime', '$hoeveelheid', '$beschrijving')";
         // voer query uit
         if (! $query = DB::query($sql)){
             echo 'Factuur toevoegen is niet gelukt...</a>'.mysqli_error(DB::$con);//alshet niet lukt krijg je dit
@@ -65,15 +64,7 @@ if(isset($_POST['submit'])){//isset $_POST voegt gegevens toe aan database
             <label for="pr_nr">Project Number</label>
             <input type="number" class="form-control" name="pr_nr" id="pr_nr" placeholder="Project number"/>
         </div>
-        <div class="form-group col-md-6">
-            <label for="Status">Status</label>
-           <select  class="form-control" name="status">
-                    
-
-                       <option value="1">Active</option>
-					    <option value="0">Non-active</option>
-                  
-                </select>  </div>
+       
         <div class="form-group col-md-6 ">
             <input type="submit" class="btn btn-primary col-md-2" value="Submit" name="submit"/>
         </div>
