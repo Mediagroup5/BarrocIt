@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
 
 		
 		$time = time();
-		$newtime = strtotime($time.' + 1 months');    
+		$newtime = strtotime(' + 1 month', $time);    
         $sql = "INSERT INTO factuur (klant_nr, bedrag, project_nr, factuur_begin, factuur_tot, hoeveelheid,
 beschrijving, status) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$time', '$newtime', '$hoeveelheid', '$beschrijving', '$status' )";
 
@@ -41,18 +41,19 @@ beschrijving, status) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$time', '$
                     <?php
                     $sql = DB::query("SELECT klant_nr,bedrijfs_naam FROM klantgegevens");
                     while($row = DB::fetch($sql))
-
+                    {
                         echo'<option value="'.$row->klant_nr.'">'.$row->bedrijfs_naam.'</option>';
-                    ?>
+                    }
+				   ?>
                 </select>
                 <br><br>
         <div class="form-group col-md-6">
             <label for="Bedrag">Amount</label>
-            <input type="number" class="form-control" name="bedrag" id="bedrag" placeholder="Bedrag"/>
+            <input type="number" class="form-control" name="bedrag" id="bedrag"  style="color:black;" placeholder="Bedrag"/>
         </div>
         <div class="form-group col-md-6">
             <label for="Factuur duur">Quantity</label>
-            <input type="text" class="form-control" name="hoeveelheid" id="hoeveelheid" placeholder="Last date"/>
+            <input type="number" class="form-control" name="hoeveelheid" id="hoeveelheid" placeholder="Quantity"/>
         </div>
         <div class="form-group col-md-6">
             <label for="Beschrijving">Description</label>
@@ -64,8 +65,13 @@ beschrijving, status) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$time', '$
         </div>
         <div class="form-group col-md-6">
             <label for="Status">Status</label>
-            <input type="number" class="form-control" name="status" id="Status" placeholder="Status"/>
-        </div>
+           <select  class="form-control" name="status">
+                    
+
+                       <option value="1">Active</option>
+					    <option value="0">Non-active</option>
+                  
+                </select>  </div>
         <div class="form-group col-md-6 ">
             <input type="submit" class="btn btn-warning" value="Submit" name="submit"/>
         </div>
