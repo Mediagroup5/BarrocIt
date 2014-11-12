@@ -37,9 +37,8 @@ Class UserData
     public function __construct($id)
     {
        
-	   $con = get_my_db();
-       $sql = $con->query("SELECT * FROM gebruikers WHERE gebruikers_id = '".$id."' LIMIT 1");
-	   $row = mysqli_fetch_object($sql);
+       $sql = DB::query("SELECT * FROM gebruikers WHERE gebruikers_id = '".$id."' LIMIT 1");
+	   $row = DB::fetch($sql);
 	   
 	   $this->gebruikers_id = $row->gebruikers_id;
 	   $this->username = $row->username;
@@ -49,10 +48,9 @@ Class UserData
 	
 	public static function FetchAllItems()
 	{
-	   $con = get_my_db();
-       $sql = $con->query("SELECT gebruikers_id FROM gebruikers");
+       $sql = DB::query("SELECT gebruikers_id FROM gebruikers");
 	   $content = "";
-	   while ($row = mysqli_fetch_object($sql))
+	   while ($row = DB::fetch($sql))
 	   {
 			$user = new UserData($row->gebruikers_id);
 			switch($user->getRole())

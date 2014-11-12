@@ -37,7 +37,7 @@ Class DB
 	
 	public static function fetch_assoc($sql)
 	{
-	   return mysqli_fetch_object($sql); 
+	   return mysqli_fetch_assoc($sql); 
 	}
 	
 	public static function num_rows($sql)

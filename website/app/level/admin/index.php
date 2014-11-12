@@ -1,5 +1,9 @@
-<?php
-include "templates/header.php";
+<?php  
+$page = "admin";
+$id = "index";
+include '../../../config/config.php';
+include $rootlink. '/config/function.security.php';
+require $rootlink. '/app/templates/header.php';
 ?>
 <div class="container">
     <h1>projecten</h1>
@@ -13,18 +17,17 @@ include "templates/header.php";
         </thead>
         <tbody>
         <?php
-        $sql = "SELECT id, naam, datum, beschrijving FROM projecten";
-        if (! $query = mysqli_query($con, $sql)){
+        $sql = "SELECT projectnr_id, project_naam, begin_datum FROM projecten";
+        if (! $query = DB::query($sql)){
             echo "Kan gegevens niet uit database halen";
         }
-        if (mysqli_num_rows($query) > 0 ){
-            while ($row = mysqli_fetch_object($query)){
+        if (DB::num_rows($query) > 0 ){
+            while ($row = DB::fetch($query)){
                 echo "<tr>";
-                echo "<td>" . $row->naam . "</td>";
-                echo "<td>" . $row->datum . "</td>";
-                echo "<td>" . $row->beschrijving . "</td>";
-                echo "<td><a href='edit.php?id=". $row->id . "'> Bewerk </a></td>";
-                echo "<td><a href='delete.php?id=" . $row->id . "'> X </a></td>";
+                echo "<td>" . $row->project_naam . "</td>";
+                echo "<td>" . $row->begin_datum . "</td>";
+                echo "<td><a href='edit.php?id=". $row->projectnr_id . "'> Bewerk </a></td>";
+                echo "<td><a href='delete.php?id=" . $row->projectnr_id . "'> X </a></td>";
                 echo "</tr>";
             }
         }
@@ -60,7 +63,7 @@ include "templates/header.php";
 
             $sql = "INSERT INTO projecten (naam, datum, beschrijving) VALUES ('$naam', '$datum', '$beschrijving')";
 
-            if (! $query = mysqli_query($con, $sql)){
+            if (! $query = DB::query($sql)){
                 echo 'Film toevoegen is niet gelukt. <a href="index.php"> Klik hier om terug te keren</a>';
             }else{
                 header('location: index.php');

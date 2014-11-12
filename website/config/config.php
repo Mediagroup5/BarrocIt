@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 
-//Portfolio class
+//MYSQLI class
 require($_SERVER['DOCUMENT_ROOT']."/BarrocIt/website/config/classes/class.mysqli.php");
 
 

@@ -7,7 +7,7 @@ if (! isset($_GET['id'])){
     $id = intval($_GET['id']);
     $sql = "DELETE FROM factuur WHERE factuur_nr = '$id'";
 
-    if(! $query = mysqli_query($con, $sql)){
+    if(! $query = DB::query($con, $sql)){
         echo 'Fout bij verwijderen van item';
     }else{
         header('location: index.php');

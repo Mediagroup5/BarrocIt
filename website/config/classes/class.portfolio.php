@@ -54,7 +54,6 @@ class Portfolio
 	//Alle get functies
 	public function getCustName($id)
 	{
-	   $con = get_my_db();
 	   $sql = DB::query("SELECT username FROM gebruikers WHERE gebruikers_id = '".$id."' LIMIT 1") or die(mysqli_error($con));
 	   if(DB::num_rows($sql) > 0)
 	   {

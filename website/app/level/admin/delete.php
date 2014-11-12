@@ -1,5 +1,9 @@
-<?php
-include 'config/config.php';
+<?php  
+$page = "admin";
+$id = "delete";
+include '../../../config/config.php';
+include $rootlink. '/config/function.security.php';
+require $rootlink. '/app/templates/header.php';
 
 if (! isset($_GET['id'])){
     header ('location: index.php');
@@ -7,7 +11,7 @@ if (! isset($_GET['id'])){
     $id = intval($_GET['id']);
     $sql = "DELETE FROM projecten WHERE id = '$id'";
 
-    if(! $query = mysqli_query($con, $sql)){
+    if(! $query = DB::query($sql)){
         echo 'Fout bij verwijderen van item';
     }else{
         header('location: index.php');

@@ -1,13 +1,18 @@
-<?php include 'templates/header.php';
+<?php  
+$page = "admin";
+$id = "edit";
+include '../../../config/config.php';
+include $rootlink. '/config/function.security.php';
+require $rootlink. '/app/templates/header.php';
 
 if (! isset($_GET['id'])){
     header('location: index.php');
 }else{
     $id = intval($_GET['id']);
     $sql = "SELECT id, naam, datum, beschrijving FROM projecten where id = '$id'";
-    $query = mysqli_query($con, $sql);
-    if(mysqli_num_rows($query) == 1){
-        $row = mysqli_fetch_object($query);
+    $query = DB::query($sql);
+    if(DB::num_rows($query) == 1){
+        $row = DB::fetch($query);
     }
 
 }
@@ -45,7 +50,7 @@ if (isset($_POST['submit'])){
     $id = $_POST['id'];
     $sql = "UPDATE projecten SET naam = '$naam', datum = '$datum', beschrijving = '$beschrijving' WHERE id = '$id'";
 
-    if(! $query = mysqli_query($con, $sql)){
+    if(! $query = DB::query($sql)){
         echo 'update query mislukt';
     }else{
         header('location: index.php');
