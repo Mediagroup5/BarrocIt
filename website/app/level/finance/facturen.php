@@ -43,7 +43,7 @@ else
             <th>Invoice number</th>
             <th>Amount</th>
             <th>Project number</th>
-            <th>TAX(incl)</th>
+            <th>VAT(incl)</th>
             <th>Start Date</th>
             <th>Last Date</th>
             <th>Quantity</th>
