@@ -53,7 +53,7 @@ if (! isset($_GET['id'])){
         
         <input type="hidden" name="afspraken_id" value="<?php echo $row['afspraken_id']; ?>"/>
         <div class="form-group col-md-4">
-            <input class="btn btn-warning" type="submit" value="Update" name="submit"/>
+            <input class="btn btn-primary" type="submit" value="Update" name="submit"/>
         </div>
     </form>
 
