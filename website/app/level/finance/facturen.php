@@ -90,8 +90,8 @@ else
                    $BTW = $BTW + $factrow->bedrag /100 * 121;    
                 }
                 echo "<td class='rood'>" . $BTW . "</td>";
-                echo "<td class='rood'>" . $row->factuur_begin . "</td>";
-                echo "<td class='rood'>" . $row->factuur_tot . "</td>";
+                echo "<td class='rood'>" . date("Y-m-d",$row->factuur_begin)  . "</td>";
+                echo "<td class='rood'>" . date("Y-m-d",$row->factuur_tot) . "</td>";
                 echo "<td class='rood'>" . $row->hoeveelheid . "</td>";
                 echo "<td class='rood'>" . $row->beschrijving . "</td>";
                 echo "<td class='rood'>" . $row->aantal . "</td>";
@@ -114,8 +114,8 @@ else
                    $BTW = $BTW + $factrow->bedrag /100 * 121;   
                 }
                 echo "<td>" . $BTW . "</td>";
-                echo "<td>" . $row->factuur_begin . "</td>";
-                echo "<td>" . $row->factuur_tot . "</td>";
+                echo "<td>" . date("Y-m-d",$row->factuur_begin) . "</td>";
+                echo "<td>" . date("Y-m-d",$row->factuur_tot) . "</td>";
                 echo "<td>" . $row->hoeveelheid . "</td>";
                 echo "<td>" . $row->beschrijving . "</td>";
                 echo "<td>" . $row->aantal . "</td>";
