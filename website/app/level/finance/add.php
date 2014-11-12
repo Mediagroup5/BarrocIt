@@ -73,7 +73,7 @@ beschrijving, status) VALUES ('$klant_nr', '$bedrag', '$project_nr', '$time', '$
                   
                 </select>  </div>
         <div class="form-group col-md-6 ">
-            <input type="submit" class="btn btn-warning" value="Submit" name="submit"/>
+            <input type="submit" class="btn btn-primary col-md-2" value="Submit" name="submit"/>
         </div>
 
     </form>
