@@ -4,8 +4,7 @@ require '../../config/config.php';
 if (isset($_POST['authUser']))
 {
 $username = Security($_POST['username']);
-
-$password = Security($_POST['password']);
+$password = sha1($_POST['password']);
 
 
 
@@ -40,11 +39,9 @@ trigger_error('check de sql op fouten');
 	//handelt de uitlog af...
 			if(isset($_GET['logout']))
 			{
-			var_dump($_GET);
-			session_start();
-			session_destroy();
-			$_SESSION['error'] = "Succesfully Log Out";
-			header('location:../login.php');
-			
-			
+			    var_dump($_GET);
+			    session_start();
+			    session_destroy();
+			    $_SESSION['error'] = "Succesfully Log Out";
+		    	header('location:../login.php');
 			}
