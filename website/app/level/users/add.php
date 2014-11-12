@@ -9,7 +9,7 @@ include $rootlink. '/app/templates/header.php';
 	if(isset($_POST['submit']))
 	{
 	//check of alles is ingevult
-	   if(trim($_POST['gebruikers_id']) || trim($_POST['type']) || trim($_POST['desc']) || trim($_POST['startdate']) || trim($_POST['enddate']) || trim($_POST['comment']))
+	   if(trim($_POST['gebruikers_id']) || trim($_POST['type']) || trim($_POST['desc']) || trim($_POST['startdate']) || trim($_POST['enddate']))
 	   {
 	      //defineer variables
 	      $type = $_POST['type'];
@@ -20,6 +20,10 @@ include $rootlink. '/app/templates/header.php';
 		  $gebruikers_id = $_POST['gebruikers_id'];
 	      Portfolio::insert($gebruikers_id,$type,$desc,$startdate,$enddate,$comment);
 		  header("location: ./port_list.php?id=".$gebruikers_id);
+	   }
+	   else
+	   {
+	   echo "do not forget to fill in all items";
 	   }
 	
 	}
