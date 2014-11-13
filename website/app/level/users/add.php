@@ -54,9 +54,9 @@ include $rootlink. '/app/templates/header.php';
             <label for="type">Portfolio type</label>
             <select  class="form-control" name="type">
                   
-                    <option value="Opleiding">Opleiding</option>
-                    <option value="Werkgever">Werkgever</option>
-                    <option value="NAW">NAW</option>
+                    <option value="Training">Training</option>
+                    <option value="Employer">Employer</option>
+                    <option value="Empty">Empty</option>
                   
                 </select>
         </div>
