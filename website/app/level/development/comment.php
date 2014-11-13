@@ -19,7 +19,7 @@ require $rootlink. '/app/templates/header.php';
         if (! $query = DB::query($sql)){
             echo "Kan gegevens niet uit database halen";
         }
-        if (DB::num_rows($query) > 1 ){
+        if (DB::num_rows($query) > 0 ){
             while ($row = DB::fetch($query)){
 
                 $name = $row->naam;
