@@ -54,7 +54,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<tr>";
 
         
-          if($row->factuur_tot < time())
+          if($row->factuur_tot < time()) //Return huidige timstamp//
                 {
                 echo "<td class='rood'>" . $row->klant_nr . "</td>";
                 echo "<td class='rood'>" . $row->factuur_nr . "</td>";

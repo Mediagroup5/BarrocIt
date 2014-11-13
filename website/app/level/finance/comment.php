@@ -15,11 +15,11 @@ require $rootlink. '/app/templates/header.php';
         </tr>
         <?php
         $sql = "SELECT * FROM reacties";
-        if (! $query = DB::query($sql)){
+        if (! $query = DB::query($sql)){// Voert een query uit op de database//
             echo "Kan gegevens niet uit database halen";
         }
-        if (DB::num_rows($query) > 1 ){
-            while ($row = DB::fetch($query)){
+        if (DB::num_rows($query) > 1 ){//Geeft het aantal rijen in een resultaat//
+            while ($row = DB::fetch($query)){//Hier krijg je een rij als een genummerde serie//
                 echo "<tr>";
                 echo "<td>" . $row->naam . "</td>";
                 echo "<td>" . $row->datum . "</td>";
@@ -49,9 +49,9 @@ require $rootlink. '/app/templates/header.php';
         </div>
     </form>
 <?php
-if (isset($_POST['submit'])){
+if (isset($_POST['submit'])){//check of submit is mee gestuurd
 
-    $naam = mysqli_real_escape_string($con, $_POST['naam']);
+    $naam = mysqli_real_escape_string($con, $_POST['naam']);//Ontsnapt aan speciale tekens in een string voor het gebruik in een SQL query//
     $datum = mysqli_real_escape_string($con, $_POST['datum']);
     $reactie = mysqli_real_escape_string($con, $_POST['reactie']);
 

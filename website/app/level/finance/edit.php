@@ -8,11 +8,11 @@ require $rootlink. '/app/templates/header.php';
 if (! isset($_GET['id'])){
     header('location: index.php');
 }else{
-    $id = intval($_GET['id']);
+    $id = intval($_GET['id']);//Get the number value of a variable
     $sql = "SELECT factuur_nr, klant_nr, bedrag, project_nr, btw, factuur_tot, hoeveelheid, beschrijving,
     aantal, status FROM factuur where factuur_nr = '$id'";
     $query = DB::query($sql);
-    if(DB::num_rows($query) > 0){
+    if(DB::num_rows($query) > 0){//
         $row = DB::fetch($query);
     }
 

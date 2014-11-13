@@ -35,7 +35,7 @@ require $rootlink. '/app/templates/header.php';
         </thead>
         <tbody>
         <?php
-        if(isset($_GET['id']))
+        if(isset($_GET['id']))//bepalen of een variabale ingesteld is en niet op NUll is//
         {
         $sql = "SELECT * FROM factuur WHERE klant_nr = '".Security($_GET['id'])."'";
         }
@@ -54,7 +54,7 @@ require $rootlink. '/app/templates/header.php';
                 echo "<tr>";
 
         
-          if($row->factuur_tot < time())
+          if($row->factuur_tot < time())// timstamp van de huidige tijd van nu//
                 {
                 echo "<td class='rood'>" . $row->klant_nr . "</td>";
                 echo "<td class='rood'>" . $row->factuur_nr . "</td>";

@@ -1,8 +1,8 @@
 <?php
 include '../../../config/config.php';
 
-if (! isset($_GET['id'])){
-    header ('location: facturen.php');
+if (! isset($_GET['id'])){//checkt het en haalt gegevens op//
+    header ('location: facturen.php'); 
 }else{
     $id = intval($_GET['id']);
     $sql = "DELETE FROM factuur WHERE factuur_nr = '$id'";
