@@ -36,6 +36,7 @@ require $rootlink. '/app/templates/header.php';
         </thead>
         <tbody>
         <?php
+		//word er een id meegegeven via de url of niet?
         if(isset($_GET['id']))
         {
         $sql = "SELECT * FROM klantgegevens WHERE klant_nr = '".Security($_GET['id'])."'";
@@ -62,9 +63,10 @@ require $rootlink. '/app/templates/header.php';
                 echo "<td class='rood'>" . $row->bedrijfs_naam . "</td>";
                 echo "<td class='rood'>" . $row->bankrekeningnummer . "</td>";
                 $count = 0;
+				//haal de facturen op voor berekeningen
                 $sqlfact = DB::query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+				//reken limiet uit
                 while($factrow = DB::fetch($sqlfact))
-
                 {
                    $count = $count + ($factrow->bedrag/100 * 121 -$row->limiet);    
                 }
@@ -74,6 +76,7 @@ require $rootlink. '/app/templates/header.php';
                 while($factrow = DB::fetch($sqlfact))
 
                 {
+				//reken bedrag uit
                    $count = $count + $factrow->bedrag/100 * 121;    
                     
                 }

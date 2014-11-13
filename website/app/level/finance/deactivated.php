@@ -53,9 +53,10 @@ require $rootlink. '/app/templates/header.php';
             while ($row = DB::fetch($query)){
                 echo "<tr>";
 
-        
+          //is factuur_tot darum lager dan de tijd van nu?
           if($row->factuur_tot < time())
                 {
+				//factuur is verlopen
                 echo "<td class='rood'>" . $row->klant_nr . "</td>";
                 echo "<td class='rood'>" . $row->factuur_nr . "</td>";
                 echo "<td class='rood'>" . $row->bedrag . "</td>";
@@ -74,7 +75,7 @@ require $rootlink. '/app/templates/header.php';
                 {
               
                 
-
+                //factuur is niet verlopen
 
                 echo "<td>" . $row->klant_nr . "</td>";
                 echo "<td>" . $row->factuur_nr . "</td>";
