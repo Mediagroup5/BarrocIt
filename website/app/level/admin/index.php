@@ -36,14 +36,14 @@ require $rootlink. '/app/templates/header.php';
     </table>
 
     <form action="index.php" method="post">
-        <h2>project toevoegen</h2>
+        <h2>User toevoegen</h2>
         <div class="form-group col-md-4">
-            <label for="naam">Naam</label>
-            <input type="text" class="form-control" name="naam" id="naam" placeholder="Naam van project"/>
+            <label for="Username">Username</label>
+            <input type="text" class="form-control" name="Username" id="Username" placeholder="Username"/>
         </div>
         <div class="form-group col-md-4">
-            <label for="datum">Datum</label>
-            <input type="date" class="form-control" name="datum" id="datum" placeholder="Datum van project"/>
+            <label for="Password">Password</label>
+            <input type="date" class="form-control" name="Password" id="Password" placeholder="Password"/>
         </div>
         <div class="form-group col-md-4">
             <label for="beschrijving">Beschrijving</label>
