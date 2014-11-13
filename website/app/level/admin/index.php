@@ -47,8 +47,15 @@ require $rootlink. '/app/templates/header.php';
         </div>
         <div class="form-group col-md-4">
             <label for="beschrijving">Beschrijving</label>
-            <input type="text" class="form-control" name="beschrijving" id="beschrijving" placeholder="Beschrijving van project"/>
-        </div>
+          
+<select  class="form-control" name="type">
+                  
+                    <option value="Training">Training</option>
+                    <option value="Employer">Employer</option>
+                    <option value="Empty">Empty</option>
+                  
+                </select>
+				</div>
         <div class="form-group col-md-4">
             <input type="submit" class="btn btn-success" value="toevoegen" name="submit"/>
         </div>
