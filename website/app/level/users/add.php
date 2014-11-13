@@ -33,7 +33,7 @@ include $rootlink. '/app/templates/header.php';
 ?>
 <div class="container">
     <div class="page-header">
-        <h1>portfolio wijzigen</h1>
+        <h1>Add item</h1>
     </div>
     <form action="add.php" method="POST">
 	

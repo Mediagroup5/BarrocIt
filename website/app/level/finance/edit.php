@@ -3,6 +3,33 @@ $page = "finance";
 $id = "edit";
 include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
+
+//submit form
+if (isset($_POST['submit'])){
+    //alle variables defineren
+    $klant_nr = Security($_POST['klant_nr']);
+    $bedrag = Security($_POST['bedrag']);
+    $project_nr = Security($_POST['project_nr']);
+    $btw = Security($_POST['btw']);
+    $factuur_duur = Security($_POST['factuur_tot']);
+    $hoeveelheid = Security($_POST['hoeveelheid']);
+    $beschrijving = Security($_POST['beschrijving']);
+    $aantal = Security($_POST['aantal']);
+    $status = Security($_POST['status']);
+    $id = Security($_POST['id']);
+    //update query
+    $sql = "UPDATE factuur SET klant_nr = '$klant_nr', bedrag = '$bedrag', project_nr = '$project_nr',
+    btw = '$btw', factuur_tot = '$factuur_tot', hoeveelheid = '$hoeveelheid', beschrijving = '$beschrijving',
+    aantal = '$aantal', status = '$status'
+     WHERE factuur_nr = '$id'";
+    //query uitvoeren
+    if(! $query = DB::query($sql)){
+        die('update query mislukt');
+    }else{
+        header('location: index.php');
+    }
+}
+
 require $rootlink. '/app/templates/header.php';
 
 if (! isset($_GET['id'])){
@@ -17,13 +44,15 @@ if (! isset($_GET['id'])){
     }
 
 }
+
+
 ?>
 <div class="container">
     <div class="page-header">
         <h1>Invoices</h1>
     </div>
     <form action="edit.php" method="POST">
-        <div class="form-group col-md-4 ">
+<!--         <div class="form-group col-md-4 ">
             <label for="bedrijfs_naam">Company Name</label>
             <input type="number" class="form-control" name="bedrijfs_naam" id="bedrijf_naam"
                    value="<?php echo $row->klant_nr; ?>" placeholder="Klant nummer"/>
@@ -47,8 +76,24 @@ if (! isset($_GET['id'])){
 
         <div class="form-group col-md-4">
             <label for="Beschrijving">Description</label>
-            <input type="date" class="form-control" name="beschrijving" id="beschrijving"
+            <input type="text" class="form-control" name="beschrijving" id="beschrijving"
                    value="<?php echo $row->beschrijving; ?>" placeholder="Beschrijving"/>
+        </div> -->
+        <div class="form-group col-md-6">
+            <label for="Bedrag">Amount</label>
+            <input type="number" class="form-control" name="bedrag" id="bedrag"  style="color:black;" placeholder="Bedrag"/>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="Factuur duur">Quantity</label>
+            <input type="number" class="form-control" name="hoeveelheid" id="hoeveelheid" placeholder="Quantity"/>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="Beschrijving">Description</label>
+            <input type="text" class="form-control" name="beschrijving" id="beschrijving" placeholder="Description"/>
+        </div>
+         <div class="form-group col-md-6">
+            <label for="pr_nr">Project Number</label>
+            <input type="number" class="form-control" name="pr_nr" id="pr_nr" placeholder="Project number"/>
         </div>
 
 <!--         <div class="form-group col-md-4">
@@ -63,28 +108,3 @@ if (! isset($_GET['id'])){
     </form>
 
 </div>
-<?php
-if (isset($_POST['submit'])){
-    $klant_nr = mysqli_real_escape_string($con, $_POST['klant_nr']);
-    $bedrag = mysqli_real_escape_string($con, $_POST['bedrag']);
-    $project_nr = mysqli_real_escape_string($con, $_POST['project_nr']);
-    $btw = mysqli_real_escape_string($con, $_POST['btw']);
-    $factuur_duur = mysqli_real_escape_string($con, $_POST['factuur_tot']);
-    $hoeveelheid = mysqli_real_escape_string($con, $_POST['hoeveelheid']);
-    $beschrijving = mysqli_real_escape_string($con, $_POST['beschrijving']);
-    $aantal = mysqli_real_escape_string($con, $_POST['aantal']);
-    $status = mysqli_real_escape_string($con, $_POST['status']);
-    $id = $_POST['id'];
-
-    $sql = "UPDATE factuur SET klant_nr = '$klant_nr', bedrag = '$bedrag', project_nr = '$project_nr',
-    btw = '$btw', factuur_tot = '$factuur_tot', hoeveelheid = '$hoeveelheid', beschrijving = '$beschrijving',
-    aantal = '$aantal', status = '$status'
-     WHERE factuur_nr = '$id'";
-
-    if(! $query = DB::query($sql)){
-        echo 'update query mislukt';
-    }else{
-        header('location: index.php');
-    }
-}
-?>

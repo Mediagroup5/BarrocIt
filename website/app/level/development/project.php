@@ -46,7 +46,7 @@ require $rootlink. '/app/templates/header.php';
         if (mysqli_num_rows($query) > 0 ){
             while ($row = mysqli_fetch_object($query)){
                 echo "<tr>";
-				
+				//als status 0 is dan is het project gedeactiveerd
 				if($row->status_project == 0)
 				{
                 echo "<td class='rood'>" . $row->projectnr_id . "</td>";
@@ -63,6 +63,7 @@ require $rootlink. '/app/templates/header.php';
 				}
 				else
 				{
+				// anders is het activated
                 echo "<td>" . $row->projectnr_id . "</td>";
                 echo "<td>" . $row->project_naam . "</td>";
                 echo "<td>" . $row->onderhoudscontract . "</td>";

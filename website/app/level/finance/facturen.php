@@ -5,18 +5,22 @@ include '../../../config/config.php';
 include $rootlink. '/config/function.security.php';
 require $rootlink. '/app/templates/header.php';
 
+//status check
 if(isset($_GET['status']))
 {
    if($_GET['status'] == "deactivated")
    {
+      //laat alle deactivated invoices zien
       $active = 0;
    }
    elseif($_GET['status'] == "activated")
    {
+      //laat alle activated invoices zien
       $active = 1;
    }
    else
    {
+      //laat alle invoices zien
       $active = 2;
    }
 }
@@ -56,6 +60,7 @@ else
         </thead>
         <tbody>
         <?php
+		// word er een id meegegeven? zoja dan laat hij de facturen zien van een specifieke klant
         if(isset($_GET['id']))
         {
         $sql = "SELECT * FROM factuur WHERE klant_nr = '".Security($_GET['id'])."'";
@@ -63,20 +68,19 @@ else
         else
         {
          $sql = "SELECT * FROM factuur";
-      
-
         }
+		//voerd update query uit
         if (! $query = DB::query($sql)){
             echo "Kan gegevens niet uit database halen";
         }
-      
+        //aanal rows hoger dan 0?
         if (DB::num_rows($query) > 0 ){
             while ($row = DB::fetch($query)){
                 echo "<tr>";
-// automatisch stopzette
-        
+     //laat alle invoices zien
 	if($active == 2)
-	{
+	{ 
+	      //als de factuur_tot tijd lager is dan de tijd van nu word de invoice rood
           if($row->factuur_tot < time())
                 {
                 echo "<td class='rood'>" . $row->klant_nr . "</td>";
@@ -84,7 +88,7 @@ else
                 echo "<td class='rood'>" . $row->bedrag . "</td>";
                 echo "<td class='rood'>" . $row->project_nr . "</td>";
                 $BTW = 0;
-                $sqlfact = DB::query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+                $sqlfact = DB::query("SELECT * FROM factuur WHERE factuur_nr = '".$row->factuur_nr."'");
                 while($factrow = DB::fetch($sqlfact))
                 {
                    $BTW = $BTW + $factrow->bedrag /100 * 121;    
@@ -102,13 +106,14 @@ else
                 }
                 else
                 {
-				
+				//anders is de invoice niet verlopen. 
                 echo "<td>" . $row->klant_nr . "</td>";
                 echo "<td>" . $row->factuur_nr . "</td>";
                 echo "<td>" . $row->bedrag . "</td>";
                 echo "<td>" . $row->project_nr . "</td>";
                 $BTW = 0;
-                $sqlfact = DB::query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+				//reken de BTW/VAT uit
+                $sqlfact = DB::query("SELECT * FROM factuur WHERE factuur_nr = '".$row->factuur_nr."'");
                 while($factrow = DB::fetch($sqlfact))
                 {
                    $BTW = $BTW + $factrow->bedrag /100 * 121;   
@@ -129,9 +134,10 @@ else
 
                 echo "</tr>";
     }
+    //laat alle activated invoices zien
 	elseif($active == 1)
 	{
-	
+	  //is de factuur tot hoger dan de tijd? dan is de invoice niet verlopen
 	  if($row->factuur_tot > time())
                 {
                
@@ -141,7 +147,7 @@ else
                 echo "<td>" . $row->bedrag . "</td>";
                 echo "<td>" . $row->project_nr . "</td>";
                 $BTW = 0;
-                $sqlfact = DB::query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+                $sqlfact = DB::query("SELECT * FROM factuur WHERE factuur_nr = '".$row->factuur_nr."'");
                 while($factrow = DB::fetch($sqlfact))
                 {
                    $BTW = $BTW + $factrow->bedrag /100 * 121;   
@@ -161,10 +167,10 @@ else
                 echo "</tr>";
 	
 	}
-	
+	//laat alle deactived invoices zien
 	elseif($active == 0)
 	{
-	
+	  //als de factuur tot tijd lager is de de daadwerkelijke tijd dan is de onvoice verlopen
 	  if($row->factuur_tot < time())
                 {
                
@@ -174,7 +180,8 @@ else
                 echo "<td class='rood'>" . $row->bedrag . "</td>";
                 echo "<td class='rood'>" . $row->project_nr . "</td>";
                 $BTW = 0;
-                $sqlfact = DB::query("SELECT * FROM factuur WHERE klant_nr = '".$row->klant_nr."'");
+				//factuur bedrag berekenen
+                $sqlfact = DB::query("SELECT * FROM factuur WHERE factuur_nr = '".$row->factuur_nr."'");
                 while($factrow = DB::fetch($sqlfact))
                 {
                    $BTW = $BTW + $factrow->bedrag /100 * 121;    

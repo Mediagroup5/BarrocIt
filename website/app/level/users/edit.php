@@ -43,7 +43,7 @@ else
 ?>
 <div class="container">
     <div class="page-header">
-        <h1>portfolio wijzigen</h1>
+        <h1>Modify portfolio</h1>
     </div>
     <form action="edit.php?id=<?php echo $id; ?>" method="POST">
 	

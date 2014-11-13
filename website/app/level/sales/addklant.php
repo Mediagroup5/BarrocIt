@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
     $bankrekeningnummer = Security($_POST['bankrekeningnummer']);
     
     
-    $con->query("INSERT INTO klantgegevens(bedrijfs_naam, voorletters, voornaam, achternaam, adres, adres2,
+    DB::query("INSERT INTO klantgegevens(bedrijfs_naam, voorletters, voornaam, achternaam, adres, adres2,
     postcode, postcode2, residentie, residentie2, telefoon_nr, telefoonnummer2, fax_nr, email, bankrekeningnummer)
     VALUES ('".$bedrijfs_naam."', '".$voorletters."', '".$voornaam."', '".$achternaam."', '".$adres."', '".$adres2."',
     '".$postcode."', '".$postcode2."', '".$residentie."', '".$residentie2."',
