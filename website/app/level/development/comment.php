@@ -19,8 +19,8 @@ require $rootlink. '/app/templates/header.php';
         if (! $query = DB::query($sql)){
             echo "Kan gegevens niet uit database halen";
         }
-        if (mysqli_num_rows($query) > 1 ){
-            while ($row = mysqli_fetch_object($query)){
+        if (DB::num_rows($query) > 1 ){
+            while ($row = DB::fetch($query)){
 
                 $name = $row->naam;
                 $date = $row->datum;
