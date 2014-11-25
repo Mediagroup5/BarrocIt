@@ -13,15 +13,15 @@ if($page == "admin" && $rank != 4)
 {
 redirect($rank, $link);
 }
-if($page == "sales" && $rank != 3)
+if($page == "sales" && $rank != 3 && $rank !=4)
 {
 redirect($rank, $link);
 }
-elseif($page == "development" && $rank != 2)
+elseif($page == "development" && $rank != 2 && $rank !=4)
 {
 redirect($rank, $link);
 }
-elseif($page == "finance" && $rank != 1)
+elseif($page == "finance" && $rank != 1 && $rank !=4)
 {
 redirect($rank, $link);
 }

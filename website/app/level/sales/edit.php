@@ -67,12 +67,12 @@ if (! isset($_GET['id'])){
 </div>
 <?php
 if (isset($_POST['submit'])){
-    $klant_nr = mysqli_real_escape_string($con, $_POST['klant_nr']);
-    $bedrijfs_naam = mysqli_real_escape_string($con, $_POST['bedrijfs_naam']);
-    $voorletters = mysqli_real_escape_string($con, $_POST['voorletters']);
-    $voornaam = mysqli_real_escape_string($con, $_POST['voornaam']);
- 	$achternaam = mysqli_real_escape_string($con, $_POST['achternaam']);
- 	$adres = mysqli_real_escape_string($con, $_POST['adres']);
+    $klant_nr = Security($_POST['klant_nr']);
+    $bedrijfs_naam = Security($_POST['bedrijfs_naam']);
+    $voorletters = Security($_POST['voorletters']);
+    $voornaam = Security($_POST['voornaam']);
+ 	$achternaam = Security($_POST['achternaam']);
+ 	$adres = Security($_POST['adres']);
 
 	$klant_nr = $_POST['klant_nr'];
     $sql = "UPDATE klantgegevens SET klant_nr = '$klant_nr', bedrijfs_naam = '$bedrijfs_naam', voorletters = '$voorletters', voornaam = '$voornaam', achternaam = '$achternaam' WHERE klant_nr = '$klant_nr'";

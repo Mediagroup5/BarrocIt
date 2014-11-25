@@ -65,22 +65,20 @@
 					
     }
 		
-     if(User::GetUserData("gebruikersrol") == 4)
+     if(User::GetUserData("gebruikersrol") == 4 && $page = "admin")
     {
                   
 					  
-	    if($id == "index") { echo '<li class="active">'; } else { echo "<li>"; }
-	    echo '<a href="'.$link.'/level/admin/index.php">Home</a></li>';
+	    if($id == "index22") { echo '<li class="active">'; } else { echo "<li>"; }
+	    echo '<a href="'.$link.'/level/sales/index.php">Sales</a></li>';
 					  
-        if($id == "projects") { echo '<li class="active">'; } else { echo "<li>"; }
-	    echo '<a href="'.$link.'/level/admin/projects.php">Projects</a></li>';
+        if($id == "index22") { echo '<li class="active">'; } else { echo "<li>"; }
+	    echo '<a href="'.$link.'/level/development/index.php">Development</a></li>';
 					  
-        if($id == "invoices") { echo '<li class="active">'; } else { echo "<li>"; }
-	    echo '<a href="'.$link.'/level/admin/invoices.php">Invoices</a></li>';
-
-        if($id == "comment") { echo '<li class="active">'; } else { echo "<li>"; }
-        echo '<a href="'.$link.'/level/admin/comment.php">Comments</a></li>';
-					 
+      if($id == "index22") { echo '<li class="active">'; } else { echo "<li>"; }
+	    echo '<a href="'.$link.'/level/finance/index.php">Fincance</a></li>';
+		
+        			 
 	}
 	
 	

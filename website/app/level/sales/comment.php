@@ -51,9 +51,9 @@ require $rootlink. '/app/templates/header.php';
 <?php
 if (isset($_POST['submit'])){
 
-    $naam = mysqli_real_escape_string($con, $_POST['naam']);
-    $datum = mysqli_real_escape_string($con, $_POST['datum']);
-    $reactie = mysqli_real_escape_string($con, $_POST['reactie']);
+    $naam = Security($_POST['naam']);
+    $datum = Security($_POST['datum']);
+    $reactie = Security($_POST['reactie']);
 
     $sql = "INSERT INTO reacties (naam, datum, reactie) VALUES ('$naam', '$datum','$reactie')";
 

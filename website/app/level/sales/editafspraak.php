@@ -60,11 +60,11 @@ if (! isset($_GET['id'])){
 </div>
 <?php
 if (isset($_POST['submit'])){
-    $datum = mysqli_real_escape_string($con, $_POST['datum']);
-    $naam = mysqli_real_escape_string($con, $_POST['naam']);
-    $tijd = mysqli_real_escape_string($con, $_POST['tijd']);
-    $plaats = mysqli_real_escape_string($con, $_POST['plaats']);
-    $opmerkingen = mysqli_real_escape_string($con, $_POST['opmerkingen']);
+    $datum = Security($_POST['datum']);
+    $naam = Security($_POST['naam']);
+    $tijd = Security($_POST['tijd']);
+    $plaats = Security($_POST['plaats']);
+    $opmerkingen = Security($_POST['opmerkingen']);
     $afspraken_id = $_POST['afspraken_id'];
     $sql = "UPDATE afspraken SET datum = '$datum', naam = '$naam', tijd = '$tijd', plaats = '$plaats', opmerkingen = '$opmerkingen' WHERE afspraken_id = '$afspraken_id'";
 
